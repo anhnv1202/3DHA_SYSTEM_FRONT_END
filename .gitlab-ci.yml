@@ -1,0 +1,11 @@
+image: node
+
+stages:
+  - lint
+
+eslint:
+  stage: lint
+  script:
+    - npm ci --legacy-peer-deps
+    - npm install eslint -g
+    - eslint .
