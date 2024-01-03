@@ -3,8 +3,8 @@ import { SystemMessage } from '@app/common/constants/message.const';
 import { addToast } from '@app/components/toast/toast.service';
 import { isNullOrUndefined, isStrEmpty, nullSafetyJSONStringify } from '@core/helpers/helpers';
 import { Environment } from '@environments/environment';
-import { catchError, finalize, map, NEVER, Observable, Subject, throwError } from 'rxjs';
-import { ajax, AjaxResponse } from 'rxjs/ajax';
+import { NEVER, Observable, Subject, catchError, finalize, map, throwError } from 'rxjs';
+import { AjaxResponse, ajax } from 'rxjs/ajax';
 import StorageService from '../storage';
 import { HttpMethod, HttpOptions, ProgressOptions, RequestContentType } from './http.type';
 
@@ -176,6 +176,32 @@ class _HttpService {
 
     return `${Environment.BASE_API}${uri}`;
   }
+
+  // private refreshToken(): Observable<any> {
+  //   const refreshToken = StorageService.get(REFRESH_TOKEN_KEY);
+
+  //   if (!refreshToken) {
+  //     return throwError(() => new Error('Refresh token is missing.'));
+  //   }
+
+  //   const url = `${Environment.BASE_API}/refresh-token`;
+  //   const headers = {
+  //     'Content-Type': 'application/json',
+  //     Authorization: `Bearer ${refreshToken}`,
+  //   };
+
+  //   return ajax({
+  //     url,
+  //     method: HttpMethod.POST,
+  //     headers,
+  //   }).pipe(
+  //     map((ajaxResponse) => ajaxResponse.response),
+  //     catchError((error) => {
+  //       // Xử lý lỗi refresh token, có thể đưa người dùng đến trang đăng nhập lại.
+  //       return throwError(() => new Error('Failed to refresh token.'));
+  //     }),
+  //   );
+  // }
 
   private generateHttpParams(params: object) {
     const httpParams: string[] = [];
