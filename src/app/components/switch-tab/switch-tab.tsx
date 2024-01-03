@@ -1,7 +1,7 @@
-import React, { useCallback, useState, ComponentType } from "react";
-import clsx from "clsx";
-import DefaultSwitchTabHeader from "./default-switch-tab-header";
-import useIsomorphicLayoutEffect from "@core/hooks/use-isomorphic-layout-effect";
+import React, { useCallback, useState, ComponentType } from 'react';
+import clsx from 'clsx';
+import DefaultSwitchTabHeader from './default-switch-tab-header';
+import useIsomorphicLayoutEffect from '@core/hooks/use-isomorphic-layout-effect';
 
 export interface TabConfig {
   id: string;
@@ -26,8 +26,7 @@ interface SwitchTabProps {
 }
 
 export default function SwitchTab(props: SwitchTabProps) {
-  const defaultActiveTabId =
-    props.tabs.find((tab) => !tab.disabled)!.id || props.tabs[0].id;
+  const defaultActiveTabId = props.tabs.find((tab) => !tab.disabled)!.id || props.tabs[0].id;
   const [activeTabId, setActiveTabId] = useState(defaultActiveTabId);
 
   const { onTabChange } = props;
@@ -44,23 +43,15 @@ export default function SwitchTab(props: SwitchTabProps) {
 
       setActiveTabId(tabKey);
     },
-    [onTabChange, props.isRedirectWhenChangeTab]
+    [onTabChange, props.isRedirectWhenChangeTab],
   );
 
   return (
     <>
       {props.tabHeader ? (
-        <props.tabHeader
-          activeTabId={activeTabId}
-          handleChangeTab={handleChangeTab}
-          tabs={props.tabs}
-        />
+        <props.tabHeader activeTabId={activeTabId} handleChangeTab={handleChangeTab} tabs={props.tabs} />
       ) : (
-        <DefaultSwitchTabHeader
-          activeTabId={activeTabId}
-          handleChangeTab={handleChangeTab}
-          tabs={props.tabs}
-        />
+        <DefaultSwitchTabHeader activeTabId={activeTabId} handleChangeTab={handleChangeTab} tabs={props.tabs} />
       )}
       {props.tabs.map((tab, index) => (
         <div

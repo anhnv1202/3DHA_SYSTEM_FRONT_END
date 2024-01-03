@@ -1,30 +1,25 @@
-import { RefObject, useEffect, useRef } from "react";
-import useIsomorphicLayoutEffect from "./use-isomorphic-layout-effect";
+import { RefObject, useEffect, useRef } from 'react';
+import useIsomorphicLayoutEffect from './use-isomorphic-layout-effect';
 
 function useEventListener<K extends keyof WindowEventMap>(
   eventName: K,
-  handler: (event: WindowEventMap[K]) => void
+  handler: (event: WindowEventMap[K]) => void,
 ): void;
 
-function useEventListener<
-  K extends keyof HTMLElementEventMap,
-  T extends HTMLElement = HTMLDivElement
->(
+function useEventListener<K extends keyof HTMLElementEventMap, T extends HTMLElement = HTMLDivElement>(
   eventName: K,
   handler: (event: HTMLElementEventMap[K]) => void,
-  element: RefObject<T>
+  element: RefObject<T>,
 ): void;
 
 function useEventListener<
   KW extends keyof WindowEventMap,
   KH extends keyof HTMLElementEventMap,
-  T extends HTMLElement | void = void
+  T extends HTMLElement | void = void,
 >(
   eventName: KW | KH,
-  handler: (
-    event: WindowEventMap[KW] | HTMLElementEventMap[KH] | Event
-  ) => void,
-  element?: RefObject<T>
+  handler: (event: WindowEventMap[KW] | HTMLElementEventMap[KH] | Event) => void,
+  element?: RefObject<T>,
 ) {
   // Create a ref that stores handler
   const savedHandler = useRef(handler);
@@ -42,8 +37,7 @@ function useEventListener<
     }
 
     // Create event listener that calls handler function stored in ref
-    const eventListener: typeof handler = (event) =>
-      savedHandler.current(event);
+    const eventListener: typeof handler = (event) => savedHandler.current(event);
 
     targetElement.addEventListener(eventName, eventListener);
 

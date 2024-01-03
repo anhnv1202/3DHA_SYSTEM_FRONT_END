@@ -1,9 +1,9 @@
-import { OrderType } from "@app/common/constants";
-import { Images } from "@assets/images";
-import clsx from "clsx";
-import { ChangeEvent, ReactNode, useEffect, useState } from "react";
-import Checkbox from "../checkbox";
-import { Select } from "../select/select";
+import { OrderType } from '@app/common/constants';
+import { Images } from '@assets/images';
+import clsx from 'clsx';
+import { ChangeEvent, ReactNode, useEffect, useState } from 'react';
+import Checkbox from '../checkbox';
+import { Select } from '../select/select';
 
 export interface Order {
   order: string;
@@ -78,15 +78,15 @@ function Table({
   hasFooter = true,
   emptyWithHeader = false,
   componentEmpty,
-  tableClassName = "",
+  tableClassName = '',
   onItemSelected = () => {},
   onRowClick = () => {},
   onRowClickOrder = () => {},
 }: TableConfig<any>) {
   const [selectedRow, setSelectedRow] = useState<any[]>([]);
   const [isSelectedAll, setIsSelectedAll] = useState(false);
-  const [orderBy, setOrderBy] = useState("");
-  const [order, setOrder] = useState("");
+  const [orderBy, setOrderBy] = useState('');
+  const [order, setOrder] = useState('');
 
   useEffect(() => {
     setIsSelectedAll(false);
@@ -132,8 +132,7 @@ function Table({
   const handleClickHeader = (item: any) => {
     if (item.hasOrder) {
       const orderBy = item.dataKey;
-      const orderType =
-        order === OrderType.ASC ? OrderType.DESC : OrderType.ASC;
+      const orderType = order === OrderType.ASC ? OrderType.DESC : OrderType.ASC;
 
       setOrderBy(orderBy);
       setOrder(orderType);
@@ -143,9 +142,7 @@ function Table({
 
   return dataTable.length || emptyWithHeader ? (
     <div className="overflow-x-auto overflow-y-hidden">
-      <table
-        className={`table-auto max-w-[calc(100vw-212px)] md_max:max-w-[calc(100vw-12px)] ${tableClassName}`}
-      >
+      <table className={`table-auto max-w-[calc(100vw-212px)] md_max:max-w-[calc(100vw-12px)] ${tableClassName}`}>
         <thead>
           <tr className="bg-[#666] border-b border-solid border-[#212121] text-white h-[40px]">
             {hasCheckBox && (
@@ -171,14 +168,14 @@ function Table({
                 className={clsx(
                   `text-left p-2 font-normal ${it.theadClassName}`,
                   {
-                    "md_max:hidden": it.hiddenAble,
+                    'md_max:hidden': it.hiddenAble,
                   },
                   {
-                    "bg-[#0d1014]": it.dataKey === orderBy,
+                    'bg-[#0d1014]': it.dataKey === orderBy,
                   },
                   {
-                    "cursor-pointer": it.hasOrder,
-                  }
+                    'cursor-pointer': it.hasOrder,
+                  },
                 )}
                 style={{ width: it.width }}
                 onClick={() => handleClickHeader(it)}
@@ -188,37 +185,21 @@ function Table({
 
                   {it.hasOrder && (!order || it.dataKey !== orderBy) && (
                     <span className="ml-2 mt-1">
-                      <img
-                        src={Images.SpriteSortIcon.default}
-                        alt="sort-icon"
-                        className="w-4"
-                      />
+                      <img src={Images.SpriteSortIcon.default} alt="sort-icon" className="w-4" />
                     </span>
                   )}
 
-                  {it.hasOrder &&
-                    order === OrderType.ASC &&
-                    orderBy === it.dataKey && (
-                      <span className="ml-2  mt-1">
-                        <img
-                          src={Images.ArrowUpIcon.default}
-                          alt="arrow-up-icon"
-                          className="w-4"
-                        />
-                      </span>
-                    )}
+                  {it.hasOrder && order === OrderType.ASC && orderBy === it.dataKey && (
+                    <span className="ml-2  mt-1">
+                      <img src={Images.ArrowUpIcon.default} alt="arrow-up-icon" className="w-4" />
+                    </span>
+                  )}
 
-                  {it.hasOrder &&
-                    order === OrderType.DESC &&
-                    orderBy === it.dataKey && (
-                      <span className="ml-2  mt-1">
-                        <img
-                          src={Images.ArrowDownIcon.default}
-                          alt="arrow-down-icon"
-                          className="w-4"
-                        />
-                      </span>
-                    )}
+                  {it.hasOrder && order === OrderType.DESC && orderBy === it.dataKey && (
+                    <span className="ml-2  mt-1">
+                      <img src={Images.ArrowDownIcon.default} alt="arrow-down-icon" className="w-4" />
+                    </span>
+                  )}
                 </div>
               </th>
             ))}
@@ -233,26 +214,21 @@ function Table({
               key={idx}
               className={clsx(
                 {
-                  "bg-[#E9E9E9]": idx % 2 !== 0,
+                  'bg-[#E9E9E9]': idx % 2 !== 0,
                 },
                 {
-                  "cursor-pointer": !!onRowClick,
+                  'cursor-pointer': !!onRowClick,
                 },
-                "hover:bg-[#29b6f61a] border-b border-solid border-[#e0e0e0] h-[45px]"
+                'hover:bg-[#29b6f61a] border-b border-solid border-[#e0e0e0] h-[45px]',
               )}
               onClick={() => onRowClick(it)}
             >
               {hasCheckBox && (
-                <td
-                  className="p-2 align-middle"
-                  onClick={(e) => e.stopPropagation()}
-                >
+                <td className="p-2 align-middle" onClick={(e) => e.stopPropagation()}>
                   <div className="mt-2 px-auto text-center">
                     <label className="inline-flex items-center">
                       <Checkbox
-                        onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                          handleRowSelected(e, it)
-                        }
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => handleRowSelected(e, it)}
                         checked={isRowChecked(it.id)}
                         label=""
                         name="checkRow"
@@ -267,27 +243,18 @@ function Table({
               {columnConfig?.map((col) => (
                 <td
                   key={col.dataKey}
-                  className={clsx("p-2", {
-                    "md_max:hidden": col.hiddenAble,
+                  className={clsx('p-2', {
+                    'md_max:hidden': col.hiddenAble,
                   })}
                 >
-                  {col.component ? (
-                    <col.component data={it} />
-                  ) : (
-                    it[col.dataKey]
-                  )}
+                  {col.component ? <col.component data={it} /> : it[col.dataKey]}
                 </td>
               ))}
 
               {useArrowTable && (
                 <td className="p-2">
                   <div className="w-4 h-4">
-                    <img
-                      src={Images.SpriteIcon.default}
-                      alt="icon-left"
-                      width={16}
-                      height={16}
-                    />
+                    <img src={Images.SpriteIcon.default} alt="icon-left" width={16} height={16} />
                   </div>
                 </td>
               )}
@@ -296,23 +263,12 @@ function Table({
 
           {hasFooter && (
             <tr className="border-b border-solid border-[#e0e0e0]">
-              <td
-                colSpan={
-                  columnConfig.length +
-                  (hasCheckBox ? 1 : 0) +
-                  (useArrowTable ? 1 : 0)
-                }
-              >
+              <td colSpan={columnConfig.length + (hasCheckBox ? 1 : 0) + (useArrowTable ? 1 : 0)}>
                 <div className="max-w-[calc(100vw-228px)] md_max:max-w-[calc(100vw-28px)] sticky left-0">
                   <div className="flex justify-end p-2 items-center">
                     <button className="cursor-default">
                       <div className="mt-2 bg-gray-300 rounded w-9 h-9 flex justify-center">
-                        <img
-                          src={Images.ArrowThinLeftIcon.default}
-                          alt="ava"
-                          width={16}
-                          height={16}
-                        />
+                        <img src={Images.ArrowThinLeftIcon.default} alt="ava" width={16} height={16} />
                       </div>
                     </button>
 
@@ -322,7 +278,7 @@ function Table({
                         defaultValue={1}
                         options={[
                           {
-                            label: "Page 1",
+                            label: 'Page 1',
                             value: 1,
                           },
                         ]}
@@ -332,12 +288,7 @@ function Table({
 
                     <button className="cursor-default">
                       <div className="mt-2 bg-gray-300 rounded w-9 h-9 flex justify-center">
-                        <img
-                          src={Images.ArrowThinRightIcon.default}
-                          alt="ava"
-                          width={16}
-                          height={16}
-                        />
+                        <img src={Images.ArrowThinRightIcon.default} alt="ava" width={16} height={16} />
                       </div>
                     </button>
                   </div>

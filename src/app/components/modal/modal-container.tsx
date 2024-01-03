@@ -1,12 +1,7 @@
-import {
-  ActionType,
-  ModalData,
-  ModalService,
-  PortalDialogProps,
-} from "@app/services/modal.service";
-import React from "react";
-import { Subscription } from "rxjs";
-import { PortalDialogAll } from "./modal.type";
+import { ActionType, ModalData, ModalService, PortalDialogProps } from '@app/services/modal.service';
+import React from 'react';
+import { Subscription } from 'rxjs';
+import { PortalDialogAll } from './modal.type';
 
 interface ModalListItem {
   id: number;
@@ -25,21 +20,19 @@ class ModalContainer extends React.Component {
   private subscription = new Subscription();
 
   componentDidMount() {
-    const openModalSub = this.modalService
-      .getModal()
-      .subscribe((data: ModalData<any>) => {
-        if (!data) {
-          return;
-        }
+    const openModalSub = this.modalService.getModal().subscribe((data: ModalData<any>) => {
+      if (!data) {
+        return;
+      }
 
-        const { type } = data;
+      const { type } = data;
 
-        if (!this[type]) {
-          return;
-        }
+      if (!this[type]) {
+        return;
+      }
 
-        this[type](data);
-      });
+      this[type](data);
+    });
 
     this.subscription.add(openModalSub);
   }
@@ -50,9 +43,9 @@ class ModalContainer extends React.Component {
 
   componentDidUpdate() {
     if (this.modalList.length) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     }
   }
 
@@ -78,10 +71,7 @@ class ModalContainer extends React.Component {
       portalData: data?.options?.portalData,
     };
 
-    this.modalList = [
-      ...this.modalList,
-      { id: modalId, modal: <PortalDialogComponent {...portalDialogProps} /> },
-    ];
+    this.modalList = [...this.modalList, { id: modalId, modal: <PortalDialogComponent {...portalDialogProps} /> }];
 
     this.setState({
       currentModalId: modalId,
@@ -93,9 +83,7 @@ class ModalContainer extends React.Component {
 
     const closedModalId = modalId || this.state.currentModalId;
 
-    const updateModalList = this.modalList.filter(
-      (item) => item.id !== closedModalId
-    );
+    const updateModalList = this.modalList.filter((item) => item.id !== closedModalId);
 
     this.modalList = updateModalList;
     this.setState({

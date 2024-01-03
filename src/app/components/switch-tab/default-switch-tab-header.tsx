@@ -1,5 +1,5 @@
-import clsx from "clsx";
-import { SwitchTabHeaderProps, TabConfig } from "./switch-tab";
+import clsx from 'clsx';
+import { SwitchTabHeaderProps, TabConfig } from './switch-tab';
 
 export default function DefaultSwitchTabHeader(props: SwitchTabHeaderProps) {
   const { activeTabId, tabs, handleChangeTab } = props;
@@ -14,13 +14,13 @@ export default function DefaultSwitchTabHeader(props: SwitchTabHeaderProps) {
             id={tab.id}
             tabIndex={tab?.tabIndex}
             className={clsx(
-              "h-9 min-w-fit flex justify-center px-2 border border-solid border-[#dadada] border-b-0 items-center text-black rounded-t-md cursor-pointer",
+              'h-9 min-w-fit flex justify-center px-2 border border-solid border-[#dadada] border-b-0 items-center text-black rounded-t-md cursor-pointer',
               {
-                "bg-[#83cc74]": activeTabId === tab.id,
-                "bg-white": activeTabId !== tab.id,
-                "pointer-events-none": tab.disabled,
-                "opacity-60": tab.disabled,
-              }
+                'bg-[#83cc74]': activeTabId === tab.id,
+                'bg-white': activeTabId !== tab.id,
+                'pointer-events-none': tab.disabled,
+                'opacity-60': tab.disabled,
+              },
             )}
             key={index}
             onClick={handleChangeTab(tab.id)}

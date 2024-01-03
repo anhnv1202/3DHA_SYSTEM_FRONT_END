@@ -1,5 +1,5 @@
-import ModalDialogTemplate from "./modal.template";
-import { ModalProps } from "./modal.type";
+import ModalDialogTemplate from './modal.template';
+import { ModalProps } from './modal.type';
 
 function Modal(props: ModalProps) {
   return (

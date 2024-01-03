@@ -1,3 +1,3 @@
-import TextArea from "./textarea.component";
+import TextArea from './textarea.component';
 
 export default TextArea;

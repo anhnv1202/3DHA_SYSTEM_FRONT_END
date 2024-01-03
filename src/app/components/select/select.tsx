@@ -1,7 +1,7 @@
-import clsx from "clsx";
-import { ChangeEvent, useEffect, useState, useCallback } from "react";
-import { FormControlChildProps } from "../form-control";
-import { NormalSelectOptions } from "./select.type";
+import clsx from 'clsx';
+import { ChangeEvent, useEffect, useState, useCallback } from 'react';
+import { FormControlChildProps } from '../form-control';
+import { NormalSelectOptions } from './select.type';
 
 export interface SelectProps extends FormControlChildProps {
   value?: number | string;
@@ -25,7 +25,7 @@ export interface SelectProps extends FormControlChildProps {
   /**
    * Default: undefined
    */
-  defaultStatus?: undefined | "valid" | "inValid" | "warn";
+  defaultStatus?: undefined | 'valid' | 'inValid' | 'warn';
 
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
 
@@ -43,10 +43,10 @@ export function Select({
   options = [],
   width,
   className,
-  classNameSelect = "",
-  classNameOption = "",
-  errorClassName = "",
-  placeholder = "",
+  classNameSelect = '',
+  classNameOption = '',
+  errorClassName = '',
+  placeholder = '',
   onChange,
   onBlur,
   fmOnChange,
@@ -63,7 +63,7 @@ export function Select({
 
       setSelectedValue(e.currentTarget.value);
     },
-    [fmOnChange, onChange]
+    [fmOnChange, onChange],
   );
 
   const handleBlur = useCallback(
@@ -72,7 +72,7 @@ export function Select({
 
       fmOnBlur && fmOnBlur(e);
     },
-    [fmOnBlur, onBlur]
+    [fmOnBlur, onBlur],
   );
 
   useEffect(() => {
@@ -83,16 +83,11 @@ export function Select({
     changeStatus(status || defaultStatus);
   }, [defaultStatus, status]);
 
-  const isError = _status === "inValid" || _status === "warn";
+  const isError = _status === 'inValid' || _status === 'warn';
 
   return (
     <>
-      <div
-        className={clsx(
-          `flex mt-2 border border-solid border-[#dadada] h-9 ${className}`
-        )}
-        style={{ width }}
-      >
+      <div className={clsx(`flex mt-2 border border-solid border-[#dadada] h-9 ${className}`)} style={{ width }}>
         <select
           id={id}
           value={selectedValue}
@@ -102,11 +97,7 @@ export function Select({
           className={classNameSelect}
           style={{ width }}
         >
-          <option
-            value=""
-            label={placeholder}
-            style={{ display: "none" }}
-          ></option>
+          <option value="" label={placeholder} style={{ display: 'none' }}></option>
 
           {options.map(({ label, value }, index) => (
             <option key={index} value={value} className={classNameOption}>
@@ -118,9 +109,7 @@ export function Select({
 
       {isError && (
         <div className={`flex text-[#FF0000] ${errorClassName}`}>
-          {formik &&
-            formik.getFieldMeta(name!).error &&
-            formik.getFieldMeta(name!).error}
+          {formik && formik.getFieldMeta(name!).error && formik.getFieldMeta(name!).error}
         </div>
       )}
     </>

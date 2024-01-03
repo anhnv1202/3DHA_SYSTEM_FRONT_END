@@ -1,11 +1,6 @@
-import React, { ReactElement } from "react";
-import {
-  useField,
-  useFormikContext,
-  FieldHookConfig,
-  FormikContextType,
-} from "formik";
-import { ControlStaticType } from "./form-control.type";
+import React, { ReactElement } from 'react';
+import { useField, useFormikContext, FieldHookConfig, FormikContextType } from 'formik';
+import { ControlStaticType } from './form-control.type';
 
 export interface FormControlProps {
   id?: string;
@@ -43,7 +38,7 @@ export interface FormControlChildProps {
   /**
    * Default: undefined.
    */
-  status?: undefined | "inValid" | "valid" | "warn";
+  status?: undefined | 'inValid' | 'valid' | 'warn';
 
   /**
    * Default: undefined.
@@ -65,18 +60,16 @@ export function FormControl(props: FormControlProps) {
 
   const child = React.Children.toArray(props.children)[0] as ReactElement;
 
-  const fieldType =
-    (child.type as any).staticType ?? (child.type as any)?.render?.staticType;
+  const fieldType = (child.type as any).staticType ?? (child.type as any)?.render?.staticType;
 
   const fieldOptions = {
     name: props.name,
-    type:
-      (child.type as any).staticType ?? (child.type as any)?.render?.staticType,
+    type: (child.type as any).staticType ?? (child.type as any)?.render?.staticType,
   } as FieldHookConfig<any>;
 
   const meta = useField(fieldOptions)[1];
 
-  const hasError = meta.error ? "inValid" : "valid";
+  const hasError = meta.error ? 'inValid' : 'valid';
 
   const status = formik.getFieldMeta(props.name).error
     ? props.fromDataTable
@@ -84,8 +77,8 @@ export function FormControl(props: FormControlProps) {
         ? hasError
         : undefined
       : meta.touched
-      ? hasError
-      : undefined
+        ? hasError
+        : undefined
     : undefined;
 
   const handleOnChange = (e: any) => {
@@ -102,15 +95,12 @@ export function FormControl(props: FormControlProps) {
       let fmOnChange = formik.handleChange;
 
       if (fieldType === ControlStaticType.CHECKBOX) {
-        checked =
-          fieldProps.value &&
-          fieldProps.value.push &&
-          fieldProps.value.indexOf(child.props.value) !== -1;
+        checked = fieldProps.value && fieldProps.value.push && fieldProps.value.indexOf(child.props.value) !== -1;
 
         fmOnChange = (e: any) => {
           const fieldProps = formik.getFieldProps(props.name);
 
-          if (typeof fieldProps.value === "boolean") {
+          if (typeof fieldProps.value === 'boolean') {
             formik.setFieldValue(props.name, !fieldProps.value);
           } else {
             const newValues = [...fieldProps.value] as any[];

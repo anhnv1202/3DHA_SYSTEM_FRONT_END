@@ -1,8 +1,8 @@
-import clsx from "clsx";
-import { ReactNode, useEffect, useRef, useState, useCallback } from "react";
-import useOnClickOutside from "@core/hooks/use-on-click-outside.hook";
-import { FormControlChildProps } from "../form-control";
-import { NormalSelectOptions } from "./select.type";
+import clsx from 'clsx';
+import { ReactNode, useEffect, useRef, useState, useCallback } from 'react';
+import useOnClickOutside from '@core/hooks/use-on-click-outside.hook';
+import { FormControlChildProps } from '../form-control';
+import { NormalSelectOptions } from './select.type';
 
 export interface SelectProps extends FormControlChildProps {
   arrow?: ReactNode;
@@ -48,7 +48,7 @@ export interface SelectProps extends FormControlChildProps {
   /**
    * Default: undefined
    */
-  defaultStatus?: undefined | "valid" | "inValid" | "warn";
+  defaultStatus?: undefined | 'valid' | 'inValid' | 'warn';
 
   onChange?: (e: number | string) => void;
 }
@@ -63,20 +63,18 @@ export function CustomSelect({
   defaultValue,
   options = [],
   width,
-  className = "",
-  labelSelectedClassName = "",
-  placeholder = "",
-  optionClassName = "",
-  optionContainerClassName = "",
-  errorClassName = "",
+  className = '',
+  labelSelectedClassName = '',
+  placeholder = '',
+  optionClassName = '',
+  optionContainerClassName = '',
+  errorClassName = '',
   hasBgColorHover = false,
   disabled,
   onChange,
   fmOnChange,
 }: SelectProps) {
-  const [selectedValue, setSelectedValue] = useState<
-    string | number | undefined
-  >(undefined);
+  const [selectedValue, setSelectedValue] = useState<string | number | undefined>(undefined);
   const [_status, changeStatus] = useState(status || defaultStatus);
   const [isOpen, setIsOpen] = useState(false);
   const selectBoxRef = useRef(null);
@@ -96,7 +94,7 @@ export function CustomSelect({
       formik?.setFieldValue(name as string, val);
       setIsOpen(false);
     },
-    [fmOnChange, formik, name, onChange]
+    [fmOnChange, formik, name, onChange],
   );
 
   useEffect(() => {
@@ -107,19 +105,17 @@ export function CustomSelect({
     changeStatus(status || defaultStatus);
   }, [defaultStatus, status]);
 
-  const isError = _status === "inValid" || _status === "warn";
+  const isError = _status === 'inValid' || _status === 'warn';
 
   const getLabel = useCallback(
     (selectedValue: string | number) => {
-      const currentOption = options.find(
-        (item) => item.value === selectedValue
-      );
+      const currentOption = options.find((item) => item.value === selectedValue);
 
-      if (!currentOption) return "";
+      if (!currentOption) return '';
 
-      return currentOption ? currentOption.label : "";
+      return currentOption ? currentOption.label : '';
     },
-    [options]
+    [options],
   );
 
   return (
@@ -127,7 +123,7 @@ export function CustomSelect({
       <div
         className={clsx(
           `flex items-center mt-2 border border-solid border-black rounded h-9 cursor-pointer ${className}`,
-          { "!border-[#50b83c]": isOpen, "!border-[#adadad]": disabled }
+          { '!border-[#50b83c]': isOpen, '!border-[#adadad]': disabled },
         )}
         style={{ width }}
         onClick={() => {
@@ -139,12 +135,9 @@ export function CustomSelect({
         }}
       >
         <div
-          className={clsx(
-            `flex flex-1 items-center justify-start mx-2 leading-[1.5] ${labelSelectedClassName}`,
-            {
-              "text-[#6b6b6b]": disabled,
-            }
-          )}
+          className={clsx(`flex flex-1 items-center justify-start mx-2 leading-[1.5] ${labelSelectedClassName}`, {
+            'text-[#6b6b6b]': disabled,
+          })}
         >
           {!selectedValue ? placeholder : getLabel(selectedValue)}
         </div>
@@ -163,12 +156,11 @@ export function CustomSelect({
               className={clsx(
                 `bg-white cursor-pointer flex items-center min-h-[44px] w-full flex-1 ${optionClassName}`,
                 {
-                  "!bg-[#50b83c] text-white": selectedValue === value,
+                  '!bg-[#50b83c] text-white': selectedValue === value,
                 },
                 {
-                  "hover:bg-[#0081ca1a]":
-                    selectedValue !== value && hasBgColorHover,
-                }
+                  'hover:bg-[#0081ca1a]': selectedValue !== value && hasBgColorHover,
+                },
               )}
               key={index}
               onClick={() => handleChange(value)}
@@ -181,9 +173,7 @@ export function CustomSelect({
 
       {isError && (
         <div className={`flex text-[#FF0000] ${errorClassName}`}>
-          {formik &&
-            formik.getFieldMeta(name!).error &&
-            formik.getFieldMeta(name!).error}
+          {formik && formik.getFieldMeta(name!).error && formik.getFieldMeta(name!).error}
         </div>
       )}
     </div>

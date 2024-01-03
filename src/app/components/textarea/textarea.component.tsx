@@ -1,6 +1,6 @@
-import { ChangeEvent, useCallback, useEffect, useState } from "react";
-import clsx from "clsx";
-import { FormControlChildProps } from "../form-control";
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import clsx from 'clsx';
+import { FormControlChildProps } from '../form-control';
 
 export interface TextAreaProps extends FormControlChildProps {
   value?: number | string;
@@ -10,7 +10,7 @@ export interface TextAreaProps extends FormControlChildProps {
   /**
    * Default: undefined
    */
-  defaultStatus?: undefined | "valid" | "inValid" | "warn";
+  defaultStatus?: undefined | 'valid' | 'inValid' | 'warn';
 
   /**
    * Default: 200px
@@ -38,23 +38,23 @@ export interface TextAreaProps extends FormControlChildProps {
 function TextArea({
   formik,
   id = undefined,
-  value = "",
-  name = "",
+  value = '',
+  name = '',
   placeholder,
   disabled = false,
   width = 200,
   height = 100,
-  className = "",
-  textAreaClassName = "",
+  className = '',
+  textAreaClassName = '',
   status,
   defaultStatus = undefined,
-  errorClassName = "",
+  errorClassName = '',
   onChange,
   onBlur,
   fmOnChange,
   fmOnBlur,
 }: TextAreaProps) {
-  const [txaValue, setTxaValue] = useState(value || "");
+  const [txaValue, setTxaValue] = useState(value || '');
   const [_status, changeStatus] = useState(status || defaultStatus);
 
   useEffect(() => {
@@ -67,7 +67,7 @@ function TextArea({
 
       fmOnBlur && fmOnBlur(e);
     },
-    [fmOnBlur, onBlur]
+    [fmOnBlur, onBlur],
   );
 
   const handleChange = useCallback(
@@ -78,14 +78,14 @@ function TextArea({
 
       setTxaValue(e.currentTarget.value);
     },
-    [fmOnChange, onChange]
+    [fmOnChange, onChange],
   );
 
   useEffect(() => {
-    setTxaValue(value || "");
+    setTxaValue(value || '');
   }, [value]);
 
-  const isError = _status === "inValid" || _status === "warn";
+  const isError = _status === 'inValid' || _status === 'warn';
 
   return (
     <div className={`${className}`} style={{ width, height }}>
@@ -97,8 +97,8 @@ function TextArea({
           `w-full min-h-[80px] h-full box-border mt-2 border border-solid border-[#bdbdbd] pl-2 py-2 rounded outline-none
             ${textAreaClassName}`,
           {
-            "border border-solid border-[#FF0000] !bg-[#fce4ec]": isError,
-          }
+            'border border-solid border-[#FF0000] !bg-[#fce4ec]': isError,
+          },
         )}
         value={txaValue}
         disabled={disabled}
@@ -107,9 +107,7 @@ function TextArea({
       />
       {isError && (
         <div className={`flex text-[#FF0000] ${errorClassName}`}>
-          {formik &&
-            formik.getFieldMeta(name!).error &&
-            formik.getFieldMeta(name!).error}
+          {formik && formik.getFieldMeta(name!).error && formik.getFieldMeta(name!).error}
         </div>
       )}
     </div>

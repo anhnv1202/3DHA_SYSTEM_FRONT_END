@@ -1,11 +1,8 @@
-import { RefObject, useEffect, useRef } from "react";
+import { RefObject, useEffect, useRef } from 'react';
 
 type Handler = (event: MouseEvent) => void;
 
-export default function useOnClickOutside<T extends HTMLElement = HTMLElement>(
-  ref: RefObject<T>,
-  handler: Handler
-) {
+export default function useOnClickOutside<T extends HTMLElement = HTMLElement>(ref: RefObject<T>, handler: Handler) {
   const handlerRef = useRef(handler);
 
   useEffect(() => {
@@ -21,10 +18,10 @@ export default function useOnClickOutside<T extends HTMLElement = HTMLElement>(
       handlerRef.current(event);
     };
 
-    document.addEventListener("mousedown", listener);
+    document.addEventListener('mousedown', listener);
 
     return () => {
-      document.removeEventListener("mousedown", listener);
+      document.removeEventListener('mousedown', listener);
     };
   }, [ref]);
 }

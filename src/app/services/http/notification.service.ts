@@ -1,9 +1,9 @@
-import { GetNotificationResponse } from "@app/types";
-import HttpService from "@core/services/http/http.service";
+import { GetNotificationResponse } from '@app/types';
+import HttpService from '@core/services/http/http.service';
 
 class _NotificationService {
   public getAllNotification() {
-    return HttpService.get<GetNotificationResponse[]>("/notifications");
+    return HttpService.get<GetNotificationResponse[]>('/notifications');
   }
 }
 

@@ -1,11 +1,11 @@
-import { isNullOrUndefined } from "./helpers";
+import { isNullOrUndefined } from './helpers';
 
 const isString = (value: any): boolean => {
-  return typeof value === "string" || value instanceof String;
+  return typeof value === 'string' || value instanceof String;
 };
 
 const isStringEmpty = (value: string): boolean => {
-  return isNullOrUndefined(value) || value.trim() === "";
+  return isNullOrUndefined(value) || value.trim() === '';
 };
 
 const titleCase = (str: string): string => {
@@ -17,7 +17,7 @@ const titleCase = (str: string): string => {
     splitStr[i] = word;
   }
 
-  return splitStr.join(" ");
+  return splitStr.join(' ');
 };
 
 export { isString, isStringEmpty, titleCase };

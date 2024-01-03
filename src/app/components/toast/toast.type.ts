@@ -1,10 +1,6 @@
-export type ToastStatus = "valid" | "inValid" | "warn";
+export type ToastStatus = 'valid' | 'inValid' | 'warn';
 
-export type ToastPosition =
-  | "top-right"
-  | "top-left"
-  | "bottom-left"
-  | "bottom-right";
+export type ToastPosition = 'top-right' | 'top-left' | 'bottom-left' | 'bottom-right';
 
 export interface ToastItemProps {
   status: ToastStatus;

@@ -1,3 +1,3 @@
-import SidebarItem from "./sidebar-item.component";
+import SidebarItem from './sidebar-item.component';
 
 export default SidebarItem;

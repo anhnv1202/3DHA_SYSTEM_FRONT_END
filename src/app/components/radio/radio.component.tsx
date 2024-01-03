@@ -1,5 +1,5 @@
-import { ChangeEvent, useCallback, useRef, useState } from "react";
-import { ControlStaticType, FormControlChildProps } from "../form-control";
+import { ChangeEvent, useCallback, useRef, useState } from 'react';
+import { ControlStaticType, FormControlChildProps } from '../form-control';
 
 export interface RadioProps extends FormControlChildProps {
   label?: string;
@@ -22,7 +22,7 @@ export interface RadioProps extends FormControlChildProps {
 export default function Radio({
   id,
   className,
-  labelClassName = "",
+  labelClassName = '',
   label,
   name,
   value,
@@ -50,7 +50,7 @@ export default function Radio({
 
       setCheckedState(e.target.checked);
     },
-    [fmOnChange, onChange]
+    [fmOnChange, onChange],
   );
 
   const handleBlur = useCallback(
@@ -59,7 +59,7 @@ export default function Radio({
 
       fmOnBlur && fmOnBlur(e);
     },
-    [fmOnBlur, onBlur]
+    [fmOnBlur, onBlur],
   );
 
   return (
@@ -76,9 +76,7 @@ export default function Radio({
         onBlur={handleBlur}
       />
 
-      <p className={`text-[#666] pl-[10px] text-[15px] ${labelClassName}`}>
-        {label}
-      </p>
+      <p className={`text-[#666] pl-[10px] text-[15px] ${labelClassName}`}>{label}</p>
     </label>
   );
 }

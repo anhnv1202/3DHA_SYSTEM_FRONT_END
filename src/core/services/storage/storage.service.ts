@@ -1,5 +1,5 @@
 export class _StorageService {
-  private prefix = "app";
+  private prefix = 'app';
   private localStorage: Storage;
   private sessionStorage: Storage;
 

@@ -1,36 +1,19 @@
-import { ACCESS_TOKEN_KEY } from "@app/common/constants";
-import { SystemMessage } from "@app/common/constants/message.const";
-import { addToast } from "@app/components/toast/toast.service";
-import {
-  isNullOrUndefined,
-  isStrEmpty,
-  nullSafetyJSONStringify,
-} from "@core/helpers/helpers";
-import { Environment } from "@environments/environment";
-import {
-  catchError,
-  finalize,
-  map,
-  NEVER,
-  Observable,
-  Subject,
-  throwError,
-} from "rxjs";
-import { ajax, AjaxResponse } from "rxjs/ajax";
-import StorageService from "../storage";
-import {
-  HttpMethod,
-  HttpOptions,
-  ProgressOptions,
-  RequestContentType,
-} from "./http.type";
+import { ACCESS_TOKEN_KEY } from '@app/common/constants';
+import { SystemMessage } from '@app/common/constants/message.const';
+import { addToast } from '@app/components/toast/toast.service';
+import { isNullOrUndefined, isStrEmpty, nullSafetyJSONStringify } from '@core/helpers/helpers';
+import { Environment } from '@environments/environment';
+import { catchError, finalize, map, NEVER, Observable, Subject, throwError } from 'rxjs';
+import { ajax, AjaxResponse } from 'rxjs/ajax';
+import StorageService from '../storage';
+import { HttpMethod, HttpOptions, ProgressOptions, RequestContentType } from './http.type';
 
 class _HttpService {
   public isRequesting$ = new Subject<boolean>();
   public onError$ = new Subject<any>();
 
   private _commonHeader = {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   };
 
   public get<T>(uri: string, options?: HttpOptions): Observable<T> {
@@ -57,11 +40,11 @@ class _HttpService {
     uri: string,
     method = HttpMethod.POST,
     progressHandler: (ajaxResponse: AjaxResponse<any>) => void,
-    options?: HttpOptions
+    options?: HttpOptions,
   ): Observable<T> {
     const headers = {
       ...options?.headers,
-      "Content-Type": "application/octet-stream",
+      'Content-Type': 'application/octet-stream',
     };
 
     const newOptions: HttpOptions = {
@@ -84,10 +67,10 @@ class _HttpService {
       url,
       method: HttpMethod.GET,
       headers: {
-        Authorization: token ? `Bearer ${token}` : "",
+        Authorization: token ? `Bearer ${token}` : '',
         ...options?.headers,
       },
-      responseType: "blob" as "json",
+      responseType: 'blob' as 'json',
     });
   }
 
@@ -95,13 +78,13 @@ class _HttpService {
     uri: string,
     method: string,
     options?: HttpOptions,
-    progressOptions?: ProgressOptions
+    progressOptions?: ProgressOptions,
   ): Observable<T> {
     const token = this.getAccessToken();
     let url = this.resolveUri(uri);
 
     if (options?.queryParams) {
-      url = url + "?" + this.generateHttpParams(options?.queryParams);
+      url = url + '?' + this.generateHttpParams(options?.queryParams);
     }
 
     let body: any = nullSafetyJSONStringify(this.buildBodyData(options?.body));
@@ -125,16 +108,15 @@ class _HttpService {
       body,
       headers: {
         ...(options?.requestContentType === RequestContentType.MULTIPART
-          ? { Accept: "application/json" }
+          ? { Accept: 'application/json' }
           : this._commonHeader),
-        Authorization: token ? `Bearer ${token}` : "",
+        Authorization: token ? `Bearer ${token}` : '',
         ...options?.headers,
       },
       includeUploadProgress: progressOptions?.includeUploadProgress,
     }).pipe(
       map((ajaxResponse) => {
-        progressOptions?.progressHandler &&
-          progressOptions?.progressHandler(ajaxResponse);
+        progressOptions?.progressHandler && progressOptions?.progressHandler(ajaxResponse);
 
         return this.handleResponse<T>(ajaxResponse);
       }),
@@ -143,9 +125,9 @@ class _HttpService {
 
         const message = error?.response?.message ?? SystemMessage.UNKNOWN_ERROR;
 
-        addToast({ text: message, status: "inValid" });
+        addToast({ text: message, status: 'inValid' });
 
-        if (process.env.NODE_ENV === "development") {
+        if (process.env.NODE_ENV === 'development') {
           this.isRequesting$.next(false);
 
           return NEVER;
@@ -155,7 +137,7 @@ class _HttpService {
       }),
       finalize(() => {
         this.isRequesting$.next(false);
-      })
+      }),
     );
   }
 
@@ -200,18 +182,18 @@ class _HttpService {
     const objectToQueryString = (obj: object, prefix?: any) => {
       for (const key in obj) {
         if (Object.prototype.hasOwnProperty.call(obj, key)) {
-          const k = prefix ? prefix + "[" + key + "]" : key;
+          const k = prefix ? prefix + '[' + key + ']' : key;
           const v = (obj as any)[key];
 
           if (Array.isArray(v)) {
             for (const vv of v) {
-              httpParams.push(k + "=" + vv);
+              httpParams.push(k + '=' + vv);
             }
-          } else if (v !== null && typeof v === "object") {
+          } else if (v !== null && typeof v === 'object') {
             objectToQueryString(v, k);
           } else {
             if (!isNullOrUndefined(v) && !isStrEmpty(v.toString())) {
-              httpParams.push(k + "=" + v);
+              httpParams.push(k + '=' + v);
             }
           }
         }
@@ -220,14 +202,11 @@ class _HttpService {
 
     objectToQueryString(params);
 
-    return encodeURI(httpParams.join("&"));
+    return encodeURI(httpParams.join('&'));
   }
 
   public getAccessToken() {
-    return (
-      StorageService.get(ACCESS_TOKEN_KEY) ||
-      StorageService.getSession(ACCESS_TOKEN_KEY)
-    );
+    return StorageService.get(ACCESS_TOKEN_KEY) || StorageService.getSession(ACCESS_TOKEN_KEY);
   }
 }
 

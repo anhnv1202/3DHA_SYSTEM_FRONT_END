@@ -1,11 +1,7 @@
-import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
-import { combineEpics, createEpicMiddleware } from "redux-observable";
-import { authReducer, AuthState } from "./auth";
-import {
-  notificationEpic,
-  notificationReducer,
-  NotificationState,
-} from "./notification";
+import { applyMiddleware, combineReducers, legacy_createStore } from 'redux';
+import { combineEpics, createEpicMiddleware } from 'redux-observable';
+import { AuthState, authReducer } from './auth';
+import { NotificationState, notificationEpic, notificationReducer } from './notification';
 
 const rootReducer = combineReducers<GlobalState>({
   auth: authReducer,

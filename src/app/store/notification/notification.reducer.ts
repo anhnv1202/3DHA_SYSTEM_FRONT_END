@@ -1,14 +1,7 @@
-import { AppAction } from "@core/types/redux.type";
-import {
-  NotificationActionType,
-  NotificationEpicType,
-  NotificationState,
-} from "./notification.type";
+import { AppAction } from '@core/types/redux.type';
+import { NotificationActionType, NotificationEpicType, NotificationState } from './notification.type';
 
-export default function notificationReducer(
-  state = initialState,
-  action: AppAction
-): NotificationState {
+export default function notificationReducer(state = initialState, action: AppAction): NotificationState {
   switch (action.type) {
     case NotificationEpicType.FETCH_NOTIFICATIONS:
       return {

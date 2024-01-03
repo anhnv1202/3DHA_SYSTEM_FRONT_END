@@ -1,10 +1,7 @@
-import { AppAction } from "@core/types/redux.type";
-import { AuthActionType, AuthState } from "./auth.type";
+import { AppAction } from '@core/types/redux.type';
+import { AuthActionType, AuthState } from './auth.type';
 
-export default function authReducer(
-  state = initialState,
-  action: AppAction
-): AuthState {
+export default function authReducer(state: AuthState = initialState, action: AppAction): AuthState {
   switch (action.type) {
     case AuthActionType.STORE_AUTH:
       return {
@@ -22,8 +19,8 @@ export default function authReducer(
 }
 
 const initialState: AuthState = {
-  _id: "",
-  username: "",
-  role: "",
-  jwt: "",
+  _id: '',
+  username: '',
+  role: '',
+  jwt: '',
 };

@@ -1,7 +1,7 @@
-import { SocketEvent } from "@app/common/constants";
-import { Environment } from "@environments/environment";
-import { Observable } from "rxjs";
-import { io, ManagerOptions, Socket, SocketOptions } from "socket.io-client";
+import { SocketEvent } from '@app/common/constants';
+import { Environment } from '@environments/environment';
+import { Observable } from 'rxjs';
+import { io, ManagerOptions, Socket, SocketOptions } from 'socket.io-client';
 
 class _SocketService {
   private socket!: Socket;
@@ -14,7 +14,7 @@ class _SocketService {
     };
 
     if (!newOptions.transports || !newOptions.transports.length) {
-      newOptions.transports = ["polling"];
+      newOptions.transports = ['polling'];
     }
 
     if (!this.socket) {

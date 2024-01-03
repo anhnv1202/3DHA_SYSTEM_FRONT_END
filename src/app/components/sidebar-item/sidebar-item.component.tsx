@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
 interface SidebarItemProps {
   name: string;
@@ -10,19 +10,14 @@ interface SidebarItemProps {
   onClick?: () => void;
 }
 
-function SidebarItem({
-  name,
-  isChecked,
-  onClick,
-  labelClassName = "",
-}: SidebarItemProps) {
+function SidebarItem({ name, isChecked, onClick, labelClassName = '' }: SidebarItemProps) {
   return (
     <div
       className={clsx(
-        { "bg-[#39ac66]": isChecked },
-        { "text-white": isChecked },
-        { "text-[#666]": !isChecked },
-        "flex justify-center items-center border-b border-solid border-[#dadada] cursor-pointer"
+        { 'bg-[#39ac66]': isChecked },
+        { 'text-white': isChecked },
+        { 'text-[#666]': !isChecked },
+        'flex justify-center items-center border-b border-solid border-[#dadada] cursor-pointer',
       )}
       onClick={onClick}
     >

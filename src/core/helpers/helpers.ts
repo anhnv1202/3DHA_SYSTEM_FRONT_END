@@ -7,15 +7,15 @@ export function isNullOrUndefined(value: any) {
 }
 
 export function isStrEmpty(value: string): boolean {
-  return isNullOrUndefined(value) || value.trim() === "";
+  return isNullOrUndefined(value) || value.trim() === '';
 }
 
 export const isString = (value: any): boolean => {
-  return typeof value === "string" || value instanceof String;
+  return typeof value === 'string' || value instanceof String;
 };
 
 export const isStringEmpty = (value: string): boolean => {
-  return isNullOrUndefined(value) || value.trim() === "";
+  return isNullOrUndefined(value) || value.trim() === '';
 };
 
 export const titleCase = (str: string): string => {
@@ -27,5 +27,5 @@ export const titleCase = (str: string): string => {
     splitStr[i] = word;
   }
 
-  return splitStr.join(" ");
+  return splitStr.join(' ');
 };

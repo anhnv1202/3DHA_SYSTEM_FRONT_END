@@ -1,11 +1,11 @@
-import { AjaxResponse } from "rxjs/ajax";
+import { AjaxResponse } from 'rxjs/ajax';
 
 export enum HttpMethod {
-  GET = "GET",
-  POST = "POST",
-  PUT = "PUT",
-  PATCH = "PATCH",
-  DELETE = "DELETE",
+  GET = 'GET',
+  POST = 'POST',
+  PUT = 'PUT',
+  PATCH = 'PATCH',
+  DELETE = 'DELETE',
 }
 
 export enum RequestContentType {
@@ -20,12 +20,7 @@ export interface HttpOptions {
   requestContentType?: RequestContentType;
 }
 
-type ParamTypes =
-  | number
-  | string
-  | string[]
-  | undefined
-  | { [key: string]: any };
+type ParamTypes = number | string | string[] | undefined | { [key: string]: any };
 
 type JsonType = string | number | boolean | object | Array<any> | null | any;
 

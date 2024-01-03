@@ -1,2 +1,2 @@
-export * from "./auth.type";
-export * from "./notification.type";
+export * from './auth.type';
+export * from './notification.type';

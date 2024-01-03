@@ -1,10 +1,7 @@
-import {
-  PortalDialogAll,
-  PortalDialogRef,
-} from "@app/components/modal/modal.type";
-import { ExtractPropsFromComponent } from "@app/types/helper";
-import { ComponentType } from "react";
-import { Subject } from "rxjs";
+import { PortalDialogAll, PortalDialogRef } from '@app/components/modal/modal.type';
+import { ExtractPropsFromComponent } from '@app/types/helper';
+import { ComponentType } from 'react';
+import { Subject } from 'rxjs';
 
 enum ActionType {
   Portal,
@@ -22,15 +19,9 @@ export interface PortalDialogProps<PortalData = any> {
   portalData?: PortalData;
 }
 
-type ExtractPortalDataFromPortalDialogProps<P> = P extends PortalDialogProps<
-  infer PortalData
->
-  ? PortalData
-  : P;
+type ExtractPortalDataFromPortalDialogProps<P> = P extends PortalDialogProps<infer PortalData> ? PortalData : P;
 
-export type ExtractPortalDataFromComponent<T = any> = T extends (
-  props: infer P
-) => any
+export type ExtractPortalDataFromComponent<T = any> = T extends (props: infer P) => any
   ? ExtractPortalDataFromPortalDialogProps<P>
   : ExtractPortalDataFromPortalDialogProps<ExtractPropsFromComponent<T>>;
 
@@ -43,7 +34,7 @@ class ModalService {
 
   public openPortalDialog<T = ComponentType>(
     Component: T,
-    portalData?: ExtractPortalDataFromComponent<T>
+    portalData?: ExtractPortalDataFromComponent<T>,
   ): PortalDialogRef {
     this.modalId = ModalService.genId++;
     const portalDialogObs: Subject<any>[] = [];
@@ -90,7 +81,7 @@ class ModalService {
 
 function openPortalDialog<T = ComponentType>(
   Component: T,
-  portalData?: ExtractPortalDataFromComponent<T>
+  portalData?: ExtractPortalDataFromComponent<T>,
 ): PortalDialogRef {
   return new ModalService().openPortalDialog(Component, portalData);
 }

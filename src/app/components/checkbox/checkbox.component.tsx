@@ -1,12 +1,6 @@
-import clsx from "clsx";
-import {
-  ChangeEvent,
-  ReactNode,
-  forwardRef,
-  useCallback,
-  useState,
-} from "react";
-import { ControlStaticType, FormControlChildProps } from "../form-control";
+import clsx from 'clsx';
+import { ChangeEvent, ReactNode, forwardRef, useCallback, useState } from 'react';
+import { ControlStaticType, FormControlChildProps } from '../form-control';
 
 export interface CheckboxProps extends FormControlChildProps {
   label?: ReactNode;
@@ -45,10 +39,10 @@ const CheckboxComponent = (props: CheckboxProps, ref: any) => {
     checked,
     defaultChecked = false,
     disabled = false,
-    className = "",
-    labelClassName = "",
-    checkboxClassName = "",
-    errorClassName = "",
+    className = '',
+    labelClassName = '',
+    checkboxClassName = '',
+    errorClassName = '',
     status,
     onChange,
     onBlur,
@@ -65,7 +59,7 @@ const CheckboxComponent = (props: CheckboxProps, ref: any) => {
 
       setCheckedState(e.target.checked);
     },
-    [onChange, fmOnChange]
+    [onChange, fmOnChange],
   );
 
   const handleBlur = useCallback(
@@ -74,7 +68,7 @@ const CheckboxComponent = (props: CheckboxProps, ref: any) => {
 
       fmOnBlur && fmOnBlur(e);
     },
-    [onBlur, fmOnBlur]
+    [onBlur, fmOnBlur],
   );
 
   const isChecked = checked !== undefined ? checked : innerChecked;
@@ -98,9 +92,7 @@ const CheckboxComponent = (props: CheckboxProps, ref: any) => {
       </label>
       {!!status && (
         <div className={`flex text-[#D60000B2] ${errorClassName}`}>
-          {formik &&
-            formik.getFieldMeta(name!).error &&
-            formik.getFieldMeta(name!).error}
+          {formik && formik.getFieldMeta(name!).error && formik.getFieldMeta(name!).error}
         </div>
       )}
     </div>

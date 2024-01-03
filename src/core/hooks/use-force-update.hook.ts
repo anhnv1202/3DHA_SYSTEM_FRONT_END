@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState } from 'react';
 
 export default function useForceUpdate(): [number, () => void] {
   const [value, setValue] = useState(0);

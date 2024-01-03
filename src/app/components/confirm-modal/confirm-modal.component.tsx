@@ -1,6 +1,6 @@
-import { PortalDialogProps } from "@app/services/modal.service";
-import Modal from "../modal/modal.component";
-import Button from "../button";
+import { PortalDialogProps } from '@app/services/modal.service';
+import Modal from '../modal/modal.component';
+import Button from '../button';
 
 function ConfirmModal({ portalDialogRef, portalData }: PortalDialogProps) {
   return (

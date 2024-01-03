@@ -6,6 +6,6 @@ export interface AuthState {
 }
 
 export enum AuthActionType {
-  STORE_AUTH = "auth/storeAuth",
-  CLEAR_AUTH = "auth/clearAuth",
+  STORE_AUTH = 'auth/storeAuth',
+  CLEAR_AUTH = 'auth/clearAuth',
 }

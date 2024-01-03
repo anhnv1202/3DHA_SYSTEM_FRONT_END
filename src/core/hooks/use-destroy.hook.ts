@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Subject } from "rxjs";
+import { useEffect, useState } from 'react';
+import { Subject } from 'rxjs';
 
 export default function useDestroy(): HookResult {
   const [destroy$, setDestroy] = useState(new Subject<void>());
@@ -11,7 +11,7 @@ export default function useDestroy(): HookResult {
         destroy$.complete();
       }
     },
-    [destroy$]
+    [destroy$],
   );
 
   return { destroy$, setDestroy };
