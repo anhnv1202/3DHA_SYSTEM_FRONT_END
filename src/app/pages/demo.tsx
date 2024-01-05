@@ -18,7 +18,7 @@ export default function Demo() {
 
   const handleExam = () => {
     const exam = openPortalDialog(ConfirmModal, {
-      message: t('demo.demoMessageConfirm'),
+      message: 'demo.demoMessageConfirm',
     });
     exam.afterClosed().subscribe((data: { isAccept: boolean }) => {
       data?.isAccept && addToast({ text: SystemMessage.UNKNOWN_ERROR, position: 'top-right' });

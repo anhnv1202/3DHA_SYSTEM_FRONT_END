@@ -1,8 +1,7 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-
 import { APP_LOCALES, Locales } from '@app/common/constants/common.const';
 import translationEN from '@assets/lang/en.json';
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
 
 const resources = {
   en: {
