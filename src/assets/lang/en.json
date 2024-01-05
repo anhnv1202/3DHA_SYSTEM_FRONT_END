@@ -1,1 +1,13 @@
-{}
+{
+  "demo": {
+    "demoModal": "hello Dung & Dat",
+    "hello": "Hello",
+    "goodbye": "Goodbye",
+    "demoMessageConfirm": "Are you sure to continue?"
+  },
+  "button": {
+    "cancel": "Cancel",
+    "close": "Close",
+    "confirm": "Confirm"
+  }
+}

@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import './loading.style.scss';
-import clsx from 'clsx';
 import useObservable from '@core/hooks/use-observable.hook';
 import HttpService from '@core/services/http/http.service';
+import clsx from 'clsx';
+import { useEffect, useState } from 'react';
+import './loading.style.scss';
 
 function Loading() {
   const [isShow, setIsShow] = useState(false);
