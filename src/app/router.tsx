@@ -1,10 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Demo from './pages/demo';
+import DefaultLayout from './layouts/default-layout/default-layout.component';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Demo></Demo>,
+    element: <DefaultLayout />,
   },
 ]);
 

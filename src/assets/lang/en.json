@@ -1,9 +1,9 @@
 {
-  "demo": {
-    "demoModal": "hello Dung & Dat",
-    "hello": "Hello",
-    "goodbye": "Goodbye",
-    "demoMessageConfirm": "Are you sure to continue?"
+  "footer": {
+    "facebook": "Facebook",
+    "x": "XTwitter",
+    "google": "Google",
+    "contact": "Copyright ©2024 - Designed by 3DHA"
   },
   "button": {
     "cancel": "Cancel",
