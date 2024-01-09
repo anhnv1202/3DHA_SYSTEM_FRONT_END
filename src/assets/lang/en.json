@@ -9,5 +9,8 @@
     "cancel": "Cancel",
     "close": "Close",
     "confirm": "Confirm"
+  },
+  "errorPage": {
+    "404Messages": "The requested page does not exist"
   }
 }
