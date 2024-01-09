@@ -1,7 +1,7 @@
 // import Button from '@app/components/button';
 // import { FormControl } from '@app/components/form-control';
 // import Input from '@app/components/input';
-// import { SignUpInitialValues } from '@app/types';
+// import { ForgotPasswordInitialValues, SignUpInitialValues } from '@app/types';
 // import { forgotPasswordValidationSchema } from '@app/validations';
 // import useObservable from '@core/hooks/use-observable.hook';
 // import { Form, Formik, FormikContextType } from 'formik';
@@ -11,14 +11,11 @@
 // import { Link } from 'react-router-dom';
 // import backgroundRegister from '../../../assets/images/background/backgroundRegister.png';
 // import page500 from '../../../assets/images/logo/page500.png';
-
-// const initialValues = {
-//   email: '',
-// };
+// import { INITIAL_VALUES } from '@app/common/constants';
 
 // export const Register = () => {
 //   const { t } = useTranslation();
-//   const formRef = createRef<FormikContextType<SignUpInitialValues>>();
+//   const formRef = createRef<FormikContextType<ForgotPasswordInitialValues>>();
 //   const dispatch = useDispatch();
 //   const { subscribeOnce } = useObservable();
 //   useEffect(() => {
@@ -28,7 +25,7 @@
 //       // console.log('Form Values:', formValues);
 //     }
 //   }, [formRef]);
-//   const handleSubmit = (values: SignUpInitialValues) => {
+//   const handleSubmit = (values: ForgotPasswordInitialValues) => {
 //     // subscribeOnce(AuthService.login(values.username, values.password), (LoginRes: LoginResponse) => {
 //     //   if (LoginRes.role === ROLE.STUDENT) {
 //     //     StorageService.set(ACCESS_TOKEN_KEY, LoginRes.jwt);
@@ -53,7 +50,7 @@
 //           <h2 className="text-[50px] font-bold text-center">{t('register.register')}</h2>
 //           <Formik
 //             displayName="SignUpForm"
-//             initialValues={initialValues}
+//             initialValues={INITIAL_VALUES.FORGOT_PASSWORD}
 //             onSubmit={handleSubmit}
 //             innerRef={formRef}
 //             validationSchema={forgotPasswordValidationSchema}

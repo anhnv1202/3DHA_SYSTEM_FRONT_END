@@ -1,3 +1,4 @@
+import { INITIAL_VALUES } from '@app/common/constants';
 import Button from '@app/components/button';
 import { FormControl } from '@app/components/form-control';
 import Input from '@app/components/input';
@@ -11,14 +12,6 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import backgroundRegister from '../../../assets/images/background/backgroundRegister.png';
 import page500 from '../../../assets/images/logo/page500.png';
-
-const initialValues = {
-  username: '',
-  email: '',
-  phone: '',
-  password: '',
-  confirmPassword: '',
-};
 
 function Register() {
   const { t } = useTranslation();
@@ -57,7 +50,7 @@ function Register() {
           <h2 className="text-[50px] font-bold text-center">{t('register.register')}</h2>
           <Formik
             displayName="SignUpForm"
-            initialValues={initialValues}
+            initialValues={INITIAL_VALUES.REGISTER}
             onSubmit={handleSubmit}
             innerRef={formRef}
             validationSchema={signUpValidationSchema}
