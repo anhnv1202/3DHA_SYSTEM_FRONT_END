@@ -1,1 +1,29 @@
-{}
+{
+  "demo": {
+    "demoModal": "hello Dung & Dat",
+    "hello": "Hello",
+    "goodbye": "Goodbye",
+    "demoMessageConfirm": "Are you sure to continue?"
+  },
+  "button": {
+    "cancel": "Cancel",
+    "close": "Close",
+    "confirm": "Confirm"
+  },
+  "register": {
+    "register": "Register",
+    "username": "Username",
+    "email": "Email",
+    "phone": "Phone",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "signup": "Sign Up",
+    "or": "Or",
+    "account": "You have an account? Log in"
+  },
+  "errorPage": {
+    "500Messages": "Internal Server Error!",
+    "500Messages2": "Unfortunately we're having trouble loading the page you are looking for",
+    "homepage": "Home Page"
+  }
+}

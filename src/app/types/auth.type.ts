@@ -12,21 +12,20 @@ export interface LoginResponse {
 
 export interface SignUpInitialValues {
   username: string;
+  email: string;
+  phone: string;
   password: string;
   confirmPassword: string;
-  phone: string;
-  passwordWallet: string;
-  bankNumber: string;
-  bankName: string;
-  bankOwn: string;
 }
 
 export interface SignUpRequest {
   username: string;
+  email: string;
+  phonenumber: string;
   password: string;
-  password_wallet: string;
-  phone: string;
-  bank_number: string;
-  bank_name: string;
-  bank_own: string;
+  confirmPassword: string;
+}
+
+export interface ForgotPasswordInitialValues {
+  email: string;
 }

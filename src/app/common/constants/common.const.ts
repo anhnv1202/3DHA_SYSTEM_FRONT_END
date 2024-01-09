@@ -1,9 +1,9 @@
 export const DEFAULT_DATE_FORMAT = 'D/MM/YYYY';
 export const DEFAULT_MINUTES_SECONDS_FORMAT = 'mm:ss';
-
+export const USER_INFO_KEY = 'mm3231';
 export enum ROLE {
   TEACHER = 1,
-  STUDENT = 2,
+  STUDENT = '2',
   ADMIN = 3,
 }
 
@@ -32,8 +32,13 @@ export enum OrderType {
 export const REGEX = {
   USERNAME: /^[\d\w]+$/,
   PHONE_NUMBER: /^[0-9]{10}$/,
+  email: /^$/,
 };
 
 export const REF = {
   PASSSWORD: 'password',
+};
+
+export const PATHS = {
+  REGISTER: '/register',
 };
