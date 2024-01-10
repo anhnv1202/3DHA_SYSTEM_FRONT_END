@@ -1,3 +1,5 @@
+import { LoginInitialValues } from '@app/types';
+
 export const DEFAULT_DATE_FORMAT = 'D/MM/YYYY';
 export const DEFAULT_MINUTES_SECONDS_FORMAT = 'mm:ss';
 export const USER_INFO_KEY = 'mm3231';
@@ -41,9 +43,11 @@ export const REF = {
 
 export const PATHS = {
   REGISTER: '/register',
+  LOGIN: '/login',
 };
 
 export const INITIAL_VALUES = {
   REGISTER: { username: '', email: '', phone: '', password: '', confirmPassword: '' },
   FORGOT_PASSWORD: { email: '' },
+  LOGIN: { email: '', password: '' } as LoginInitialValues,
 };

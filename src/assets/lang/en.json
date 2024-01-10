@@ -21,6 +21,16 @@
     "or": "Or",
     "account": "You have an account? Log in"
   },
+  "login": {
+    "title": "Login",
+    "emailField": "Email",
+    "passwordField": "Password",
+    "submitButton": "Login",
+    "or": "Or",
+    "maybe": "Maybe",
+    "signUpButton": "You don't have the account ? Please register -_-",
+    "forgotPasswordButton": "You just forgot your password ? Click here"
+  },
   "errorPage": {
     "500Messages": "Internal Server Error!",
     "500Messages2": "Unfortunately we're having trouble loading the page you are looking for",
