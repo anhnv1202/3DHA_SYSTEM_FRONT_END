@@ -22,6 +22,14 @@
     "account": "You have an account? Log in",
     "confirmEmail": "Please check your email to verify account!"
   },
+  "forgotPassword": {
+    "forgotPassword": "Forgot Password",
+    "email": "Email",
+    "sendEmail": "Send Email",
+    "confirmEmail": "Please check your email to modify the password!",
+    "login": "Back to login",
+    "or": "Or"
+  },
   "errorPage": {
     "500Messages": "Internal Server Error!",
     "500Messages2": "Unfortunately we're having trouble loading the page you are looking for",
