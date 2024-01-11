@@ -13,23 +13,15 @@ import backgroundRegister from '@assets/images/background/backgroundRegister.png
 import avatarRegister from '@assets/images/logo/avatarRegister.png';
 import useObservable from '@core/hooks/use-observable.hook';
 import { Form, Formik, FormikContextType } from 'formik';
-import { createRef, useEffect } from 'react';
+import { createRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 function Register() {
   const { t } = useTranslation();
   const formRef = createRef<FormikContextType<SignUpInitialValues>>();
-  const dispatch = useDispatch();
   const { subscribeOnce } = useObservable();
-  useEffect(() => {
-    if (formRef.current) {
-      // const formValues = formRef.current.values;
-      // formRef.current.setFieldValue('username', 'Va deeptroy');
-      // console.log('Form Values:', formValues);
-    }
-  }, [formRef]);
+
   const handleSubmit = (values: SignUpInitialValues) => {
     subscribeOnce(AuthService.register({ ...values }), (RegisterRes: RegisterResponse) => {
       console.log(RegisterRes);
