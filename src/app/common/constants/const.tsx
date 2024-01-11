@@ -17,5 +17,5 @@ export const formFieldsRegister: FormField[] = [
 ];
 
 export const formFieldsForgotPassword: FormField[] = [
-  { name: 'email', placeholder: i18n.t('register.email'), type: 'text' },
+  { name: 'email', placeholder: i18n.t('forgotPassword.email'), type: 'text' },
 ];
