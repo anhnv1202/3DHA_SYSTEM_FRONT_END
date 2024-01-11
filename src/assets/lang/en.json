@@ -29,7 +29,24 @@
     "or": "Or",
     "maybe": "Maybe",
     "signUpButton": "You don't have the account ? Please register -_-",
-    "forgotPasswordButton": "You just forgot your password ? Click here"
+    "forgotPasswordButton": "You just forgot your password ? Click here",
+    "confirmEmail": "Please check your email to verify account!"
+  },
+  "forgotPassword": {
+    "forgotPassword": "Forgot Password",
+    "email": "Email",
+    "sendEmail": "Send Email",
+    "confirmEmail": "Please check your email to modify the password!",
+    "login": "Back to login",
+    "or": "Or"
+  },
+  "changePassword": {
+    "changePassword": "Change Password",
+    "password": "Re-Password",
+    "confirmPassword": "Confirm Re-Password",
+    "changePass": "Change password successfully! Login now!",
+    "login": "Back to login",
+    "or": "Or"
   },
   "errorPage": {
     "500Messages": "Internal Server Error!",

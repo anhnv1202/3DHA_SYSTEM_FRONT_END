@@ -9,8 +9,9 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import backgroundRegister from '../../../assets/images/background/backgroundLogin.png';
 import page400 from '../../../assets/images/logo/page400.jpg';
-import { INITIAL_VALUES } from '../../common/constants/common.const';
-
+import { INITIAL_VALUES, PATHS as path } from '../../common/constants/common.const';
+import { formFields } from '@app/common/constants/const';
+import { FieldType } from '@app/types/helper';
 export const Login = () => {
   const { t } = useTranslation();
   const formRef = createRef<FormikContextType<LoginInitialValues>>();
@@ -40,7 +41,7 @@ export const Login = () => {
     >
       <div className=" flex items-center rounded-[10px] bg-blue-50 shadow-6 ">
         <div className="flex-1 ml-8">
-          <img src={page400} alt="Your Image" className="w-100 h-100 object-cover rounded" />
+          <img src={page400} alt="Your Image" className="w-100 h-100 object-cover rounded" aria-hidden="true" />
         </div>
         <div className="flex-1 text-center rounded border-gray-300 p-4 ">
           <h2 className="text-[50px] font-bold text-center">{t('login.title')}</h2>
@@ -54,26 +55,18 @@ export const Login = () => {
             validateOnBlur
           >
             <Form className="max-w-lg mx-auto p-8 border shadow-6 rounded-[10px]">
-              <FormControl name="email">
-                <Input
-                  width="auto"
-                  className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
-                  placeholder={t('login.emailField')}
-                  inputClassName="w-full"
-                  errorClassName="text-red-500 text-xs"
-                />
-              </FormControl>
-
-              <FormControl name="password">
-                <Input
-                  width="auto"
-                  className="w-full mb-5 p-1  rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
-                  placeholder={t('login.emailField')}
-                  inputClassName="w-full"
-                  errorClassName="text-red-500 text-xs"
-                  type="password"
-                />
-              </FormControl>
+              {formFields.login.map((field) => (
+                <FormControl name={field.name}>
+                  <Input
+                    width="auto"
+                    className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
+                    placeholder={field.placeholder}
+                    inputClassName="w-full"
+                    errorClassName="text-red-500 text-xs"
+                    type={field.type as FieldType}
+                  />
+                </FormControl>
+              ))}
 
               <div>
                 <Button
@@ -85,13 +78,13 @@ export const Login = () => {
                 />
                 <small>{t('login.or')}</small>
                 <div className="mt-2 text-sm text-blue-500 text-center">
-                  <Link to={'/'} className="bg-blue-gray-500 text-white px-4 py-2 rounded-full">
+                  <Link to={path.REGISTER} className="bg-blue-gray-500 text-white px-4 py-2 rounded-full">
                     {t('login.signUpButton')}
                   </Link>
                 </div>
                 <small className="pt-5">{t('login.maybe')}</small>
                 <div className="mt-2 text-sm text-orange-400 text-center">
-                  <Link to={'/'} className="bg-orange-400 text-black px-4 py-2 rounded-full">
+                  <Link to={path.FORGOT_PASSWORD} className="bg-orange-400 text-black px-4 py-2 rounded-full">
                     {t('login.forgotPasswordButton')}
                   </Link>
                 </div>

@@ -29,3 +29,8 @@ export interface SignUpRequest {
 export interface ForgotPasswordInitialValues {
   email: string;
 }
+
+export interface ChangePasswordInitialValues {
+  newPassword: string;
+  confirmNewPassword: string;
+}

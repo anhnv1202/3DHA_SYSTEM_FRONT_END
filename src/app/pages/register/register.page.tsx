@@ -1,17 +1,22 @@
-import { INITIAL_VALUES } from '@app/common/constants';
+import { INITIAL_VALUES, SystemMessage } from '@app/common/constants';
+import { formFields } from '@app/common/constants/const';
 import Button from '@app/components/button';
 import { FormControl } from '@app/components/form-control';
 import Input from '@app/components/input';
+import { addToast } from '@app/components/toast/toast.service';
+import WarningModal from '@app/components/warning-modal';
+import { openPortalDialog } from '@app/services/modal.service';
 import { SignUpInitialValues } from '@app/types';
+import { FieldType } from '@app/types/helper';
 import { signUpValidationSchema } from '@app/validations';
+import backgroundRegister from '@assets/images/background/backgroundRegister.png';
+import avatarRegister from '@assets/images/logo/avatarRegister.png';
 import useObservable from '@core/hooks/use-observable.hook';
 import { Form, Formik, FormikContextType } from 'formik';
 import { createRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import backgroundRegister from '../../../assets/images/background/backgroundRegister.png';
-import page500 from '../../../assets/images/logo/page500.png';
 
 function Register() {
   const { t } = useTranslation();
@@ -37,14 +42,23 @@ function Register() {
     //   }
     // });
   };
+  const handleValidAccount = () => {
+    const exam = openPortalDialog(WarningModal, {
+      message: 'register.confirmEmail',
+    });
+    exam.afterClosed().subscribe((data: { isAccept: boolean }) => {
+      data?.isAccept && addToast({ text: SystemMessage.UNKNOWN_ERROR, position: 'top-right' });
+    });
+  };
+
   return (
     <div
-      className="flex items-center justify-center min-h-screen "
+      className="flex items-center justify-center min-h-screen"
       style={{ backgroundImage: `url(${backgroundRegister})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <div className=" flex items-center rounded-[10px] bg-blue-50 shadow-6 ">
         <div className="flex-1 ml-8">
-          <img src={page500} alt="Your Image" className="w-100 h-100 object-cover rounded" />
+          <img src={avatarRegister} alt="Your Image" className="w-100 h-100 object-cover rounded" />
         </div>
         <div className="flex-1 text-center rounded border-gray-300 p-4 ">
           <h2 className="text-[50px] font-bold text-center">{t('register.register')}</h2>
@@ -58,59 +72,26 @@ function Register() {
             validateOnBlur
           >
             <Form className="max-w-lg mx-auto p-8 border shadow-6 rounded-[10px]">
-              <FormControl name="username">
-                <Input
-                  width="auto"
-                  className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
-                  placeholder={t('register.username')}
-                  inputClassName="w-full"
-                  errorClassName="text-red-500 text-xs"
-                />
-              </FormControl>
-
-              <FormControl name="email">
-                <Input
-                  width="auto"
-                  className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
-                  placeholder={t('register.email')}
-                  inputClassName="w-full"
-                  errorClassName="text-red-500 text-xs"
-                />
-              </FormControl>
-
-              <FormControl name="phone">
-                <Input
-                  width="auto"
-                  className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
-                  placeholder={t('register.phone')}
-                  inputClassName="w-full"
-                  errorClassName="text-red-500 text-xs"
-                />
-              </FormControl>
-
-              <FormControl name="password">
-                <Input
-                  width="auto"
-                  className="w-full mb-5 p-1  rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
-                  placeholder={t('register.password')}
-                  inputClassName="w-full"
-                  errorClassName="text-red-500 text-xs"
-                  type="password"
-                />
-              </FormControl>
-
-              <FormControl name="confirmPassword">
-                <Input
-                  width="auto"
-                  className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
-                  placeholder={t('register.confirmPassword')}
-                  inputClassName="w-full"
-                  errorClassName="text-red-500 text-xs"
-                  type="password"
-                />
-              </FormControl>
+              {formFields.register.map((field, index) => (
+                <FormControl key={index} name={field.name}>
+                  <Input
+                    width="auto"
+                    className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
+                    placeholder={t(field.placeholder)}
+                    inputClassName="w-full"
+                    errorClassName="text-red-500 text-xs"
+                    type={field.type as FieldType}
+                  />
+                </FormControl>
+              ))}
               <div>
-                <Button type="submit" label={t('register.signup')} width="w-full" size="m" className="rounded-[10px]" />
+                <Button
+                  onClick={handleValidAccount}
+                  label={t('register.signup')}
+                  width="w-full"
+                  size="m"
+                  className="rounded-[10px]"
+                />
                 <small>{t('register.or')}</small>
                 <div className="mt-2 text-sm text-blue-500 text-center">
                   <Link

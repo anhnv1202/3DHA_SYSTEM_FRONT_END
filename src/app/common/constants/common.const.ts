@@ -43,6 +43,8 @@ export const REF = {
 
 export const PATHS = {
   REGISTER: '/register',
+  FORGOT_PASSWORD: '/forgot-password',
+  CHANGE_PASSWORD: '/change-password',
   LOGIN: '/login',
 };
 
@@ -50,4 +52,5 @@ export const INITIAL_VALUES = {
   REGISTER: { username: '', email: '', phone: '', password: '', confirmPassword: '' },
   FORGOT_PASSWORD: { email: '' },
   LOGIN: { email: '', password: '' } as LoginInitialValues,
+  CHANGE_PASSWORD: { newPassword: '', confirmNewPassword: '' },
 };
