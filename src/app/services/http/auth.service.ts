@@ -1,4 +1,4 @@
-import { LoginResponse, SignUpRequest } from '@app/types';
+import { ConfirmResponse, LoginResponse, SignUpRequest } from '@app/types';
 import HttpService from '@core/services/http/http.service';
 
 class _AuthService {
@@ -18,7 +18,7 @@ class _AuthService {
   }
 
   public confirm(token: string) {
-    return HttpService.post<LoginResponse>('/confirm', {
+    return HttpService.post<ConfirmResponse>('/auth/confirm', {
       body: { token },
     });
   }

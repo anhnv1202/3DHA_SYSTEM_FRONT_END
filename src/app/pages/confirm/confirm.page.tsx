@@ -1,3 +1,5 @@
+import AuthService from '@app/services/http/auth.service';
+import { ConfirmResponse } from '@app/types';
 import useObservable from '@core/hooks/use-observable.hook';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -7,10 +9,9 @@ function Confirm() {
   const { subscribeOnce } = useObservable();
   const token = window.location.search.replace('?token=', '');
   useEffect(() => {
-    // subscribeOnce(AuthService.confirm(token), (response: ) => {
-    //     if (response.status === true) {
-    //         //
-    //     });
+    subscribeOnce(AuthService.confirm(token), (ConfirmRes: ConfirmResponse) => {
+      console.log(ConfirmRes);
+    });
   }, []);
 
   return <></>;

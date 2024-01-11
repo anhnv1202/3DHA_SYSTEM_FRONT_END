@@ -34,3 +34,7 @@ export interface ChangePasswordInitialValues {
   newPassword: string;
   confirmNewPassword: string;
 }
+
+export interface ConfirmResponse {
+  status: boolean;
+}
