@@ -1,12 +1,12 @@
-import { INITIAL_VALUES, SystemMessage } from '@app/common/constants';
+import { INITIAL_VALUES } from '@app/common/constants';
 import { formFields } from '@app/common/constants/const';
 import Button from '@app/components/button';
 import { FormControl } from '@app/components/form-control';
 import Input from '@app/components/input';
-import { addToast } from '@app/components/toast/toast.service';
 import WarningModal from '@app/components/warning-modal';
+import AuthService from '@app/services/http/auth.service';
 import { openPortalDialog } from '@app/services/modal.service';
-import { SignUpInitialValues } from '@app/types';
+import { RegisterResponse, SignUpInitialValues } from '@app/types';
 import { FieldType } from '@app/types/helper';
 import { signUpValidationSchema } from '@app/validations';
 import backgroundRegister from '@assets/images/background/backgroundRegister.png';
@@ -31,23 +31,13 @@ function Register() {
     }
   }, [formRef]);
   const handleSubmit = (values: SignUpInitialValues) => {
-    // subscribeOnce(AuthService.login(values.username, values.password), (LoginRes: LoginResponse) => {
-    //   if (LoginRes.role === ROLE.STUDENT) {
-    //     StorageService.set(ACCESS_TOKEN_KEY, LoginRes.jwt);
-    //     StorageService.setObject(USER_INFO_KEY, {
-    //       _id: LoginRes._id,
-    //       username: LoginRes.username,
-    //     });
-    //     dispatch(storeUser(LoginRes));
-    //   }
-    // });
-  };
-  const handleValidAccount = () => {
-    const exam = openPortalDialog(WarningModal, {
-      message: 'register.confirmEmail',
-    });
-    exam.afterClosed().subscribe((data: { isAccept: boolean }) => {
-      data?.isAccept && addToast({ text: SystemMessage.UNKNOWN_ERROR, position: 'top-right' });
+    subscribeOnce(AuthService.register({ ...values }), (RegisterRes: RegisterResponse) => {
+      console.log(RegisterRes);
+      if (RegisterRes.status) {
+        openPortalDialog(WarningModal, {
+          message: 'register.confirmEmail',
+        });
+      }
     });
   };
 
@@ -85,13 +75,7 @@ function Register() {
                 </FormControl>
               ))}
               <div>
-                <Button
-                  onClick={handleValidAccount}
-                  label={t('register.signup')}
-                  width="w-full"
-                  size="m"
-                  className="rounded-[10px]"
-                />
+                <Button type="submit" label={t('register.signup')} width="w-full" size="m" className="rounded-[10px]" />
                 <small>{t('register.or')}</small>
                 <div className="mt-2 text-sm text-blue-500 text-center">
                   <Link

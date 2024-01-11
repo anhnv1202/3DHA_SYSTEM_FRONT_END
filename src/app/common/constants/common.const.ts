@@ -46,7 +46,7 @@ export const PATHS = {
 };
 
 export const INITIAL_VALUES = {
-  REGISTER: { username: '', email: '', phone: '', password: '', confirmPassword: '' },
+  REGISTER: { username: '', email: '', phone: '', password: '', rePassword: '' },
   FORGOT_PASSWORD: { email: '' },
   CHANGE_PASSWORD: { newPassword: '', confirmNewPassword: '' },
 };

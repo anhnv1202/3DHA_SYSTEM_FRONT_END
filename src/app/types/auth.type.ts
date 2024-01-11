@@ -15,15 +15,13 @@ export interface SignUpInitialValues {
   email: string;
   phone: string;
   password: string;
-  confirmPassword: string;
+  rePassword: string;
 }
 
-export interface SignUpRequest {
-  username: string;
-  email: string;
-  phonenumber: string;
-  password: string;
-  confirmPassword: string;
+export interface SignUpRequest extends SignUpInitialValues {}
+
+export interface RegisterResponse {
+  status: boolean;
 }
 
 export interface ForgotPasswordInitialValues {
