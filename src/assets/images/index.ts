@@ -9,6 +9,10 @@ import * as SpriteSortIcon from '@assets/images/svg/sprite-icon-sort.svg';
 import * as SpriteIcon from '@assets/images/svg/sprite-icon.svg';
 import { FaGoogle } from 'react-icons/fa';
 import { FaFacebook, FaXTwitter } from 'react-icons/fa6';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { TfiWorld } from 'react-icons/tfi';
+import { MdOutlineShoppingCart } from 'react-icons/md';
+import { BsThreeDotsVertical } from 'react-icons/bs';
 export const Images = {
   RemoveIconThin,
   EyeIcon,
@@ -22,4 +26,8 @@ export const Images = {
   FaGoogle,
   FaFacebook,
   FaXTwitter,
+  AiOutlineSearch,
+  TfiWorld,
+  MdOutlineShoppingCart,
+  BsThreeDotsVertical,
 };

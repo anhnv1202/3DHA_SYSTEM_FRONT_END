@@ -1,9 +1,9 @@
 {
-  "demo": {
-    "demoModal": "hello Dung & Dat",
-    "hello": "Hello",
-    "goodbye": "Goodbye",
-    "demoMessageConfirm": "Are you sure to continue?"
+  "footer": {
+    "facebook": "Facebook",
+    "xtwitter": "XTwitter",
+    "google": "Google",
+    "contact": "Copyright ©2024 - Designed by 3DHA"
   },
   "button": {
     "cancel": "Cancel",
@@ -51,5 +51,13 @@
     "password-does-not-match": "Password does not match",
     "phone-number-must-be-10-digits": "Phone number must be 10 digits",
     "email-invalid": "Email invalid"
+  },
+  "header": {
+    "login": "Log in",
+    "register": "Sign up",
+    "category": "Categories",
+    "searchText": "Search for anything",
+    "bussiness": "Bussiness",
+    "teaching": "Teaching on 3DHA"
   }
 }

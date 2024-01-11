@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { ReactNode } from 'react';
 
 interface ButtonProps {
   id?: string;
@@ -20,7 +21,7 @@ interface ButtonProps {
   /**
    * Default: 'primary'
    */
-  theme?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'none';
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'none' | 'normal';
 
   /**
    * Default: false
@@ -40,6 +41,8 @@ interface ButtonProps {
   containerClassName?: string;
 
   width?: number | string;
+
+  children?: ReactNode;
 }
 
 function Button({
@@ -54,6 +57,7 @@ function Button({
   disabled = false,
   onClick = () => {},
   width = 80,
+  children,
 }: ButtonProps) {
   return (
     <div style={{ width }} className={`${containerClassName}`}>
@@ -72,7 +76,7 @@ function Button({
           'border border-solid border-[#e60000]': theme === 'danger',
           'bg-[#29b6f6] hover:bg-[#81d4fa]': theme === 'tertiary',
           'bg-white text-[#1E86E5] hover:bg-[#1E86E5]': theme === 'secondary',
-          'border border-solid border-[#1E86E5] hover:text-white': theme === 'secondary',
+          'border border-solid border-[#1E86E5] hover:text-white': theme === 'normal',
           '!bg-[#1E86E5] text-white': disabled,
         })}
         id={id}
@@ -81,6 +85,7 @@ function Button({
         onClick={onClick}
       >
         <span className={`${labelClassName}`}>{label}</span>
+        {children}
       </button>
     </div>
   );
