@@ -1,4 +1,5 @@
 import { INITIAL_VALUES, SystemMessage } from '@app/common/constants';
+import { formFields } from '@app/common/constants/const';
 import Button from '@app/components/button';
 import { FormControl } from '@app/components/form-control';
 import Input from '@app/components/input';
@@ -6,6 +7,7 @@ import { addToast } from '@app/components/toast/toast.service';
 import WarningModal from '@app/components/warning-modal';
 import { openPortalDialog } from '@app/services/modal.service';
 import { SignUpInitialValues } from '@app/types';
+import { FieldType } from '@app/types/helper';
 import { signUpValidationSchema } from '@app/validations';
 import backgroundRegister from '@assets/images/background/backgroundRegister.png';
 import avatarRegister from '@assets/images/logo/avatarRegister.png';
@@ -70,57 +72,18 @@ function Register() {
             validateOnBlur
           >
             <Form className="max-w-lg mx-auto p-8 border shadow-6 rounded-[10px]">
-              <FormControl name="username">
-                <Input
-                  width="auto"
-                  className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
-                  placeholder={t('register.username')}
-                  inputClassName="w-full"
-                  errorClassName="text-red-500 text-xs"
-                />
-              </FormControl>
-
-              <FormControl name="email">
-                <Input
-                  width="auto"
-                  className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
-                  placeholder={t('register.email')}
-                  inputClassName="w-full"
-                  errorClassName="text-red-500 text-xs"
-                />
-              </FormControl>
-
-              <FormControl name="phone">
-                <Input
-                  width="auto"
-                  className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
-                  placeholder={t('register.phone')}
-                  inputClassName="w-full"
-                  errorClassName="text-red-500 text-xs"
-                />
-              </FormControl>
-
-              <FormControl name="password">
-                <Input
-                  width="auto"
-                  className="w-full mb-5 p-1  rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
-                  placeholder={t('register.password')}
-                  inputClassName="w-full"
-                  errorClassName="text-red-500 text-xs"
-                  type="password"
-                />
-              </FormControl>
-
-              <FormControl name="confirmPassword">
-                <Input
-                  width="auto"
-                  className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
-                  placeholder={t('register.confirmPassword')}
-                  inputClassName="w-full"
-                  errorClassName="text-red-500 text-xs"
-                  type="password"
-                />
-              </FormControl>
+              {formFields.register.map((field, index) => (
+                <FormControl key={index} name={field.name}>
+                  <Input
+                    width="auto"
+                    className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
+                    placeholder={t(field.placeholder)}
+                    inputClassName="w-full"
+                    errorClassName="text-red-500 text-xs"
+                    type={field.type as FieldType}
+                  />
+                </FormControl>
+              ))}
               <div>
                 <Button
                   onClick={handleValidAccount}

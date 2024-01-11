@@ -1,5 +1,5 @@
 import { INITIAL_VALUES, SystemMessage } from '@app/common/constants';
-import { formFieldsChangePassword } from '@app/common/constants/const';
+import { formFields } from '@app/common/constants/const';
 import Button from '@app/components/button';
 import { FormControl } from '@app/components/form-control';
 import Input from '@app/components/input';
@@ -7,6 +7,7 @@ import { addToast } from '@app/components/toast/toast.service';
 import WarningModal from '@app/components/warning-modal';
 import { openPortalDialog } from '@app/services/modal.service';
 import { ChangePasswordInitialValues } from '@app/types';
+import { FieldType } from '@app/types/helper';
 import { changePasswordValidationSchema } from '@app/validations';
 import backgroundRegister from '@assets/images/background/backgroundRegister.png';
 import avatarChangePass from '@assets/images/logo/avatarChangePass.png';
@@ -68,7 +69,7 @@ function ChangePassword() {
             validateOnBlur
           >
             <Form className="max-w-lg mx-auto p-8 border shadow-6 rounded-[10px]">
-              {formFieldsChangePassword.map((field) => (
+              {formFields.changePassword.map((field) => (
                 <FormControl key={field.name} name={field.name}>
                   <Input
                     width="auto"
@@ -76,7 +77,7 @@ function ChangePassword() {
                     placeholder={t(field.placeholder)}
                     inputClassName="w-full"
                     errorClassName="text-red-500 text-xs"
-                    type={field.type as 'number' | 'text' | 'password' | 'date' | undefined}
+                    type={field.type as FieldType}
                   />
                 </FormControl>
               ))}
