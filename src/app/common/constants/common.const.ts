@@ -41,6 +41,7 @@ export const REF = {
 
 export const PATHS = {
   REGISTER: '/register',
+  FORGOT_PASSWORD: '/forgot-password',
 };
 
 export const INITIAL_VALUES = {
