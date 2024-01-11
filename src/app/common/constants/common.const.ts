@@ -45,7 +45,12 @@ export const PATHS = {
   REGISTER: '/register',
   FORGOT_PASSWORD: '/forgot-password',
   CHANGE_PASSWORD: '/change-password',
+  HOMEPAGE: '/home',
+  BUSSINESS: '/business',
+  TEACHING: '/teaching',
   LOGIN: '/login',
+  CART: '/cart',
+  CATEGORY: '/category',
 };
 
 export const INITIAL_VALUES = {

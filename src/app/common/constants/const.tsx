@@ -1,6 +1,6 @@
-import { FormField, SocialMediaLink } from '@app/types/helper';
-import { Images } from '@assets/images';
 import i18n from '@core/configs/i18n.config';
+import { FormField, NavbarLink, SocialMediaLink } from '@app/types/helper';
+import { Images } from '@assets/images';
 
 export const socialMediaLinks: SocialMediaLink[] = [
   { platform: 'Facebook', icon: <Images.FaFacebook />, link: '/' },
@@ -26,3 +26,66 @@ export const formFields: { [key: string]: FormField[] } = {
     { name: 'password', placeholder: i18n.t('login.password'), type: 'password' },
   ],
 };
+
+export const navbarLinks: NavbarLink[] = [
+  {
+    name: 'Entrepreneurship Spirit',
+    path: '/courses/business/entrepreneurship/',
+  },
+  {
+    name: 'Communication',
+    path: '/courses/business/communications/',
+  },
+  {
+    name: 'Management',
+    path: '/courses/business/management/',
+  },
+  {
+    name: 'Sales',
+    path: '/courses/business/sales/',
+  },
+  {
+    name: 'Business Strategy',
+    path: '/courses/business/strategy/',
+  },
+  {
+    name: 'Operations',
+    path: '/courses/business/operations/',
+  },
+  {
+    name: 'Project Management',
+    path: '/courses/business/project-management/',
+  },
+  {
+    name: 'Business Law',
+    path: '/courses/business/business-law/',
+  },
+  {
+    name: 'Business Intelligence and Analytics',
+    path: '/courses/business/analytics-and-intelligence/',
+  },
+  {
+    name: 'Human Resources',
+    path: '/courses/business/human-resources/',
+  },
+  {
+    name: 'Industry',
+    path: '/courses/business/industry/',
+  },
+  {
+    name: 'E-commerce',
+    path: '/courses/business/e-commerce/',
+  },
+  {
+    name: 'Media',
+    path: '/courses/business/media/',
+  },
+  {
+    name: 'Real Estate',
+    path: '/courses/business/real-estate/',
+  },
+  {
+    name: 'Other Business',
+    path: '/courses/business/other-business/',
+  },
+];
