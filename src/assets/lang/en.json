@@ -30,6 +30,14 @@
     "login": "Back to login",
     "or": "Or"
   },
+  "changePassword": {
+    "changePassword": "Change Password",
+    "password": "Re-Password",
+    "confirmPassword": "Confirm Re-Password",
+    "changePass": "Change password successfully! Login now!",
+    "login": "Back to login",
+    "or": "Or"
+  },
   "errorPage": {
     "500Messages": "Internal Server Error!",
     "500Messages2": "Unfortunately we're having trouble loading the page you are looking for",

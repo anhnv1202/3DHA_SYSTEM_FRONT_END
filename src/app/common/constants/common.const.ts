@@ -42,9 +42,11 @@ export const REF = {
 export const PATHS = {
   REGISTER: '/register',
   FORGOT_PASSWORD: '/forgot-password',
+  CHANGE_PASSWORD: '/change-password',
 };
 
 export const INITIAL_VALUES = {
   REGISTER: { username: '', email: '', phone: '', password: '', confirmPassword: '' },
   FORGOT_PASSWORD: { email: '' },
+  CHANGE_PASSWORD: { newPassword: '', confirmNewPassword: '' },
 };

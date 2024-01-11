@@ -27,3 +27,10 @@ export const signUpValidationSchema = createValidation({
 export const forgotPasswordValidationSchema = createValidation({
   email: Yup.string().required(requireMessage).matches(REGEX.EMAIL, i18n.t(VALIDATION.EMAIL_INVALID)),
 });
+
+export const changePasswordValidationSchema = createValidation({
+  newPassword: Yup.string().required(requireMessage),
+  confirmNewPassword: Yup.string()
+    .required(requireMessage)
+    .oneOf([Yup.ref(REF.PASSSWORD)], i18n.t(VALIDATION.PASSWORD_MATCH)),
+});
