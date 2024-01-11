@@ -32,8 +32,21 @@ export enum OrderType {
 export const REGEX = {
   USERNAME: /^[\d\w]+$/,
   PHONE_NUMBER: /^[0-9]{10}$/,
+  EMAIL: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
 };
 
 export const REF = {
   PASSSWORD: 'password',
+};
+
+export const PATHS = {
+  REGISTER: '/register',
+  FORGOT_PASSWORD: '/forgot-password',
+  CHANGE_PASSWORD: '/change-password',
+};
+
+export const INITIAL_VALUES = {
+  REGISTER: { username: '', email: '', phone: '', password: '', confirmPassword: '' },
+  FORGOT_PASSWORD: { email: '' },
+  CHANGE_PASSWORD: { newPassword: '', confirmNewPassword: '' },
 };

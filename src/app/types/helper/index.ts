@@ -13,4 +13,12 @@ export interface SocialMediaLink {
   link: string;
 }
 
+export type FieldType = 'number' | 'text' | 'password' | 'date' | undefined;
+
+export interface FormField {
+  name: string;
+  placeholder: string;
+  type: string;
+}
+
 export type ExtractPropsFromComponent<C> = C extends ComponentType<infer P> ? P : any;
