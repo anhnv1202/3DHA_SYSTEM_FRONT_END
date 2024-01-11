@@ -1,5 +1,5 @@
-import HttpService from '@core/services/http/http.service';
 import { LoginResponse, SignUpRequest } from '@app/types';
+import HttpService from '@core/services/http/http.service';
 
 class _AuthService {
   public login(username: string, password: string) {
@@ -14,6 +14,12 @@ class _AuthService {
   public signUp(signUpRequest: SignUpRequest) {
     return HttpService.post<LoginResponse>('/accounts', {
       body: { ...signUpRequest },
+    });
+  }
+
+  public confirm(token: string) {
+    return HttpService.post<LoginResponse>('/confirm', {
+      body: { token },
     });
   }
 }
