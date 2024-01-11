@@ -53,7 +53,21 @@ function Register() {
             validateOnBlur
           >
             <Form className="max-w-lg mx-auto p-8 border shadow-6 rounded-[10px]">
-              {formFields.register.map((field, index) => (
+              <div className="flex">
+                {formFields.register1.map((field, index) => (
+                  <FormControl key={index} name={field.name}>
+                    <Input
+                      width="auto"
+                      className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
+                      placeholder={t(field.placeholder)}
+                      inputClassName="w-full"
+                      errorClassName="text-red-500 text-xs"
+                      type={field.type as FieldType}
+                    />
+                  </FormControl>
+                ))}
+              </div>
+              {formFields.register2.map((field, index) => (
                 <FormControl key={index} name={field.name}>
                   <Input
                     width="auto"
