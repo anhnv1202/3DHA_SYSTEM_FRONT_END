@@ -1,4 +1,5 @@
 import { INITIAL_VALUES, SystemMessage } from '@app/common/constants';
+import { formFieldsChangePassword } from '@app/common/constants/const';
 import Button from '@app/components/button';
 import { FormControl } from '@app/components/form-control';
 import Input from '@app/components/input';
@@ -67,27 +68,18 @@ function ChangePassword() {
             validateOnBlur
           >
             <Form className="max-w-lg mx-auto p-8 border shadow-6 rounded-[10px]">
-              <FormControl name="newPassword">
-                <Input
-                  width="auto"
-                  className="w-full mb-5 p-1  rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
-                  placeholder={t('changePassword.password')}
-                  inputClassName="w-full"
-                  errorClassName="text-red-500 text-xs"
-                  type="password"
-                />
-              </FormControl>
-
-              <FormControl name="confirmNewPassword">
-                <Input
-                  width="auto"
-                  className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
-                  placeholder={t('changePassword.confirmPassword')}
-                  inputClassName="w-full"
-                  errorClassName="text-red-500 text-xs"
-                  type="password"
-                />
-              </FormControl>
+              {formFieldsChangePassword.map((field) => (
+                <FormControl key={field.name} name={field.name}>
+                  <Input
+                    width="auto"
+                    className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
+                    placeholder={t(field.placeholder)}
+                    inputClassName="w-full"
+                    errorClassName="text-red-500 text-xs"
+                    type={field.type as 'number' | 'text' | 'password' | 'date' | undefined}
+                  />
+                </FormControl>
+              ))}
               <div>
                 <Button
                   onClick={handleValidAccount}
