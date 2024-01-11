@@ -1,4 +1,4 @@
-import { ConfirmResponse, LoginResponse, SignUpRequest } from '@app/types';
+import { ConfirmResponse, LoginResponse, RegisterResponse, SignUpRequest } from '@app/types';
 import HttpService from '@core/services/http/http.service';
 
 class _AuthService {
@@ -11,8 +11,8 @@ class _AuthService {
     });
   }
 
-  public signUp(signUpRequest: SignUpRequest) {
-    return HttpService.post<LoginResponse>('/accounts', {
+  public register(signUpRequest: SignUpRequest) {
+    return HttpService.post<RegisterResponse>('/auth/register', {
       body: { ...signUpRequest },
     });
   }

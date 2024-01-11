@@ -40,13 +40,15 @@ export const REF = {
 };
 
 export const PATHS = {
+  LOGIN: '/login',
   REGISTER: '/register',
   FORGOT_PASSWORD: '/forgot-password',
   CHANGE_PASSWORD: '/change-password',
+  CONFIRM: '/confirm',
 };
 
 export const INITIAL_VALUES = {
-  REGISTER: { username: '', email: '', phone: '', password: '', confirmPassword: '' },
+  REGISTER: { username: '', email: '', phone: '', password: '', rePassword: '' },
   FORGOT_PASSWORD: { email: '' },
   CHANGE_PASSWORD: { newPassword: '', confirmNewPassword: '' },
 };

@@ -1,5 +1,4 @@
-import { ACCESS_TOKEN_KEY } from '@app/common/constants';
-import { SystemMessage } from '@app/common/constants/message.const';
+import { ACCESS_TOKEN_KEY, SystemMessage } from '@app/common/constants';
 import { addToast } from '@app/components/toast/toast.service';
 import { isNullOrUndefined, isStrEmpty, nullSafetyJSONStringify } from '@core/helpers/helpers';
 import { Environment } from '@environments/environment';
@@ -122,8 +121,7 @@ class _HttpService {
       }),
       catchError((error) => {
         this.onError$.next(error);
-
-        const message = error?.response?.message ?? SystemMessage.UNKNOWN_ERROR;
+        const message = error?.response?.errors ?? SystemMessage.UNKNOWN_ERROR;
 
         addToast({ text: message, status: 'inValid' });
 
@@ -166,7 +164,8 @@ class _HttpService {
   }
 
   public handleResponse<T>(ajaxResponse: AjaxResponse<any>): T {
-    return ajaxResponse.response;
+    console.log(ajaxResponse.response.data);
+    return ajaxResponse.response.data;
   }
 
   private resolveUri(uri: string): string {

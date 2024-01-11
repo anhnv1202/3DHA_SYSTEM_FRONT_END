@@ -18,7 +18,7 @@ export const signUpValidationSchema = createValidation({
     .matches(REGEX.USERNAME, i18n.t(VALIDATION.ALPHANUMERIC_NUMBER_ONLY)),
   email: Yup.string().required(requireMessage).matches(REGEX.EMAIL, i18n.t(VALIDATION.EMAIL_INVALID)),
   password: Yup.string().required(requireMessage),
-  confirmPassword: Yup.string()
+  rePassword: Yup.string()
     .required(requireMessage)
     .oneOf([Yup.ref(REF.PASSSWORD)], i18n.t(VALIDATION.PASSWORD_MATCH)),
   phone: Yup.string().required(requireMessage).matches(REGEX.PHONE_NUMBER, i18n.t(VALIDATION.PHONE_LENGTH)),

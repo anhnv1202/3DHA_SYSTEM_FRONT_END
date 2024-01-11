@@ -31,7 +31,7 @@ function ForgotPassword() {
     }
   }, [formRef]);
   const handleSubmit = (values: ForgotPasswordInitialValues) => {
-    // subscribeOnce(AuthService.login(values.username, values.password), (LoginRes: LoginResponse) => {
+    // subscribeOnce(AuthService.login(values.username, values.password), (Ll=ginRes: LoginResponse) => {
     //   if (LoginRes.role === ROLE.STUDENT) {
     //     StorageService.set(ACCESS_TOKEN_KEY, LoginRes.jwt);
     //     StorageService.setObject(USER_INFO_KEY, {

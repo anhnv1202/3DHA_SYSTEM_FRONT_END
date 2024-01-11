@@ -1,53 +1,35 @@
-import { INITIAL_VALUES, SystemMessage } from '@app/common/constants';
+import { INITIAL_VALUES } from '@app/common/constants';
 import { formFields } from '@app/common/constants/const';
 import Button from '@app/components/button';
 import { FormControl } from '@app/components/form-control';
 import Input from '@app/components/input';
-import { addToast } from '@app/components/toast/toast.service';
 import WarningModal from '@app/components/warning-modal';
+import AuthService from '@app/services/http/auth.service';
 import { openPortalDialog } from '@app/services/modal.service';
-import { SignUpInitialValues } from '@app/types';
+import { RegisterResponse, SignUpInitialValues } from '@app/types';
 import { FieldType } from '@app/types/helper';
 import { signUpValidationSchema } from '@app/validations';
 import backgroundRegister from '@assets/images/background/backgroundRegister.png';
 import avatarRegister from '@assets/images/logo/avatarRegister.png';
 import useObservable from '@core/hooks/use-observable.hook';
 import { Form, Formik, FormikContextType } from 'formik';
-import { createRef, useEffect } from 'react';
+import { createRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 function Register() {
   const { t } = useTranslation();
   const formRef = createRef<FormikContextType<SignUpInitialValues>>();
-  const dispatch = useDispatch();
   const { subscribeOnce } = useObservable();
-  useEffect(() => {
-    if (formRef.current) {
-      // const formValues = formRef.current.values;
-      // formRef.current.setFieldValue('username', 'Va deeptroy');
-      // console.log('Form Values:', formValues);
-    }
-  }, [formRef]);
+
   const handleSubmit = (values: SignUpInitialValues) => {
-    // subscribeOnce(AuthService.login(values.username, values.password), (LoginRes: LoginResponse) => {
-    //   if (LoginRes.role === ROLE.STUDENT) {
-    //     StorageService.set(ACCESS_TOKEN_KEY, LoginRes.jwt);
-    //     StorageService.setObject(USER_INFO_KEY, {
-    //       _id: LoginRes._id,
-    //       username: LoginRes.username,
-    //     });
-    //     dispatch(storeUser(LoginRes));
-    //   }
-    // });
-  };
-  const handleValidAccount = () => {
-    const exam = openPortalDialog(WarningModal, {
-      message: 'register.confirmEmail',
-    });
-    exam.afterClosed().subscribe((data: { isAccept: boolean }) => {
-      data?.isAccept && addToast({ text: SystemMessage.UNKNOWN_ERROR, position: 'top-right' });
+    subscribeOnce(AuthService.register({ ...values }), (RegisterRes: RegisterResponse) => {
+      console.log(RegisterRes);
+      if (RegisterRes.status) {
+        openPortalDialog(WarningModal, {
+          message: 'register.confirmEmail',
+        });
+      }
     });
   };
 
@@ -85,13 +67,7 @@ function Register() {
                 </FormControl>
               ))}
               <div>
-                <Button
-                  onClick={handleValidAccount}
-                  label={t('register.signup')}
-                  width="w-full"
-                  size="m"
-                  className="rounded-[10px]"
-                />
+                <Button type="submit" label={t('register.signup')} width="w-full" size="m" className="rounded-[10px]" />
                 <small>{t('register.or')}</small>
                 <div className="mt-2 text-sm text-blue-500 text-center">
                   <Link
