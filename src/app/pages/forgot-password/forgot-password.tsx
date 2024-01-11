@@ -1,5 +1,5 @@
 import { INITIAL_VALUES, SystemMessage } from '@app/common/constants';
-import { formFieldsForgotPassword } from '@app/common/constants/const';
+import { formFields } from '@app/common/constants/const';
 import Button from '@app/components/button';
 import { FormControl } from '@app/components/form-control';
 import Input from '@app/components/input';
@@ -7,6 +7,7 @@ import { addToast } from '@app/components/toast/toast.service';
 import WarningModal from '@app/components/warning-modal';
 import { openPortalDialog } from '@app/services/modal.service';
 import { ForgotPasswordInitialValues } from '@app/types';
+import { FieldType } from '@app/types/helper';
 import { forgotPasswordValidationSchema } from '@app/validations';
 import backgroundRegister from '@assets/images/background/backgroundRegister.png';
 import avatarForgotPass from '@assets/images/logo/avatarForgotPass.png';
@@ -75,7 +76,7 @@ function ForgotPassword() {
             validateOnBlur
           >
             <Form className="max-w-lg mx-auto p-8 border shadow-6 rounded-[10px]">
-              {formFieldsForgotPassword.map((field, index) => (
+              {formFields.forgotPassword.map((field, index) => (
                 <FormControl key={index} name={field.name}>
                   <Input
                     width="auto"
@@ -83,7 +84,7 @@ function ForgotPassword() {
                     placeholder={t(field.placeholder)}
                     inputClassName="w-full"
                     errorClassName="text-red-500 text-xs"
-                    type={field.type as 'number' | 'text' | 'password' | 'date' | undefined}
+                    type={field.type as FieldType}
                   />
                 </FormControl>
               ))}

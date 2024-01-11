@@ -1,5 +1,5 @@
 import { INITIAL_VALUES, SystemMessage } from '@app/common/constants';
-import { formFieldsRegister } from '@app/common/constants/const';
+import { formFields } from '@app/common/constants/const';
 import Button from '@app/components/button';
 import { FormControl } from '@app/components/form-control';
 import Input from '@app/components/input';
@@ -7,6 +7,7 @@ import { addToast } from '@app/components/toast/toast.service';
 import WarningModal from '@app/components/warning-modal';
 import { openPortalDialog } from '@app/services/modal.service';
 import { SignUpInitialValues } from '@app/types';
+import { FieldType } from '@app/types/helper';
 import { signUpValidationSchema } from '@app/validations';
 import backgroundRegister from '@assets/images/background/backgroundRegister.png';
 import avatarRegister from '@assets/images/logo/avatarRegister.png';
@@ -71,7 +72,7 @@ function Register() {
             validateOnBlur
           >
             <Form className="max-w-lg mx-auto p-8 border shadow-6 rounded-[10px]">
-              {formFieldsRegister.map((field, index) => (
+              {formFields.register.map((field, index) => (
                 <FormControl key={index} name={field.name}>
                   <Input
                     width="auto"
@@ -79,7 +80,7 @@ function Register() {
                     placeholder={t(field.placeholder)}
                     inputClassName="w-full"
                     errorClassName="text-red-500 text-xs"
-                    type={field.type as 'number' | 'text' | 'password' | 'date' | undefined}
+                    type={field.type as FieldType}
                   />
                 </FormControl>
               ))}

@@ -13,6 +13,8 @@ export interface SocialMediaLink {
   link: string;
 }
 
+export type FieldType = 'number' | 'text' | 'password' | 'date' | undefined;
+
 export interface FormField {
   name: string;
   placeholder: string;
