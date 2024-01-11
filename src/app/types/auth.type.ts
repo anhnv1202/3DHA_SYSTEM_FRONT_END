@@ -36,4 +36,3 @@ export interface ChangePasswordInitialValues {
 export interface ConfirmResponse {
   status: boolean;
 }
-
