@@ -9,5 +9,47 @@
     "cancel": "Cancel",
     "close": "Close",
     "confirm": "Confirm"
+  },
+  "register": {
+    "register": "Register",
+    "username": "Username",
+    "email": "Email",
+    "phone": "Phone",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "signup": "Sign Up",
+    "or": "Or",
+    "account": "You have an account? Log in",
+    "confirmEmail": "Please check your email to verify account!"
+  },
+  "forgotPassword": {
+    "forgotPassword": "Forgot Password",
+    "email": "Email",
+    "sendEmail": "Send Email",
+    "confirmEmail": "Please check your email to modify the password!",
+    "login": "Back to login",
+    "or": "Or"
+  },
+  "changePassword": {
+    "changePassword": "Change Password",
+    "password": "Re-Password",
+    "confirmPassword": "Confirm Re-Password",
+    "changePass": "Change password successfully! Login now!",
+    "login": "Back to login",
+    "or": "Or"
+  },
+  "errorPage": {
+    "500Messages": "Internal Server Error!",
+    "500Messages2": "Unfortunately we're having trouble loading the page you are looking for",
+    "homepage": "Home Page"
+  },
+  "validation": {
+    "minimum": "Minimum {{min}} characters",
+    "maximum": "Maximum {{max}} characters",
+    "only-include-a-z,A-Z,0-9": "Only include a-z, A-Z, 0-9",
+    "must-not-be-empty": "Must not be empty",
+    "password-does-not-match": "Password does not match",
+    "phone-number-must-be-10-digits": "Phone number must be 10 digits",
+    "email-invalid": "Email invalid"
   }
 }
