@@ -24,7 +24,6 @@ function Register() {
 
   const handleSubmit = (values: SignUpInitialValues) => {
     subscribeOnce(AuthService.register({ ...values }), (RegisterRes: RegisterResponse) => {
-      console.log(RegisterRes);
       if (RegisterRes.status) {
         openPortalDialog(WarningModal, {
           message: 'register.confirmEmail',
