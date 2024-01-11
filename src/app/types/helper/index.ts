@@ -13,4 +13,10 @@ export interface SocialMediaLink {
   link: string;
 }
 
+export interface FormField {
+  name: string;
+  placeholder: string;
+  type: string;
+}
+
 export type ExtractPropsFromComponent<C> = C extends ComponentType<infer P> ? P : any;
