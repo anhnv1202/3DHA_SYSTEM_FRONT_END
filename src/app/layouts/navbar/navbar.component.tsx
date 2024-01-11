@@ -15,6 +15,7 @@ function Navbar({}: Props) {
   };
   return (
     <nav className="subcategory-link-bar--subcategory-link-bar--24CSR">
+      {/* Displaying components with positions less than 10 */}
       <ul className="ud-unstyled-list subcategory-link-bar--nav-list--2qrtK" data-purposes="nav-list">
         {navbarLinks.slice(0, 11).map((link, index) => {
           if (index === 0) {
@@ -49,6 +50,11 @@ function Navbar({}: Props) {
           );
         })}
       </ul>
+
+      {/* 
+        Display the BsThreeDotsVertical icon when the length of the links array is too long,
+        allowing users to expand and view more.
+      */}
       {navbarLinksLength && (
         <div className="popper-module--popper--2BpLn">
           <Button
