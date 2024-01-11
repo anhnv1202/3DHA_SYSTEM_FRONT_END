@@ -12,10 +12,16 @@ export const loginValidationSchema = createValidation({
 });
 
 export const signUpValidationSchema = createValidation({
-  username: Yup.string()
-    .min(6, i18n.t(VALIDATION.MIN_CHARACTERS, { min: 6 }))
-    .max(40, i18n.t(VALIDATION.MIN_CHARACTERS, { max: 40 }))
-    .matches(REGEX.USERNAME, i18n.t(VALIDATION.ALPHANUMERIC_NUMBER_ONLY)),
+  firstName: Yup.string()
+    .required(requireMessage)
+    .min(1, i18n.t(VALIDATION.MIN_CHARACTERS, { min: 6 }))
+    .max(40, i18n.t(VALIDATION.MAX_CHARACTERS, { max: 40 }))
+    .matches(REGEX.FIRSTNAME, i18n.t(VALIDATION.ALPHANUMERIC_NUMBER_ONLY)),
+  lastName: Yup.string()
+    .required(requireMessage)
+    .min(1, i18n.t(VALIDATION.MIN_CHARACTERS, { min: 6 }))
+    .max(40, i18n.t(VALIDATION.MAX_CHARACTERS, { max: 40 }))
+    .matches(REGEX.LASTNAME, i18n.t(VALIDATION.ALPHANUMERIC_NUMBER_ONLY)),
   email: Yup.string().required(requireMessage).matches(REGEX.EMAIL, i18n.t(VALIDATION.EMAIL_INVALID)),
   password: Yup.string().required(requireMessage),
   rePassword: Yup.string()

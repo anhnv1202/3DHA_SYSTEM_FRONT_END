@@ -10,7 +10,8 @@ export const socialMediaLinks: SocialMediaLink[] = [
 
 export const formFields: { [key: string]: FormField[] } = {
   register: [
-    { name: 'username', placeholder: i18n.t('register.username'), type: 'text' },
+    { name: 'firstName', placeholder: i18n.t('register.firstName'), type: 'text' },
+    { name: 'lastName', placeholder: i18n.t('register.lastName'), type: 'text' },
     { name: 'email', placeholder: i18n.t('register.email'), type: 'text' },
     { name: 'phone', placeholder: i18n.t('register.phone'), type: 'text' },
     { name: 'password', placeholder: i18n.t('register.password'), type: 'password' },

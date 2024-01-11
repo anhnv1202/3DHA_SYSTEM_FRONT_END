@@ -11,7 +11,8 @@ export interface LoginResponse {
 }
 
 export interface SignUpInitialValues {
-  username: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
   password: string;
