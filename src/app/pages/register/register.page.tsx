@@ -58,7 +58,7 @@ function Register() {
                   <FormControl key={index} name={field.name}>
                     <Input
                       width="auto"
-                      className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
+                      className=" w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
                       placeholder={t(field.placeholder)}
                       inputClassName="w-full"
                       errorClassName="text-red-500 text-xs"
@@ -71,7 +71,7 @@ function Register() {
                 <FormControl key={index} name={field.name}>
                   <Input
                     width="auto"
-                    className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
+                    className=" max-w-none w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
                     placeholder={t(field.placeholder)}
                     inputClassName="w-full"
                     errorClassName="text-red-500 text-xs"
