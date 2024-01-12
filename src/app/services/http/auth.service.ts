@@ -3,7 +3,7 @@ import { LoginResponse, SignUpRequest } from '@app/types';
 
 class _AuthService {
   public login(email: string, password: string) {
-    return HttpService.post<LoginResponse>('/accounts/login', {
+    return HttpService.post<LoginResponse>('/auth/login', {
       body: {
         email,
         password,

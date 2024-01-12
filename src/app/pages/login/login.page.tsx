@@ -4,11 +4,11 @@ import Input from '@app/components/input';
 import { LoginInitialValues, LoginResponse } from '@app/types';
 import { loginValidationSchema } from '@app/validations';
 import { Form, Formik, FormikContextType } from 'formik';
-import { createRef } from 'react';
+import { createRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import backgroundRegister from '../../../assets/images/background/backgroundLogin.png';
-import page400 from '../../../assets/images/logo/page400.jpg';
+import logoLogin from '../../../assets/images/logo/logoLogin.jpg';
 import { INITIAL_VALUES, localStorageKeys, PATHS as path } from '../../common/constants/common.const';
 import { formFields } from '@app/common/constants/const';
 import { FieldType } from '@app/types/helper';
@@ -26,14 +26,12 @@ export const Login = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = ({ email, password }: LoginInitialValues) => {
-    console.log('🚀 ~ handleSubmit ~ email:', email);
     subscribeOnce(AuthService.login(email, password), (LoginRes: LoginResponse) => {
       if (LoginRes.success) {
-        const { accessToken, user } = LoginRes.data;
-        console.log('🚀 ~ subscribeOnce ~ user:', user);
+        const { accessToken } = LoginRes.data;
         StorageService.set(localStorageKeys.USER_TOKEN, accessToken);
         dispatch(AuthAction.storeUser(LoginRes));
-        navigate(path.LOGIN);
+        navigate(path.HOMEPAGE);
       }
     });
   };
@@ -44,7 +42,7 @@ export const Login = () => {
     >
       <div className=" flex items-center rounded-[10px] bg-blue-50 shadow-6 ">
         <div className="flex-1 ml-8">
-          <img src={page400} alt="Your Image" className="w-100 h-100 object-cover rounded" aria-hidden="true" />
+          <img src={logoLogin} alt="Your Image" className="w-100 h-100 object-cover rounded" aria-hidden="true" />
         </div>
         <div className="flex-1 text-center rounded border-gray-300 p-4 ">
           <h2 className="text-[50px] font-bold text-center">{t('login.title')}</h2>

@@ -8,7 +8,7 @@ export default function DefaultLayout() {
   return (
     <Fragment>
       <Header noShadow />
-      <Navbar />
+      {/* <Navbar /> */}
       <main>
         <Outlet />
       </main>

@@ -22,8 +22,8 @@ export const formFields: { [key: string]: FormField[] } = {
     { name: 'confirmNewPassword', placeholder: i18n.t('changePassword.confirmPassword'), type: 'password' },
   ],
   login: [
-    { name: 'email', placeholder: i18n.t('login.email'), type: 'text' },
-    { name: 'password', placeholder: i18n.t('login.password'), type: 'password' },
+    { name: 'email', placeholder: i18n.t('login.emailField'), type: 'text' },
+    { name: 'password', placeholder: i18n.t('login.passwordField'), type: 'password' },
   ],
 };
 
