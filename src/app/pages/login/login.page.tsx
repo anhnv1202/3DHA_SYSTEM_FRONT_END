@@ -6,9 +6,9 @@ import { loginValidationSchema } from '@app/validations';
 import { Form, Formik, FormikContextType } from 'formik';
 import { createRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import backgroundRegister from '../../../assets/images/background/backgroundLogin.png';
-import logoLogin from '../../../assets/images/logo/logoLogin.jpg';
+import logoLogin from '../../../assets/images/logo/logoLogin.png';
 import { INITIAL_VALUES, localStorageKeys, PATHS as path } from '../../common/constants/common.const';
 import { formFields } from '@app/common/constants/const';
 import { FieldType } from '@app/types/helper';
@@ -24,7 +24,11 @@ export const Login = () => {
   const { subscribeOnce } = useObservable();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const { token, type } = useParams();
+  useEffect(() => {
+    if (token) {
+    }
+  }, []);
   const handleSubmit = ({ email, password }: LoginInitialValues) => {
     subscribeOnce(AuthService.login(email, password), (LoginRes: LoginResponse) => {
       if (LoginRes.success) {
@@ -40,9 +44,9 @@ export const Login = () => {
       className="flex items-center justify-center min-h-screen "
       style={{ backgroundImage: `url(${backgroundRegister})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
-      <div className=" flex items-center rounded-[10px] bg-blue-50 shadow-6 ">
+      <div className="w-1/2 flex items-center rounded-[10px] bg-blue-50 shadow-6 ">
         <div className="flex-1 ml-8">
-          <img src={logoLogin} alt="Your Image" className="w-100 h-100 object-cover rounded" aria-hidden="true" />
+          <img src={logoLogin} alt="Your Image" className="object-cover rounded w-200 h-200" aria-hidden="true" />
         </div>
         <div className="flex-1 text-center rounded border-gray-300 p-4 ">
           <h2 className="text-[50px] font-bold text-center">{t('login.title')}</h2>

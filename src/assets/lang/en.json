@@ -10,6 +10,18 @@
     "close": "Close",
     "confirm": "Confirm"
   },
+  "login": {
+    "title": "Login",
+    "emailField": "Email",
+    "passwordField": "Password",
+    "submitButton": "Login",
+    "or": "Or",
+    "maybe": "Maybe",
+    "signUpButton": "You don't have the account ? Please register -_-",
+    "forgotPasswordButton": "You just forgot your password ? Click here",
+    "account": "You have an account? Log in",
+    "confirmEmail": "Please check your email to verify account!"
+  },
   "register": {
     "register": "Register",
     "firstName": "First Name",
