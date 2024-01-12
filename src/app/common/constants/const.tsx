@@ -25,67 +25,71 @@ export const formFields: { [key: string]: FormField[] } = {
     { name: 'newPassword', placeholder: i18n.t('changePassword.password'), type: 'password' },
     { name: 'confirmNewPassword', placeholder: i18n.t('changePassword.confirmPassword'), type: 'password' },
   ],
+  login: [
+    { name: 'email', placeholder: i18n.t('login.emailField'), type: 'text' },
+    { name: 'password', placeholder: i18n.t('login.passwordField'), type: 'password' },
+  ],
 };
 
 export const navbarLinks: NavbarLink[] = [
   {
-    name: 'Tinh thần khởi nghiệp',
+    name: 'Entrepreneurship Spirit',
     path: '/courses/business/entrepreneurship/',
   },
   {
-    name: 'Giao tiếp',
+    name: 'Communication',
     path: '/courses/business/communications/',
   },
   {
-    name: 'Quản lý',
+    name: 'Management',
     path: '/courses/business/management/',
   },
   {
-    name: 'Bán hàng',
+    name: 'Sales',
     path: '/courses/business/sales/',
   },
   {
-    name: 'Chiến lược kinh doanh',
+    name: 'Business Strategy',
     path: '/courses/business/strategy/',
   },
   {
-    name: 'Hoạt động',
+    name: 'Operations',
     path: '/courses/business/operations/',
   },
   {
-    name: 'Quản lý dự án',
+    name: 'Project Management',
     path: '/courses/business/project-management/',
   },
   {
-    name: 'Luật doanh nghiệp',
+    name: 'Business Law',
     path: '/courses/business/business-law/',
   },
   {
-    name: 'BI và phân tích dữ liệu kinh doanh',
+    name: 'Business Intelligence and Analytics',
     path: '/courses/business/analytics-and-intelligence/',
   },
   {
-    name: 'Nhân sự',
+    name: 'Human Resources',
     path: '/courses/business/human-resources/',
   },
   {
-    name: 'Ngành công nghiệp',
+    name: 'Industry',
     path: '/courses/business/industry/',
   },
   {
-    name: 'Thương mại điện tử',
+    name: 'E-commerce',
     path: '/courses/business/e-commerce/',
   },
   {
-    name: 'Truyền thông',
+    name: 'Media',
     path: '/courses/business/media/',
   },
   {
-    name: 'Bất động sản',
+    name: 'Real Estate',
     path: '/courses/business/real-estate/',
   },
   {
-    name: 'Kinh doanh khác',
+    name: 'Other Business',
     path: '/courses/business/other-business/',
   },
 ];

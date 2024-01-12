@@ -1,6 +1,8 @@
+import { LoginInitialValues } from '@app/types';
+
 export const DEFAULT_DATE_FORMAT = 'D/MM/YYYY';
 export const DEFAULT_MINUTES_SECONDS_FORMAT = 'mm:ss';
-
+export const USER_INFO_KEY = 'mm3231';
 export enum ROLE {
   TEACHER = 1,
   STUDENT = 2,
@@ -62,5 +64,10 @@ export const PATHS = {
 export const INITIAL_VALUES = {
   REGISTER: { firstName: '', lastName: '', username: '', email: '', phone: '', password: '', rePassword: '' },
   FORGOT_PASSWORD: { email: '' },
+  LOGIN: { email: '', password: '' } as LoginInitialValues,
   CHANGE_PASSWORD: { newPassword: '', confirmNewPassword: '' },
+};
+
+export const localStorageKeys = {
+  USER_TOKEN: 'access_token',
 };

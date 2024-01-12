@@ -2,10 +2,10 @@ import { CommonSuccessResponse, ConfirmResponse, LoginResponse, RegisterResponse
 import HttpService from '@core/services/http/http.service';
 
 class _AuthService {
-  public login(username: string, password: string) {
-    return HttpService.post<LoginResponse>('/accounts/login', {
+  public login(email: string, password: string) {
+    return HttpService.post<LoginResponse>('/auth/login', {
       body: {
-        username,
+        email,
         password,
       },
     });

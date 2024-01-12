@@ -7,7 +7,7 @@ import * as Yup from 'yup';
 const requireMessage = i18n.t(VALIDATION.REQUIRE);
 
 export const loginValidationSchema = createValidation({
-  username: Yup.string().required(requireMessage),
+  email: Yup.string().required(requireMessage).matches(REGEX.EMAIL, i18n.t(VALIDATION.EMAIL_INVALID)),
   password: Yup.string().required(requireMessage),
 });
 
