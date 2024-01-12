@@ -56,7 +56,7 @@ function ChangePassword() {
       className="flex items-center justify-center min-h-screen"
       style={{ backgroundImage: `url(${backgroundRegister})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
-      <div className=" flex items-center rounded-[10px] bg-blue-50 shadow-6 ">
+      <div className="w-1/2 flex items-center rounded-[10px] bg-blue-50 shadow-6 ">
         <div className="flex-1 text-center rounded border-gray-300 p-4 ">
           <h2 className="text-[40px] mb-5 font-bold text-center">{t('changePassword.changePassword')}</h2>
           <Formik
@@ -105,7 +105,7 @@ function ChangePassword() {
           </Formik>
         </div>
         <div className="flex-1 ml-8">
-          <img src={avatarChangePass} alt="Your Image" className="w-100 h-100 object-cover rounded" />
+          <img src={avatarChangePass} alt="Your Image" className="w-200 h-200 object-cover rounded" />
         </div>
       </div>
     </div>
