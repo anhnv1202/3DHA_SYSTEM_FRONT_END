@@ -37,9 +37,9 @@ function Register() {
       className="flex items-center justify-center min-h-screen"
       style={{ backgroundImage: `url(${backgroundRegister})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
-      <div className=" flex items-center rounded-[10px] bg-blue-50 shadow-6 ">
-        <div className="flex-1 ml-8">
-          <img src={avatarRegister} alt="Your Image" className="w-100 h-100 object-cover rounded" />
+      <div className="w-1/2 flex items-center rounded-[10px] bg-blue-50 shadow-6 ">
+        <div className="flex-1 ml-12">
+          <img src={avatarRegister} alt="Your Image" className="w-200 h-200 object-cover rounded" />
         </div>
         <div className="flex-1 text-center rounded border-gray-300 p-4 ">
           <h2 className="text-[50px] font-bold text-center">{t('register.register')}</h2>

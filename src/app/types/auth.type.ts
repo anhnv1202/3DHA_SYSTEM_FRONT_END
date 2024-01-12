@@ -9,10 +9,16 @@ export interface LoginResponse {
   role: string;
   jwt: string;
 }
-
+export interface CommonSuccessResponse {
+  code: number;
+  success: boolean;
+  message: string;
+  data: any;
+}
 export interface SignUpInitialValues {
   firstName: string;
   lastName: string;
+  username: string;
   email: string;
   phone: string;
   password: string;

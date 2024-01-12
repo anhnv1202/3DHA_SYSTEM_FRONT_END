@@ -20,5 +20,9 @@ export interface FormField {
   placeholder: string;
   type: string;
 }
+export interface NavbarLink {
+  name: string;
+  path: string;
+}
 
 export type ExtractPropsFromComponent<C> = C extends ComponentType<infer P> ? P : any;

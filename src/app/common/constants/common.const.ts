@@ -14,6 +14,11 @@ export enum Locales {
   KR = 'kr',
 }
 
+export const CONFIRM_TYPE = {
+  REGISTER: 'register',
+  FORGOT_PASSWORD: 'forgotPassword',
+};
+
 export const APP_LOCALES = [Locales.EN];
 
 export enum LocalesFullText {
@@ -32,6 +37,7 @@ export enum OrderType {
 export const REGEX = {
   FIRSTNAME: /^[\d\w]+$/,
   LASTNAME: /^[\d\w]+$/,
+  USERNAMEL: /^[\d\w]+$/,
   PHONE_NUMBER: /^[0-9]{10}$/,
   EMAIL: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
 };
@@ -46,10 +52,15 @@ export const PATHS = {
   FORGOT_PASSWORD: '/forgot-password',
   CHANGE_PASSWORD: '/change-password',
   CONFIRM: '/confirm',
+  HOMEPAGE: '/home',
+  BUSSINESS: '/business',
+  TEACHING: '/teaching',
+  CART: '/cart',
+  CATEGORY: '/category',
 };
 
 export const INITIAL_VALUES = {
-  REGISTER: { firstName: '', lastName: '', email: '', phone: '', password: '', rePassword: '' },
+  REGISTER: { firstName: '', lastName: '', username: '', email: '', phone: '', password: '', rePassword: '' },
   FORGOT_PASSWORD: { email: '' },
   CHANGE_PASSWORD: { newPassword: '', confirmNewPassword: '' },
 };

@@ -1,4 +1,4 @@
-import { ConfirmResponse, LoginResponse, RegisterResponse, SignUpRequest } from '@app/types';
+import { CommonSuccessResponse, ConfirmResponse, LoginResponse, RegisterResponse, SignUpRequest } from '@app/types';
 import HttpService from '@core/services/http/http.service';
 
 class _AuthService {
@@ -16,9 +16,19 @@ class _AuthService {
       body: { ...signUpRequest },
     });
   }
-
+  public forgot(email: string) {
+    return HttpService.post<CommonSuccessResponse>('/auth/forgot', {
+      body: { email },
+    });
+  }
   public confirm(token: string) {
     return HttpService.post<ConfirmResponse>('/auth/confirm', {
+      body: { token },
+    });
+  }
+
+  public changePassword(token: string) {
+    return HttpService.post<ConfirmResponse>('/auth/change-password', {
       body: { token },
     });
   }
