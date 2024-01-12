@@ -2,10 +2,10 @@ import HttpService from '@core/services/http/http.service';
 import { LoginResponse, SignUpRequest } from '@app/types';
 
 class _AuthService {
-  public login(username: string, password: string) {
+  public login(email: string, password: string) {
     return HttpService.post<LoginResponse>('/accounts/login', {
       body: {
-        username,
+        email,
         password,
       },
     });

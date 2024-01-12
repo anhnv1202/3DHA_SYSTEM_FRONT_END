@@ -59,3 +59,7 @@ export const INITIAL_VALUES = {
   LOGIN: { email: '', password: '' } as LoginInitialValues,
   CHANGE_PASSWORD: { newPassword: '', confirmNewPassword: '' },
 };
+
+export const localStorageKeys = {
+  USER_TOKEN: 'access_token',
+};

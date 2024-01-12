@@ -1,38 +1,41 @@
 import Button from '@app/components/button';
 import { FormControl } from '@app/components/form-control';
 import Input from '@app/components/input';
-import { LoginInitialValues } from '@app/types';
+import { LoginInitialValues, LoginResponse } from '@app/types';
 import { loginValidationSchema } from '@app/validations';
 import { Form, Formik, FormikContextType } from 'formik';
-import { createRef, useEffect } from 'react';
+import { createRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import backgroundRegister from '../../../assets/images/background/backgroundLogin.png';
 import page400 from '../../../assets/images/logo/page400.jpg';
-import { INITIAL_VALUES, PATHS as path } from '../../common/constants/common.const';
+import { INITIAL_VALUES, localStorageKeys, PATHS as path } from '../../common/constants/common.const';
 import { formFields } from '@app/common/constants/const';
 import { FieldType } from '@app/types/helper';
+import AuthService from '@app/services/http/auth.service';
+import useObservable from '@core/hooks/use-observable.hook';
+import StorageService from '@core/services/storage/storage.service';
+import { useDispatch } from 'react-redux';
+import { AuthAction } from '@app/store/auth';
+
 export const Login = () => {
   const { t } = useTranslation();
   const formRef = createRef<FormikContextType<LoginInitialValues>>();
-  useEffect(() => {
-    if (formRef.current) {
-      // const formValues = formRef.current.values;
-      // formRef.current.setFieldValue('username', 'Va deeptroy');
-      // console.log('Form Values:', formValues);
-    }
-  }, [formRef]);
-  const handleSubmit = (values: LoginInitialValues) => {
-    // subscribeOnce(AuthService.login(values.username, values.password), (LoginRes: LoginResponse) => {
-    //   if (LoginRes.role === ROLE.STUDENT) {
-    //     StorageService.set(ACCESS_TOKEN_KEY, LoginRes.jwt);
-    //     StorageService.setObject(USER_INFO_KEY, {
-    //       _id: LoginRes._id,
-    //       username: LoginRes.username,
-    //     });
-    //     dispatch(storeUser(LoginRes));
-    //   }
-    // });
+  const { subscribeOnce } = useObservable();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleSubmit = ({ email, password }: LoginInitialValues) => {
+    console.log('🚀 ~ handleSubmit ~ email:', email);
+    subscribeOnce(AuthService.login(email, password), (LoginRes: LoginResponse) => {
+      if (LoginRes.success) {
+        const { accessToken, user } = LoginRes.data;
+        console.log('🚀 ~ subscribeOnce ~ user:', user);
+        StorageService.set(localStorageKeys.USER_TOKEN, accessToken);
+        dispatch(AuthAction.storeUser(LoginRes));
+        navigate(path.LOGIN);
+      }
+    });
   };
   return (
     <div

@@ -2,12 +2,30 @@ export interface LoginInitialValues {
   email: string;
   password: string;
 }
-
-export interface LoginResponse {
+export interface User {
   _id: string;
   username: string;
-  role: string;
-  jwt: string;
+  phone: string;
+  email: string;
+  password: string;
+  avatar: string;
+  isActive: boolean;
+  status: boolean;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
+
+export interface AccessToken {
+  accessToken: string;
+  user: User;
+}
+
+export interface LoginResponse {
+  code: number;
+  success: boolean;
+  message: string;
+  data: AccessToken;
 }
 
 export interface SignUpInitialValues {
