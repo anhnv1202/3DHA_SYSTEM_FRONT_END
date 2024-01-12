@@ -12,6 +12,8 @@
   },
   "register": {
     "register": "Register",
+    "firstName": "First Name",
+    "lastName": "Last Name",
     "username": "Username",
     "email": "Email",
     "phone": "Phone",

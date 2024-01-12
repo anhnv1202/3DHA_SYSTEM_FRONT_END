@@ -1,6 +1,6 @@
-import i18n from '@core/configs/i18n.config';
 import { FormField, NavbarLink, SocialMediaLink } from '@app/types/helper';
 import { Images } from '@assets/images';
+import i18n from '@core/configs/i18n.config';
 
 export const socialMediaLinks: SocialMediaLink[] = [
   { platform: 'Facebook', icon: <Images.FaFacebook />, link: '/' },
@@ -9,12 +9,16 @@ export const socialMediaLinks: SocialMediaLink[] = [
 ];
 
 export const formFields: { [key: string]: FormField[] } = {
-  register: [
+  register1: [
+    { name: 'firstName', placeholder: i18n.t('register.firstName'), type: 'text' },
+    { name: 'lastName', placeholder: i18n.t('register.lastName'), type: 'text' },
+  ],
+  register2: [
     { name: 'username', placeholder: i18n.t('register.username'), type: 'text' },
     { name: 'email', placeholder: i18n.t('register.email'), type: 'text' },
     { name: 'phone', placeholder: i18n.t('register.phone'), type: 'text' },
     { name: 'password', placeholder: i18n.t('register.password'), type: 'password' },
-    { name: 'confirmPassword', placeholder: i18n.t('register.confirmPassword'), type: 'password' },
+    { name: 'rePassword', placeholder: i18n.t('register.confirmPassword'), type: 'password' },
   ],
   forgotPassword: [{ name: 'email', placeholder: i18n.t('forgotPassword.email'), type: 'text' }],
   changePassword: [
