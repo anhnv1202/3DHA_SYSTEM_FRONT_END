@@ -16,7 +16,7 @@ import AuthService from '@app/services/http/auth.service';
 import useObservable from '@core/hooks/use-observable.hook';
 import StorageService from '@core/services/storage/storage.service';
 import { useDispatch } from 'react-redux';
-import { AuthAction } from '@app/store/auth';
+import { storeUser } from '@app/store/auth/auth.action';
 
 export const Login = () => {
   const { t } = useTranslation();
@@ -30,7 +30,7 @@ export const Login = () => {
       if (LoginRes.success) {
         const { accessToken } = LoginRes.data;
         StorageService.set(localStorageKeys.USER_TOKEN, accessToken);
-        dispatch(AuthAction.storeUser(LoginRes));
+        dispatch(storeUser(LoginRes));
         navigate(path.HOMEPAGE);
       }
     });

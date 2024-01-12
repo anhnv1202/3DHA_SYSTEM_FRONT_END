@@ -1,13 +1,13 @@
-import { navbarLinks } from '@app/common/constants/const';
 import Button from '@app/components/button';
+import { NavbarLink } from '@app/types/helper';
 import { Images } from '@assets/images';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-type Props = {};
+type Props = { navbarComponent: NavbarLink[] };
 
-function Navbar({}: Props) {
-  const navbarLinksLength: boolean = navbarLinks.length > 11;
+function Navbar({ navbarComponent }: Props) {
+  const navbarLinksLength: boolean = navbarComponent.length > 11;
   const [isDropdownVisible, setDropdownVisible] = useState(false);
 
   const toggleDropdown = () => {
@@ -17,7 +17,7 @@ function Navbar({}: Props) {
     <nav className="subcategory-link-bar--subcategory-link-bar--24CSR">
       {/* Displaying components with positions less than 10 */}
       <ul className="ud-unstyled-list subcategory-link-bar--nav-list--2qrtK" data-purposes="nav-list">
-        {navbarLinks.slice(0, 11).map((link, index) => {
+        {navbarComponent.slice(0, 11).map((link, index) => {
           if (index === 0) {
             return (
               <li className="subcategory-link-bar--category-wrapper--2LM4C" key={index}>
@@ -83,7 +83,7 @@ function Navbar({}: Props) {
               <div className="popover-module--popover--1kskS popover-module--popover-bottom--N6gdN">
                 <div className="popover-module--inner--Sbv-I">
                   <ul className="ud-unstyled-list ud-block-list subcategory-link-bar--popover-content--3IQ8q">
-                    {navbarLinks.slice(10).map((link, index) => (
+                    {navbarComponent.slice(10).map((link, index) => (
                       <li key={index}>
                         <Link
                           to={link.path}
