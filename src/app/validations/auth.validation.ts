@@ -41,7 +41,7 @@ export const forgotPasswordValidationSchema = createValidation({
 
 export const changePasswordValidationSchema = createValidation({
   newPassword: Yup.string().required(requireMessage),
-  confirmNewPassword: Yup.string()
+  confirmPassword: Yup.string()
     .required(requireMessage)
     .oneOf([Yup.ref(REF.PASSSWORD)], i18n.t(VALIDATION.PASSWORD_MATCH)),
 });

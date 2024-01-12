@@ -41,7 +41,7 @@ function Register() {
         <div className="flex-1 ml-12">
           <img src={avatarRegister} alt="Your Image" className="w-200 h-200 object-cover rounded" />
         </div>
-        <div className="flex-1 text-center rounded border-gray-300 p-4 ">
+        <div className="w-1/2 flex-1 text-center rounded border-gray-300 p-4 ">
           <h2 className="text-[50px] font-bold text-center">{t('register.register')}</h2>
           <Formik
             displayName="SignUpForm"

@@ -23,7 +23,7 @@ export const formFields: { [key: string]: FormField[] } = {
   forgotPassword: [{ name: 'email', placeholder: i18n.t('forgotPassword.email'), type: 'text' }],
   changePassword: [
     { name: 'newPassword', placeholder: i18n.t('changePassword.password'), type: 'password' },
-    { name: 'confirmNewPassword', placeholder: i18n.t('changePassword.confirmPassword'), type: 'password' },
+    { name: 'confirmPassword', placeholder: i18n.t('changePassword.confirmPassword'), type: 'password' },
   ],
   login: [
     { name: 'email', placeholder: i18n.t('login.emailField'), type: 'text' },
