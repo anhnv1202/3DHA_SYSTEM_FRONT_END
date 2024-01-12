@@ -1,4 +1,11 @@
-import { CommonSuccessResponse, ConfirmResponse, LoginResponse, RegisterResponse, SignUpRequest } from '@app/types';
+import {
+  ChangePasswordRequest,
+  CommonSuccessResponse,
+  ConfirmResponse,
+  LoginResponse,
+  RegisterResponse,
+  SignUpRequest,
+} from '@app/types';
 import HttpService from '@core/services/http/http.service';
 
 class _AuthService {
@@ -27,9 +34,9 @@ class _AuthService {
     });
   }
 
-  public changePassword(token: string) {
+  public changePassword(changePasswordReq: ChangePasswordRequest) {
     return HttpService.post<ConfirmResponse>('/auth/change-password', {
-      body: { token },
+      body: { ...changePasswordReq },
     });
   }
 }

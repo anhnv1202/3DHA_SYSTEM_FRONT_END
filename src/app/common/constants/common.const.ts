@@ -65,7 +65,7 @@ export const INITIAL_VALUES = {
   REGISTER: { firstName: '', lastName: '', username: '', email: '', phone: '', password: '', rePassword: '' },
   FORGOT_PASSWORD: { email: '' },
   LOGIN: { email: '', password: '' } as LoginInitialValues,
-  CHANGE_PASSWORD: { newPassword: '', confirmNewPassword: '' },
+  CHANGE_PASSWORD: { newPassword: '', confirmPassword: '' },
 };
 
 export const localStorageKeys = {

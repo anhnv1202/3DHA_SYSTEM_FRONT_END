@@ -55,7 +55,13 @@ export interface ForgotPasswordInitialValues {
 
 export interface ChangePasswordInitialValues {
   newPassword: string;
-  confirmNewPassword: string;
+  confirmPassword: string;
+}
+
+export interface ChangePasswordRequest {
+  newPassword: string;
+  confirmPassword: string;
+  token: string;
 }
 
 export interface ConfirmResponse {

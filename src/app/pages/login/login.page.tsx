@@ -1,22 +1,24 @@
+import { SystemMessage } from '@app/common/constants';
+import { formFields } from '@app/common/constants/const';
 import Button from '@app/components/button';
 import { FormControl } from '@app/components/form-control';
 import Input from '@app/components/input';
-import { LoginInitialValues, LoginResponse } from '@app/types';
+import { addToast } from '@app/components/toast/toast.service';
+import AuthService from '@app/services/http/auth.service';
+import { storeUser } from '@app/store/auth/auth.action';
+import { ConfirmResponse, LoginInitialValues, LoginResponse } from '@app/types';
+import { FieldType } from '@app/types/helper';
 import { loginValidationSchema } from '@app/validations';
+import useObservable from '@core/hooks/use-observable.hook';
+import StorageService from '@core/services/storage/storage.service';
 import { Form, Formik, FormikContextType } from 'formik';
 import { createRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import backgroundRegister from '../../../assets/images/background/backgroundLogin.png';
 import logoLogin from '../../../assets/images/logo/logoLogin.png';
 import { INITIAL_VALUES, localStorageKeys, PATHS as path } from '../../common/constants/common.const';
-import { formFields } from '@app/common/constants/const';
-import { FieldType } from '@app/types/helper';
-import AuthService from '@app/services/http/auth.service';
-import useObservable from '@core/hooks/use-observable.hook';
-import StorageService from '@core/services/storage/storage.service';
-import { useDispatch } from 'react-redux';
-import { storeUser } from '@app/store/auth/auth.action';
 
 export const Login = () => {
   const { t } = useTranslation();
@@ -24,11 +26,15 @@ export const Login = () => {
   const { subscribeOnce } = useObservable();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { token, type } = useParams();
+  const urlParams = new URLSearchParams(window.location.search);
+  const token = urlParams.get('token');
   useEffect(() => {
-    if (token) {
-    }
-  }, []);
+    token &&
+      subscribeOnce(AuthService.confirm(token), (confirmRes: ConfirmResponse) => {
+        console.log(confirmRes.status);
+        confirmRes.status && addToast({ text: SystemMessage.VERIFY_SUCCESS, position: 'top-right' });
+      });
+  }, [token]);
   const handleSubmit = ({ email, password }: LoginInitialValues) => {
     subscribeOnce(AuthService.login(email, password), (LoginRes: LoginResponse) => {
       if (LoginRes.success) {
