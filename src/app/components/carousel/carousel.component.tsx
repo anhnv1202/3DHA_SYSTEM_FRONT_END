@@ -1,12 +1,11 @@
 import React from 'react';
 import { Button, Carousel as CarouselComponent, Typography } from '@material-tailwind/react';
+import { CarouselProps } from '@material-tailwind/react';
 
-type Props = {};
-
-const Carousel = ({}: Props) => {
+const Carousel = ({}: CarouselProps) => {
   return (
     <div className="relative">
-      <CarouselComponent className="rounded-xl mb-4" placeholder={''}>
+      <CarouselComponent className="rounded-xl mb-4 mt-4" placeholder={''}>
         <div className="relative mx-auto h-[40rem] w-3/4 ">
           <img
             src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"

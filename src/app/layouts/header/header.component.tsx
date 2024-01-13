@@ -13,7 +13,7 @@ const Header = ({ noShadow }: HeaderProps) => {
   const { t } = useTranslation();
   return (
     <div
-      className="overflow-hidden ud-header ud-text-sm desktop-header-module--header--3nb6v desktop-header-module--flex-middle--1e7c8"
+      className=" header overflow-hidden ud-header ud-text-sm desktop-header-module--header--3nb6v desktop-header-module--flex-middle--1e7c8"
       style={headerStyles}
     >
       <Link to={path.HOMEPAGE} className="desktop-header-module--flex-middle--1e7c8 desktop-header-module--logo--2Qf0r">

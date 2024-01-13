@@ -49,6 +49,7 @@ export const REF = {
 };
 
 export const PATHS = {
+  DEFAULT: '/',
   LOGIN: '/login',
   REGISTER: '/register',
   FORGOT_PASSWORD: '/forgot-password',

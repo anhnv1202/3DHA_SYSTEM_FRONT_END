@@ -14,6 +14,7 @@ const routes: RouteObject[] = [
   { path: PATHS.CHANGE_PASSWORD, element: <ChangePassword /> },
   { path: PATHS.LOGIN, element: <Login /> },
   { path: PATHS.HOMEPAGE, element: <Homepage /> },
+  { path: PATHS.DEFAULT, element: <Homepage /> },
   { path: PATHS.CATEGORY, element: <Category /> },
   { path: PATHS.CONFIRM, element: <Confirm /> },
 ];
