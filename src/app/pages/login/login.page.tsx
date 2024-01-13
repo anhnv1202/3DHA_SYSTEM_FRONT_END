@@ -34,6 +34,7 @@ export const Login = () => {
         console.log(confirmRes.status);
         confirmRes.status && addToast({ text: SystemMessage.VERIFY_SUCCESS, position: 'top-right' });
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
   const handleSubmit = ({ email, password }: LoginInitialValues) => {
     subscribeOnce(AuthService.login(email, password), (LoginRes: LoginResponse) => {
@@ -50,9 +51,9 @@ export const Login = () => {
       className="flex items-center justify-center min-h-screen "
       style={{ backgroundImage: `url(${backgroundRegister})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
-      <div className="w-1/2 flex items-center rounded-[10px] bg-blue-50 shadow-6 ">
+      <div className="w flex items-center rounded-[10px] bg-blue-50 shadow-6 ">
         <div className="flex-1 ml-8">
-          <img src={logoLogin} alt="Your Image" className="object-cover rounded w-200 h-200" aria-hidden="true" />
+          <img src={logoLogin} alt="Login logo" className="object-cover rounded w-200 h-200" aria-hidden="true" />
         </div>
         <div className="flex-1 text-center rounded border-gray-300 p-4 ">
           <h2 className="text-[50px] font-bold text-center">{t('login.title')}</h2>
