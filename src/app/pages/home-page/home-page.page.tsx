@@ -1,9 +1,9 @@
-import React from 'react';
+import Carousel from '@app/components/carousel';
 
 type Props = {};
 
 const Homepage = (props: Props) => {
-  return <div>This is home page</div>;
+  return <Carousel />;
 };
 
 export default Homepage;
