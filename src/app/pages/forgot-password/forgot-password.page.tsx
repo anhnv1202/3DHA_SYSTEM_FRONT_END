@@ -15,13 +15,11 @@ import useObservable from '@core/hooks/use-observable.hook';
 import { Form, Formik, FormikContextType } from 'formik';
 import { createRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 function ForgotPassword() {
   const { t } = useTranslation();
   const formRef = createRef<FormikContextType<ForgotPasswordInitialValues>>();
-  const dispatch = useDispatch();
   const { subscribeOnce } = useObservable();
 
   const handleSubmit = ({ email }: ForgotPasswordInitialValues) => {
@@ -43,7 +41,12 @@ function ForgotPassword() {
     >
       <div className="w-1/2 flex items-center rounded-[10px] bg-blue-50 shadow-2xl ">
         <div className="flex-1 ml-8">
-          <img src={avatarForgotPass} alt="Your Image" className="w-200 h-200 object-cover rounded" />
+          <img
+            src={avatarForgotPass}
+            alt="Your Image"
+            className="w-200 h-200 object-cover rounded"
+            aria-hidden="true"
+          />
         </div>
         <div className="flex-1 text-center rounded border-gray-300 p-4 ">
           <h2 className="text-[40px] mb-5 font-bold text-center">{t('forgotPassword.forgotPassword')}</h2>
@@ -61,7 +64,7 @@ function ForgotPassword() {
                 <FormControl key={index} name={field.name}>
                   <Input
                     width="auto"
-                    className="max-w-none w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
+                    className="!max-w-none w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
                     placeholder={t(field.placeholder)}
                     inputClassName="w-full"
                     errorClassName="text-red-500 text-xs"

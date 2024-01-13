@@ -16,14 +16,12 @@ import useObservable from '@core/hooks/use-observable.hook';
 import { Form, Formik, FormikContextType } from 'formik';
 import { createRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 function ChangePassword() {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const formRef = createRef<FormikContextType<ChangePasswordInitialValues>>();
-  const dispatch = useDispatch();
   const { subscribeOnce } = useObservable();
   const urlParams = new URLSearchParams(window.location.search);
   const token = urlParams.get('token');
@@ -65,7 +63,7 @@ function ChangePassword() {
                 <FormControl key={field.name} name={field.name}>
                   <Input
                     width="auto"
-                    className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
+                    className="!max-w-none w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
                     placeholder={t(field.placeholder)}
                     inputClassName="w-full"
                     errorClassName="text-red-500 text-xs"
@@ -83,12 +81,7 @@ function ChangePassword() {
                 />
                 <small>{t('changePassword.or')}</small>
                 <div className="mt-2 text-sm text-blue-500 text-center">
-                  <Link
-                    to={'/login'}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="bg-blue-gray-500 text-white px-4 py-2 rounded-full"
-                  >
+                  <Link to={PATHS.LOGIN} className="bg-blue-gray-500 text-white px-4 py-2 rounded-full">
                     {t('changePassword.login')}
                   </Link>
                 </div>
@@ -97,7 +90,12 @@ function ChangePassword() {
           </Formik>
         </div>
         <div className="flex-1 ml-8">
-          <img src={avatarChangePass} alt="Your Image" className="w-200 h-200 object-cover rounded" />
+          <img
+            src={avatarChangePass}
+            alt="Your Image"
+            className="w-200 h-200 object-cover rounded"
+            aria-hidden="true"
+          />
         </div>
       </div>
     </div>

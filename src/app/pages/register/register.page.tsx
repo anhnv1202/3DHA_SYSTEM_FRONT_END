@@ -1,4 +1,4 @@
-import { INITIAL_VALUES } from '@app/common/constants';
+import { INITIAL_VALUES, PATHS } from '@app/common/constants';
 import { formFields } from '@app/common/constants/const';
 import Button from '@app/components/button';
 import { FormControl } from '@app/components/form-control';
@@ -39,7 +39,12 @@ function Register() {
     >
       <div className="w-1/2 flex items-center rounded-[10px] bg-blue-50 shadow-6 ">
         <div className="flex-1 ml-12">
-          <img src={avatarRegister} alt="Your Image" className="w-200 h-200 object-cover rounded" />
+          <img
+            src={avatarRegister}
+            alt="Register logo"
+            className="w-200 h-200 object-cover rounded"
+            aria-hidden="true"
+          />
         </div>
         <div className="w-1/2 flex-1 text-center rounded border-gray-300 p-4 ">
           <h2 className="text-[50px] font-bold text-center">{t('register.register')}</h2>
@@ -71,7 +76,7 @@ function Register() {
                 <FormControl key={index} name={field.name}>
                   <Input
                     width="auto"
-                    className=" max-w-none w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
+                    className=" !max-w-none w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
                     placeholder={t(field.placeholder)}
                     inputClassName="w-full"
                     errorClassName="text-red-500 text-xs"
@@ -83,12 +88,7 @@ function Register() {
                 <Button type="submit" label={t('register.signup')} width="w-full" size="m" className="rounded-[10px]" />
                 <small>{t('register.or')}</small>
                 <div className="mt-2 text-sm text-blue-500 text-center">
-                  <Link
-                    to={'/'}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="bg-blue-gray-500 text-white px-4 py-2 rounded-full"
-                  >
+                  <Link to={PATHS.LOGIN} className="bg-blue-gray-500 text-white px-4 py-2 rounded-full">
                     {t('register.account')}
                   </Link>
                 </div>
