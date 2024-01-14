@@ -1,3 +1,4 @@
+import { CarouselItem } from '@app/components/carousel/carousel.component';
 import { LoginInitialValues } from '@app/types';
 
 export const DEFAULT_DATE_FORMAT = 'D/MM/YYYY';
@@ -72,3 +73,26 @@ export const INITIAL_VALUES = {
 export const localStorageKeys = {
   USER_TOKEN: 'access_token',
 };
+export const carouselItems: CarouselItem[] = [
+  {
+    imageSrc: 'https://img-b.udemycdn.com/notices/home_carousel_slide/image/aeff3b43-25ab-4d9e-bc86-0da688e3a9df.jpg',
+    title: 'First Carousel Item',
+    description: 'Description for the first item.',
+    leftButtonLabel: 'Explore',
+    rightButtonLabel: 'Gallery',
+  },
+  {
+    imageSrc: 'https://img-b.udemycdn.com/notices/home_carousel_slide/image/aeff3b43-25ab-4d9e-bc86-0da688e3a9df.jpg',
+    title: 'Second Carousel Item',
+    description: 'Description for the second item.',
+    leftButtonLabel: 'Learn More',
+    rightButtonLabel: 'View Details',
+  },
+  {
+    imageSrc: 'https://img-b.udemycdn.com/notices/home_carousel_slide/image/aeff3b43-25ab-4d9e-bc86-0da688e3a9df.jpg',
+    title: 'Thrid Carousel Item',
+    description: 'Description for the second item.',
+    leftButtonLabel: 'Learn More',
+    rightButtonLabel: 'View Details',
+  },
+];

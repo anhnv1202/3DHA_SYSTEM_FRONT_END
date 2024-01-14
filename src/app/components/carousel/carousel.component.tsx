@@ -1,40 +1,71 @@
-import React from 'react';
-import { Button, Carousel as CarouselComponent, Typography } from '@material-tailwind/react';
-import { CarouselProps } from '@material-tailwind/react';
+import {
+  Button,
+  Carousel as CarouselComponent,
+  Typography,
+  CarouselProps as TailwindCarouselProps,
+} from '@material-tailwind/react';
 
-const Carousel = ({}: CarouselProps) => {
+export interface CarouselItem {
+  imageSrc: string;
+  title: string;
+  description: string;
+  leftButtonLabel: string;
+  rightButtonLabel: string;
+}
+export interface CarouselProps extends TailwindCarouselProps {
+  items: CarouselItem[];
+}
+
+const Carousel = ({ items, ...rest }: CarouselProps) => {
   return (
-    <div className="relative">
-      <CarouselComponent className="rounded-xl mb-4 mt-4" placeholder={''}>
-        <div className="relative mx-auto h-[40rem] w-3/4 ">
+    <CarouselComponent
+      className="rounded-xl mb-4 mt-4 mx-auto h-[40rem] w-3/4 overflow-y-hidden"
+      placeholder={'Carousel'}
+      navigation={({ setActiveIndex, activeIndex, length }) => (
+        <div className="absolute bottom-1/4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
+          {new Array(length).fill('').map((_, i) => (
+            <span
+              key={i}
+              className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
+                activeIndex === i ? 'w-8 bg-white' : 'w-4 bg-white/50'
+              }`}
+              onClick={() => setActiveIndex(i)}
+            />
+          ))}
+        </div>
+      )}
+      loop
+      transition={{ type: 'tween', duration: 1.25 }}
+    >
+      {items.map((item, index) => (
+        <div className="relative" key={index}>
           <img
-            src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-            alt="image 2"
-            className="h-full w-full object-cover rounded-3xl"
+            src={item.imageSrc}
+            alt={`carousel image ${index + 1}`}
+            className="h-full w-full object-cover rounded-3xl max-h-full overflow-hidden"
+            aria-hidden="true"
           />
           <div className="absolute inset-0 grid h-full w-full items-center">
             <div className="w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32">
               <Typography variant="h1" color="white" className="mb-4 text-3xl md:text-4xl lg:text-5xl" placeholder={''}>
-                The Beauty of Nature
+                {item.title}
               </Typography>
               <Typography variant="lead" color="white" className="mb-12 opacity-80" placeholder={''}>
-                It is not so much for its beauty that the forest makes a claim upon men&apos;s hearts, as for that
-                subtle something, that quality of air that emanation from old trees, that so wonderfully changes and
-                renews a weary spirit.
+                {item.description}
               </Typography>
               <div className="flex gap-2">
                 <Button size="lg" color="white" placeholder={''}>
-                  Explore
+                  {item.leftButtonLabel}
                 </Button>
-                <Button size="lg" color="white" variant="text" placeholder={''}>
-                  Gallery
+                <Button size="lg" color="black" variant="outlined" placeholder={''}>
+                  {item.rightButtonLabel}
                 </Button>
               </div>
             </div>
           </div>
         </div>
-      </CarouselComponent>
-    </div>
+      ))}
+    </CarouselComponent>
   );
 };
 
