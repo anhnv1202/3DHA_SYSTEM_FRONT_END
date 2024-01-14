@@ -37,11 +37,12 @@ export const Login = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
   const handleSubmit = ({ email, password }: LoginInitialValues) => {
-    subscribeOnce(AuthService.login(email, password), (LoginRes: LoginResponse) => {
-      if (LoginRes) {
-        const { accessToken } = LoginRes;
+    subscribeOnce(AuthService.login(email, password), (res: LoginResponse) => {
+      if (res) {
+        const { accessToken, user } = res;
         StorageService.set(localStorageKeys.USER_TOKEN, accessToken);
-        dispatch(storeUser(LoginRes));
+        StorageService.setObject(localStorageKeys.USER_INFO, user);
+        dispatch(storeUser(res));
         navigate(path.HOMEPAGE);
       }
     });
@@ -67,8 +68,8 @@ export const Login = () => {
             validateOnBlur
           >
             <Form className="max-w-lg mx-auto p-8 border shadow-6 rounded-[10px]">
-              {formFields.login.map((field) => (
-                <FormControl name={field.name}>
+              {formFields.login.map((field, index) => (
+                <FormControl key={index} name={field.name}>
                   <Input
                     width="auto"
                     className="!max-w-none w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"

@@ -4,9 +4,7 @@ import Button from '@app/components/button';
 import { FormControl } from '@app/components/form-control';
 import Input from '@app/components/input';
 import { addToast } from '@app/components/toast/toast.service';
-import WarningModal from '@app/components/warning-modal';
 import AuthService from '@app/services/http/auth.service';
-import { openPortalDialog } from '@app/services/modal.service';
 import { ChangePasswordInitialValues } from '@app/types';
 import { FieldType } from '@app/types/helper';
 import { changePasswordValidationSchema } from '@app/validations';
@@ -31,14 +29,6 @@ function ChangePassword() {
         addToast({ text: SystemMessage.CHANGE_PASSWORD_SUCCESS, position: 'top-right' });
         res && navigate(PATHS.LOGIN);
       });
-  };
-  const handleValidAccount = () => {
-    const exam = openPortalDialog(WarningModal, {
-      message: 'changePassword.changePass',
-    });
-    exam.afterClosed().subscribe((data: { isAccept: boolean }) => {
-      data?.isAccept && addToast({ text: SystemMessage.UNKNOWN_ERROR, position: 'top-right' });
-    });
   };
 
   return (
@@ -73,7 +63,7 @@ function ChangePassword() {
               ))}
               <div>
                 <Button
-                  onClick={handleValidAccount}
+                  type="submit"
                   label={t('changePassword.changePassword')}
                   width="w-full"
                   size="m"

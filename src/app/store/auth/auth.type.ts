@@ -1,8 +1,8 @@
+import { User } from '@app/types';
+
 export interface AuthState {
-  _id: string;
-  username: string;
-  role: string;
-  jwt: string;
+  user: User | null;
+  accesToken: string;
 }
 
 export enum AuthActionType {

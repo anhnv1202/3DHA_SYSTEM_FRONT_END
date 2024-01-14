@@ -1,9 +1,9 @@
-import { ACCESS_TOKEN_KEY, SystemMessage } from '@app/common/constants';
+import { localStorageKeys, SystemMessage } from '@app/common/constants';
 import { addToast } from '@app/components/toast/toast.service';
 import { isNullOrUndefined, isStrEmpty, nullSafetyJSONStringify } from '@core/helpers/helpers';
 import { Environment } from '@environments/environment';
-import { NEVER, Observable, Subject, catchError, finalize, map, throwError } from 'rxjs';
-import { AjaxResponse, ajax } from 'rxjs/ajax';
+import { catchError, finalize, map, NEVER, Observable, Subject, throwError } from 'rxjs';
+import { ajax, AjaxResponse } from 'rxjs/ajax';
 import StorageService from '../storage';
 import { HttpMethod, HttpOptions, ProgressOptions, RequestContentType } from './http.type';
 
@@ -231,7 +231,7 @@ class _HttpService {
   }
 
   public getAccessToken() {
-    return StorageService.get(ACCESS_TOKEN_KEY) || StorageService.getSession(ACCESS_TOKEN_KEY);
+    return StorageService.get(localStorageKeys.USER_TOKEN) || StorageService.getSession(localStorageKeys.USER_TOKEN);
   }
 }
 

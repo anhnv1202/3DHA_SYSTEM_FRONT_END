@@ -84,12 +84,7 @@ function ForgotPassword() {
               </div>
               <small>{t('forgotPassword.or')}</small>
               <div className="mt-2 text-sm text-blue-500 text-center">
-                <Link
-                  to={'/login'}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="bg-blue-gray-500 text-white px-4 py-2 rounded-full"
-                >
+                <Link to={'/login'} className="bg-blue-gray-500 text-white px-4 py-2 rounded-full">
                   {t('forgotPassword.login')}
                 </Link>
               </div>

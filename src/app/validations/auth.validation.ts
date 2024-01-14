@@ -12,16 +12,8 @@ export const loginValidationSchema = createValidation({
 });
 
 export const signUpValidationSchema = createValidation({
-  firstName: Yup.string()
-    .required(requireMessage)
-    .min(1, i18n.t(VALIDATION.MIN_CHARACTERS, { min: 1 }))
-    .max(40, i18n.t(VALIDATION.MAX_CHARACTERS, { max: 40 }))
-    .matches(REGEX.FIRSTNAME, i18n.t(VALIDATION.ALPHANUMERIC_NUMBER_ONLY)),
-  lastName: Yup.string()
-    .required(requireMessage)
-    .min(1, i18n.t(VALIDATION.MIN_CHARACTERS, { min: 1 }))
-    .max(40, i18n.t(VALIDATION.MAX_CHARACTERS, { max: 40 }))
-    .matches(REGEX.LASTNAME, i18n.t(VALIDATION.ALPHANUMERIC_NUMBER_ONLY)),
+  firstName: Yup.string().required(requireMessage),
+  lastName: Yup.string().required(requireMessage),
   username: Yup.string()
     .required(requireMessage)
     .min(6, i18n.t(VALIDATION.MIN_CHARACTERS, { min: 6 }))
@@ -43,5 +35,5 @@ export const changePasswordValidationSchema = createValidation({
   newPassword: Yup.string().required(requireMessage),
   confirmPassword: Yup.string()
     .required(requireMessage)
-    .oneOf([Yup.ref(REF.PASSSWORD)], i18n.t(VALIDATION.PASSWORD_MATCH)),
+    .oneOf([Yup.ref(REF.NEWPASSWORD)], i18n.t(VALIDATION.PASSWORD_MATCH)),
 });

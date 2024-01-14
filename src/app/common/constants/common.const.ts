@@ -29,7 +29,6 @@ export enum LocalesFullText {
   JA = 'Japanese',
   KR = 'Korean',
 }
-export const ACCESS_TOKEN_KEY = 'access_token';
 
 export enum OrderType {
   ASC = 'asc',
@@ -46,6 +45,7 @@ export const REGEX = {
 
 export const REF = {
   PASSSWORD: 'password',
+  NEWPASSWORD: 'newPassword',
 };
 
 export const PATHS = {
@@ -71,6 +71,7 @@ export const INITIAL_VALUES = {
 
 export const localStorageKeys = {
   USER_TOKEN: 'access_token',
+  USER_INFO: 'user_info',
 };
 export const carouselItems: CarouselItem[] = [
   {

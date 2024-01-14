@@ -6,10 +6,8 @@ export default function authReducer(state: AuthState = initialState, action: App
     case AuthActionType.STORE_AUTH:
       return {
         ...state,
-        _id: action.payload?.user?._id,
-        username: action.payload?.user?.username,
-        role: action.payload?.user?.role,
-        jwt: action.payload?.user?.jwt,
+        user: action.payload?.user,
+        accesToken: action.payload?.accesToken,
       };
     case AuthActionType.CLEAR_AUTH:
       return initialState;
@@ -19,8 +17,6 @@ export default function authReducer(state: AuthState = initialState, action: App
 }
 
 const initialState: AuthState = {
-  _id: '',
-  username: '',
-  role: '',
-  jwt: '',
+  user: null,
+  accesToken: '',
 };
