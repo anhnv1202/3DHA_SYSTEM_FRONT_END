@@ -73,5 +73,40 @@
     "searchText": "Search for anything",
     "bussiness": "Bussiness",
     "teaching": "Teaching on 3DHA"
+  },
+  "homepage": {
+    "partnerBanner": {
+      "title": "Trusted by over 15,000 companies and millions of learners around the world"
+    },
+    "boardCourses": {
+      "title": "A broad selection of courses",
+      "description": "Choose from over 210,000 online video courses with new additions published every month"
+    },
+    "learnerView": {
+      "title": "Learners are viewing",
+      "carousel": {
+        "bestseller": "Bestseller"
+      }
+    },
+    "topCategories": {
+      "title": "Top categories"
+    },
+    "featuredTopic": {
+      "title": "Featured topics by category",
+      "linkLabel": "Explore more topics"
+    },
+    "appBussiness": {
+      "title": "Upskill your team with Udemy Business",
+      "description-1": "Unlimited access to 25,000+ top Udemy courses, anytime, anywhere",
+      "description-2": "International course collection in 14 languages",
+      "description-3": "Top certifications in tech and business",
+      "buttonGet": "Get 3HDA Bussiness",
+      "buttonLearnMore": "Learn more"
+    },
+    "teachOn": {
+      "title": "Become an instructor",
+      "description": "Instructors from around the world teach millions of learners on Udemy. We provide the tools and skills to teach what you love.",
+      "buttonStart": "Start teaching today"
+    }
   }
 }

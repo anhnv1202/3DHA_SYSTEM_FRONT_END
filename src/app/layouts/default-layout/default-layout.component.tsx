@@ -6,7 +6,7 @@ import Header from '../header/header.component';
 export default function DefaultLayout() {
   return (
     <Fragment>
-      <Header noShadow />
+      <Header />
       <main>
         <Outlet />
       </main>
