@@ -1,5 +1,4 @@
-import { CarouselItem } from '@app/components/carousel/carousel.component';
-import { LoginInitialValues } from '@app/types';
+import { CarouselItem, LoginInitialValues } from '@app/types';
 
 export const DEFAULT_DATE_FORMAT = 'D/MM/YYYY';
 export const DEFAULT_MINUTES_SECONDS_FORMAT = 'mm:ss';

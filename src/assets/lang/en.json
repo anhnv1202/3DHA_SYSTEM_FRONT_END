@@ -83,7 +83,10 @@
       "description": "Choose from over 210,000 online video courses with new additions published every month"
     },
     "learnerView": {
-      "title": "Learners are viewing"
+      "title": "Learners are viewing",
+      "carousel": {
+        "bestseller": "Bestseller"
+      }
     },
     "topCategories": {
       "title": "Top categories"
@@ -103,7 +106,7 @@
     "teachOn": {
       "title": "Become an instructor",
       "description": "Instructors from around the world teach millions of learners on Udemy. We provide the tools and skills to teach what you love.",
-      "buttonStart" : "Start teaching today"
+      "buttonStart": "Start teaching today"
     }
   }
 }

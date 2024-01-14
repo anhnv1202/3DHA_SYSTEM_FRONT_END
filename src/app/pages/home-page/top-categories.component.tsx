@@ -57,13 +57,7 @@ const TopCategories = (props: Props) => {
             href={course.href}
           >
             <div className="category-card--img-wrapper--1-XAz">
-              <img
-                src={course.imageUrl}
-                alt={`Course Image - ${course.title}`}
-                width="300"
-                height="300"
-                loading="lazy"
-              />
+              <img src={course.imageUrl} alt={`Course - ${course.title}`} width="300" height="300" loading="lazy" />
             </div>
             <div className="category-card--category-card-title--3TiqD" data-purpose="category-card-title-link">
               <span className="ud-heading-md ud-focus-visible-target">{course.title}</span>

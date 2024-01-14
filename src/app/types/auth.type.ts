@@ -13,19 +13,13 @@ export interface User {
   status: boolean;
   createdAt: string;
   updatedAt: string;
+  role: number;
   __v: number;
 }
 
-export interface AccessToken {
+export interface LoginResponse {
   accessToken: string;
   user: User;
-}
-
-export interface LoginResponse {
-  code: number;
-  success: boolean;
-  message: string;
-  data: AccessToken;
 }
 export interface CommonSuccessResponse {
   code: number;

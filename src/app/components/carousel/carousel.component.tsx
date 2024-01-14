@@ -1,20 +1,5 @@
-import {
-  Button,
-  Carousel as CarouselComponent,
-  Typography,
-  CarouselProps as TailwindCarouselProps,
-} from '@material-tailwind/react';
-
-export interface CarouselItem {
-  imageSrc: string;
-  title: string;
-  description: string;
-  leftButtonLabel: string;
-  rightButtonLabel: string;
-}
-export interface CarouselProps extends TailwindCarouselProps {
-  items: CarouselItem[];
-}
+import { CarouselProps } from '@app/types/index';
+import { Button, Carousel as CarouselComponent, Typography } from '@material-tailwind/react';
 
 const Carousel = ({ items, ...rest }: CarouselProps) => {
   return (

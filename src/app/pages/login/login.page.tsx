@@ -38,8 +38,8 @@ export const Login = () => {
   }, [token]);
   const handleSubmit = ({ email, password }: LoginInitialValues) => {
     subscribeOnce(AuthService.login(email, password), (LoginRes: LoginResponse) => {
-      if (LoginRes.success) {
-        const { accessToken } = LoginRes.data;
+      if (LoginRes) {
+        const { accessToken } = LoginRes;
         StorageService.set(localStorageKeys.USER_TOKEN, accessToken);
         dispatch(storeUser(LoginRes));
         navigate(path.HOMEPAGE);
@@ -51,7 +51,7 @@ export const Login = () => {
       className="flex items-center justify-center min-h-screen "
       style={{ backgroundImage: `url(${backgroundRegister})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
-      <div className="w flex items-center rounded-[10px] bg-blue-50 shadow-6 ">
+      <div className="w-3/5 flex items-center rounded-[10px] bg-blue-50 shadow-6 ">
         <div className="flex-1 ml-8">
           <img src={logoLogin} alt="Login logo" className="object-cover rounded w-200 h-200" aria-hidden="true" />
         </div>
@@ -71,7 +71,7 @@ export const Login = () => {
                 <FormControl name={field.name}>
                   <Input
                     width="auto"
-                    className="w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
+                    className="!max-w-none w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
                     placeholder={field.placeholder}
                     inputClassName="w-full"
                     errorClassName="text-red-500 text-xs"
