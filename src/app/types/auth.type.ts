@@ -27,6 +27,7 @@ export interface CommonSuccessResponse {
   message: string;
   data: any;
 }
+
 export interface SignUpInitialValues {
   firstName: string;
   lastName: string;

@@ -34,7 +34,7 @@
     "signup": "Sign Up",
     "or": "Or",
     "account": "You have an account? Log in",
-    "confirmEmail": "Please check your email to verify account!"
+    "confirmEmail": "Please check your email to verify account! \n The code expires in 10 minutes! \n If you can't get the code in your email, you must go to forgot password page! \n The account will be saved in the system for 3 days \n After that time, you must be registered again by this register infor!"
   },
   "forgotPassword": {
     "forgotPassword": "Forgot Password",
@@ -108,5 +108,17 @@
       "description": "Instructors from around the world teach millions of learners on Udemy. We provide the tools and skills to teach what you love.",
       "buttonStart": "Start teaching today"
     }
+  },
+  "user-info": {
+    "public-profile": "Public Profile",
+    "add-info": "Add information to your profile",
+    "save-profile": "Save Profile",
+    "upload-avatar": "Upload User Image",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "role": "Role",
+    "email": "Email",
+    "phone": "Phone",
+    "bio": "Bio"
   }
 }

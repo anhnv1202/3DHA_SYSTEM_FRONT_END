@@ -60,6 +60,7 @@ export const PATHS = {
   TEACHING: '/teaching',
   CART: '/cart',
   CATEGORY: '/category',
+  USER_INFO: '/user/edit-profile',
 };
 
 export const INITIAL_VALUES = {
@@ -67,6 +68,7 @@ export const INITIAL_VALUES = {
   FORGOT_PASSWORD: { email: '' },
   LOGIN: { email: '', password: '' } as LoginInitialValues,
   CHANGE_PASSWORD: { newPassword: '', confirmPassword: '' },
+  EDIT_PROFILE: { firstName: '', lastName: '', phone: '', email: '', role: 2, avatar: '', bio: '' },
 };
 
 export const localStorageKeys = {
