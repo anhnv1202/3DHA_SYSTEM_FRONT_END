@@ -13,6 +13,10 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { TfiWorld } from 'react-icons/tfi';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import { BsThreeDotsVertical } from 'react-icons/bs';
+import { CiHeart } from 'react-icons/ci';
+import { IoIosNotificationsOutline } from 'react-icons/io';
+import { IoCartOutline } from 'react-icons/io5';
+import { CiShoppingCart } from 'react-icons/ci';
 export const Images = {
   RemoveIconThin,
   EyeIcon,
@@ -30,4 +34,8 @@ export const Images = {
   TfiWorld,
   MdOutlineShoppingCart,
   BsThreeDotsVertical,
+  CiHeart,
+  IoIosNotificationsOutline,
+  IoCartOutline,
+  CiShoppingCart,
 };
