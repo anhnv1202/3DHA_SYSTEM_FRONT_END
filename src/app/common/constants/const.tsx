@@ -35,12 +35,10 @@ export const formFields: { [key: string]: FormField[] } = {
   ],
   edit_profile_2: [
     { name: 'phone', placeholder: i18n.t('user-info.phone'), type: 'text' },
-    { name: 'role', placeholder: i18n.t('user-info.role'), type: 'text' },
-  ],
-  edit_profile_3: [
     { name: 'email', placeholder: i18n.t('user-info.email'), type: 'text' },
     { name: 'bio', placeholder: i18n.t('user-info.bio'), type: 'text' },
   ],
+  edit_profile_3: [{ name: 'role', placeholder: i18n.t('user-info.role'), type: 'text' }],
 };
 
 export const navbarLinks: NavbarLink[] = [

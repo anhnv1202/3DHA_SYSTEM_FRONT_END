@@ -53,8 +53,8 @@
     "or": "Or"
   },
   "errorPage": {
-    "500Messages": "Internal Server Error!",
-    "500Messages2": "Unfortunately we're having trouble loading the page you are looking for",
+    "404Messages": "Not Found!",
+    "404Messages2": "Unfortunately we're having trouble loading the page you are looking for",
     "homepage": "Home Page"
   },
   "validation": {

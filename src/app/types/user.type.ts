@@ -16,4 +16,5 @@ export interface EditProfileResponse {
   role: number;
   avatar: string;
   bio: string;
+  status: string;
 }
