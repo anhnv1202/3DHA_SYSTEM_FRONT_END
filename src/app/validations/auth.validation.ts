@@ -1,10 +1,8 @@
 import { REF, REGEX, VALIDATION } from '@app/common/constants';
-import { createValidation } from '@app/validations/common.validation';
+import { createValidation, requireMessage } from '@app/validations/common.validation';
 import i18n from '@core/configs/i18n.config';
 
 import * as Yup from 'yup';
-
-const requireMessage = i18n.t(VALIDATION.REQUIRE);
 
 export const loginValidationSchema = createValidation({
   email: Yup.string().required(requireMessage).matches(REGEX.EMAIL, i18n.t(VALIDATION.EMAIL_INVALID)),

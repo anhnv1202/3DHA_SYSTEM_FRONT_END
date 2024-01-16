@@ -6,6 +6,7 @@ import { FormControl } from '@app/components/form-control';
 import Input from '@app/components/input';
 import { addToast } from '@app/components/toast/toast.service';
 import UserService from '@app/services/http/user.service';
+import { User } from '@app/types';
 import { FieldType } from '@app/types/helper';
 import { EditProfileInitialValues, EditProfileResponse } from '@app/types/user.type';
 import { editProfileValidationSchema } from '@app/validations/user.validation';
@@ -24,37 +25,39 @@ function UserInfo() {
   const [isMounted, setIsMounted] = useState(false);
   const navigate = useNavigate();
   const { subscribeOnce } = useObservable();
-  const storedUserInfo = StorageService.getObject(localStorageKeys.USER_INFO) as { [key: string]: any };
+  const storedUserInfo = StorageService.getObject(localStorageKeys.USER_INFO) as User;
 
   useEffect(() => {
     const userInfo = StorageService.get(localStorageKeys.USER_TOKEN);
-    if (userInfo && jwtIsValid(userInfo)) {
+    if (userInfo && jwtIsValid(userInfo) && formRef) {
+      formRef.current?.setValues({ ...storedUserInfo } as unknown as EditProfileInitialValues);
       setIsMounted(true);
     } else {
-      navigate(PATHS.LOGIN);
+      navigate(PATHS.HOMEPAGE);
     }
-  }, []);
-  const handleSubmit = (values: any) => {
-    console.log(values);
+  }, [formRef, storedUserInfo, navigate]);
+  const handleSubmit = (values: EditProfileInitialValues) => {
     subscribeOnce(
       UserService.update(storedUserInfo._id, { ...values, avatar: selectedFile }),
-      (editUserRes: EditProfileResponse) => {
-        editUserRes.status && addToast({ text: SystemMessage.EDIT_PROFILE, position: 'top-right' });
+      (res: EditProfileResponse) => {
+        if (res) {
+          StorageService.setObject(localStorageKeys.USER_INFO, res);
+          addToast({ text: SystemMessage.EDIT_PROFILE, position: 'top-right' });
+        }
       },
     );
   };
   const [selectedFile, setSelectedFile] = useState<string | null>(null);
 
-  const handleFileChange = (e: any) => {
-    const file = e.target.files[0];
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+
     if (file) {
       const reader = new FileReader();
-
       reader.onloadend = () => {
         const base64String = reader.result as string;
         setSelectedFile(base64String);
       };
-
       reader.readAsDataURL(file);
     }
   };
@@ -118,7 +121,6 @@ function UserInfo() {
                         inputClassName="w-full"
                         errorClassName="text-red-500 text-xs"
                         type={field.type as FieldType}
-                        value={storedUserInfo[field.name]}
                       />
                     </FormControl>
                   ))}
@@ -132,15 +134,12 @@ function UserInfo() {
                       inputClassName="w-full"
                       errorClassName="text-red-500 text-xs"
                       type={field.type as FieldType}
-                      value={storedUserInfo[field.name]}
                     />
                   </FormControl>
                 ))}
-                {formFields.edit_profile_3.map((field, index) => (
-                  <FormControl key={index} name={field.name}>
-                    <DropDown items={dropDownItems} defaultValue={storedUserInfo[field.name]} />
-                  </FormControl>
-                ))}
+                <FormControl name={formFields.edit_profile_3[0].name}>
+                  <DropDown items={dropDownItems} defaultValue={storedUserInfo.role} />
+                </FormControl>
                 <div>
                   <Button
                     type="submit"

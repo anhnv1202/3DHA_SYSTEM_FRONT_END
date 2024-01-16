@@ -1,3 +1,5 @@
+import { ROLES } from '@app/common/constants';
+
 export interface LoginInitialValues {
   email: string;
   password: string;
@@ -13,7 +15,7 @@ export interface User {
   status: boolean;
   createdAt: string;
   updatedAt: string;
-  role: number;
+  role: ROLES;
   __v: number;
 }
 

@@ -26,21 +26,21 @@ const Dropdown = ({ items, defaultValue }: DropDownProps) => {
               ripple={false}
               variant="text"
               className="w-full focus:outline-none text-xl "
-              placeholder={''}
+              placeholder={'button'}
               name="role"
               value={selectedItem}
             >
               {getNameByRole(selectedItem)}
             </Button>
           </MenuHandler>
-          <MenuList className="" placeholder={''}>
-            {items.map(({ name, role }, index) => {
+          <MenuList placeholder={'Dropdown'}>
+            {items.map(({ name, role }) => {
               return (
                 <MenuItem
                   key={name}
-                  className="font-xl !max-w-none w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
+                  className="w-full rounded-[10px] focus:outline-none focus:border-blue-500 "
                   onClick={() => handleDropdownChange(role)}
-                  placeholder={''}
+                  placeholder={'menu'}
                 >
                   {name}
                 </MenuItem>
