@@ -19,5 +19,7 @@ export const changePasswordProfileValidationSchema = createValidation({
     .max(16, i18n.t(VALIDATION.MAX_CHARACTERS, { max: 16 })),
   confirmPassword: Yup.string()
     .required(requireMessage)
+    .min(8, i18n.t(VALIDATION.MIN_CHARACTERS, { min: 8 }))
+    .max(16, i18n.t(VALIDATION.MAX_CHARACTERS, { max: 16 }))
     .oneOf([Yup.ref(REF.NEWPASSWORD)], i18n.t(VALIDATION.PASSWORD_MATCH)),
 });
