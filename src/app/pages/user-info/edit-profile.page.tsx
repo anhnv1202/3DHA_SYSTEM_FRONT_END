@@ -19,7 +19,7 @@ import { createRef, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-function UserInfo() {
+function EditProfile() {
   const { t } = useTranslation();
   const formRef = createRef<FormikContextType<EditProfileInitialValues>>();
   const [isMounted, setIsMounted] = useState(false);
@@ -158,4 +158,4 @@ function UserInfo() {
   );
 }
 
-export default UserInfo;
+export default EditProfile;

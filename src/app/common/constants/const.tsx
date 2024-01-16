@@ -39,6 +39,11 @@ export const formFields: { [key: string]: FormField[] } = {
     { name: 'bio', placeholder: i18n.t('user-info.bio'), type: 'text' },
   ],
   edit_profile_3: [{ name: 'role', placeholder: i18n.t('user-info.role'), type: 'text' }],
+  change_password_profile: [
+    { name: 'oldPassword', placeholder: i18n.t('user-info.oldPassword'), type: 'password' },
+    { name: 'newPassword', placeholder: i18n.t('user-info.newPassword'), type: 'password' },
+    { name: 'confirmPassword', placeholder: i18n.t('user-info.confirmPassword'), type: 'password' },
+  ],
 };
 
 export const navbarLinks: NavbarLink[] = [
