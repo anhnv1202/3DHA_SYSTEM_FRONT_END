@@ -55,6 +55,7 @@ export const PATHS = {
   FORGOT_PASSWORD: '/forgot-password',
   CHANGE_PASSWORD: '/change-password',
   CONFIRM: '/confirm',
+  COURSE: '/course',
   HOMEPAGE: '/home',
   BUSSINESS: '/business',
   TEACHING: '/teaching',

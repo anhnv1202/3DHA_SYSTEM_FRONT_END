@@ -13,6 +13,15 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { TfiWorld } from 'react-icons/tfi';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import { BsThreeDotsVertical } from 'react-icons/bs';
+import { FaAngleRight } from 'react-icons/fa6';
+import { IoMdStarHalf } from 'react-icons/io';
+import { IoMdStar, IoMdStarOutline } from 'react-icons/io';
+import { TiVideo } from 'react-icons/ti';
+import { MdKeyboardAlt } from 'react-icons/md';
+import { TiTick } from 'react-icons/ti';
+import { BiSolidMedal } from 'react-icons/bi';
+import { IoPeople } from 'react-icons/io5';
+import { PiVideoFill } from 'react-icons/pi';
 export const Images = {
   RemoveIconThin,
   EyeIcon,
@@ -30,4 +39,14 @@ export const Images = {
   TfiWorld,
   MdOutlineShoppingCart,
   BsThreeDotsVertical,
+  FaAngleRight,
+  IoMdStarHalf,
+  IoMdStar,
+  TiVideo,
+  MdKeyboardAlt,
+  TiTick,
+  BiSolidMedal,
+  IoPeople,
+  PiVideoFill,
+  IoMdStarOutline,
 };
