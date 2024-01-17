@@ -2,6 +2,7 @@ export enum SystemMessage {
   UNKNOWN_ERROR = "Something's wrong",
   VERIFY_SUCCESS = 'Verify successfully',
   CHANGE_PASSWORD_SUCCESS = 'Change password successfully',
+  EDIT_PROFILE = 'Edit profile successfully',
 }
 
 export const VALIDATION = {

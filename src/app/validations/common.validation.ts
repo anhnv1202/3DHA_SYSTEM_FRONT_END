@@ -1,4 +1,6 @@
 // validationHelpers.ts
+import { VALIDATION } from '@app/common/constants';
+import i18n from '@core/configs/i18n.config';
 import * as Yup from 'yup';
 
 interface ValidationConfig {
@@ -30,3 +32,5 @@ export const confirmPasswordValidation = (ref: string, errorMessage: string): Yu
     .required(errorMessage)
     .oneOf([Yup.ref(ref)], errorMessage);
 };
+
+export const requireMessage = i18n.t(VALIDATION.REQUIRE);

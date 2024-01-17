@@ -30,16 +30,16 @@ export const Login = () => {
   const token = urlParams.get('token');
   useEffect(() => {
     token &&
-      subscribeOnce(AuthService.confirm(token), (confirmRes: ConfirmResponse) => {
-        console.log(confirmRes.status);
-        confirmRes.status && addToast({ text: SystemMessage.VERIFY_SUCCESS, position: 'top-right' });
+      subscribeOnce(AuthService.confirm(token), (res: ConfirmResponse) => {
+        console.log(res);
+        res && addToast({ text: SystemMessage.VERIFY_SUCCESS, position: 'top-right' });
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
   const handleSubmit = ({ email, password }: LoginInitialValues) => {
     subscribeOnce(AuthService.login(email, password), (res: LoginResponse) => {
       if (res) {
         const { accessToken, user } = res;
+        addToast({ text: SystemMessage.VERIFY_SUCCESS, position: 'top-right' });
         StorageService.set(localStorageKeys.USER_TOKEN, accessToken);
         StorageService.setObject(localStorageKeys.USER_INFO, user);
         dispatch(storeUser(res));
