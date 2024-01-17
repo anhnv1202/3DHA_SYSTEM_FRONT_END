@@ -14,12 +14,13 @@ import backgroundUser from '@assets/images/background/backgroundUser.png';
 import { jwtIsValid } from '@core/helpers/jwt.helper';
 import useObservable from '@core/hooks/use-observable.hook';
 import StorageService from '@core/services/storage';
+import { Image } from '@nextui-org/react';
 import { Form, Formik, FormikContextType } from 'formik';
 import { createRef, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-function UserInfo() {
+function EditProfile() {
   const { t } = useTranslation();
   const formRef = createRef<FormikContextType<EditProfileInitialValues>>();
   const [isMounted, setIsMounted] = useState(false);
@@ -83,14 +84,14 @@ function UserInfo() {
               <Form className="max-w-xl mx-auto p-8 rounded-[10px]">
                 <div className="flex flex-col items-center ">
                   {selectedFile ? (
-                    <img
+                    <Image
                       src={selectedFile}
                       alt="Selected Avatar"
                       className="w-70 h-70 object-cover rounded-[10px] border"
                       aria-hidden="true"
                     />
                   ) : (
-                    <img
+                    <Image
                       src={storedUserInfo.avatar}
                       alt="Selected Avatar"
                       className="w-70 h-70 object-cover rounded-[10px] border"
@@ -158,4 +159,4 @@ function UserInfo() {
   );
 }
 
-export default UserInfo;
+export default EditProfile;
