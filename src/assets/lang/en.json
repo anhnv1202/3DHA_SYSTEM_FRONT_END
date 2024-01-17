@@ -111,6 +111,7 @@
   },
   "user-info": {
     "public-profile": "Public Profile",
+    "change-password": "Change Password",
     "add-info": "Add information to your profile",
     "save-profile": "Save Profile",
     "upload-avatar": "Upload User Image",
@@ -119,6 +120,10 @@
     "role": "Role",
     "email": "Email",
     "phone": "Phone",
-    "bio": "Bio"
+    "bio": "Bio",
+    "oldPassword": "Old Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm New Password",
+    "changePassword": "Change Password"
   }
 }

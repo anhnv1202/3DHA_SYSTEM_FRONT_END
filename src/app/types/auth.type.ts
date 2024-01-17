@@ -64,3 +64,15 @@ export interface ChangePasswordRequest {
 export interface ConfirmResponse {
   status: boolean;
 }
+
+export interface ChangePasswordProfileInitialValues {
+  oldPassword: string;
+  newPassword: string;
+  confirmPassword: string;
+}
+
+export interface ChangePasswordProfileRequest {
+  oldPassword: string;
+  newPassword: string;
+  confirmPassword: string;
+}
