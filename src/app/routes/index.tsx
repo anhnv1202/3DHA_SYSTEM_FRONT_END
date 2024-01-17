@@ -6,6 +6,7 @@ import ForgotPassword from '@app/pages/forgot-password/forgot-password.page';
 import Homepage from '@app/pages/home-page/home-page.page';
 import { Login } from '@app/pages/login/login.page';
 import Register from '@app/pages/register/register.page';
+import UserInfo from '@app/pages/user-info/edit-profile.page';
 import { RouteObject } from 'react-router-dom';
 
 const routes: RouteObject[] = [
@@ -17,6 +18,7 @@ const routes: RouteObject[] = [
   { path: PATHS.DEFAULT, element: <Homepage /> },
   { path: PATHS.CATEGORY, element: <Category /> },
   { path: PATHS.CONFIRM, element: <Confirm /> },
+  { path: PATHS.USER_INFO, element: <UserInfo /> },
 ];
 
 export default routes;

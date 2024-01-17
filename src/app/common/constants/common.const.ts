@@ -1,9 +1,9 @@
-import { CarouselItem, LoginInitialValues } from '@app/types';
+import { CarouselItem, DropDownItem, LoginInitialValues, UserProfile } from '@app/types';
 
 export const DEFAULT_DATE_FORMAT = 'D/MM/YYYY';
 export const DEFAULT_MINUTES_SECONDS_FORMAT = 'mm:ss';
 export const USER_INFO_KEY = 'mm3231';
-export enum ROLE {
+export enum ROLES {
   TEACHER = 1,
   STUDENT = 2,
   ADMIN = 3,
@@ -60,6 +60,7 @@ export const PATHS = {
   TEACHING: '/teaching',
   CART: '/cart',
   CATEGORY: '/category',
+  USER_INFO: '/user/edit-profile',
 };
 
 export const INITIAL_VALUES = {
@@ -67,6 +68,7 @@ export const INITIAL_VALUES = {
   FORGOT_PASSWORD: { email: '' },
   LOGIN: { email: '', password: '' } as LoginInitialValues,
   CHANGE_PASSWORD: { newPassword: '', confirmPassword: '' },
+  EDIT_PROFILE: { firstName: '', lastName: '', phone: '', email: '', role: 2, avatar: '', bio: '' } as UserProfile,
 };
 
 export const localStorageKeys = {
@@ -94,5 +96,15 @@ export const carouselItems: CarouselItem[] = [
     description: 'Description for the second item.',
     leftButtonLabel: 'Learn More',
     rightButtonLabel: 'View Details',
+  },
+];
+export const dropDownItems: DropDownItem[] = [
+  {
+    name: 'TEACHER',
+    role: ROLES.TEACHER,
+  },
+  {
+    name: 'STUDENT',
+    role: ROLES.STUDENT,
   },
 ];

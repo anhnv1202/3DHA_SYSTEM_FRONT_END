@@ -29,6 +29,16 @@ export const formFields: { [key: string]: FormField[] } = {
     { name: 'email', placeholder: i18n.t('login.emailField'), type: 'text' },
     { name: 'password', placeholder: i18n.t('login.passwordField'), type: 'password' },
   ],
+  edit_profile_1: [
+    { name: 'firstName', placeholder: i18n.t('user-info.firstName'), type: 'text' },
+    { name: 'lastName', placeholder: i18n.t('user-info.lastName'), type: 'text' },
+  ],
+  edit_profile_2: [
+    { name: 'phone', placeholder: i18n.t('user-info.phone'), type: 'text' },
+    { name: 'email', placeholder: i18n.t('user-info.email'), type: 'text' },
+    { name: 'bio', placeholder: i18n.t('user-info.bio'), type: 'text' },
+  ],
+  edit_profile_3: [{ name: 'role', placeholder: i18n.t('user-info.role'), type: 'text' }],
 };
 
 export const navbarLinks: NavbarLink[] = [
