@@ -36,7 +36,7 @@ export default function ToastContainer() {
 
   return (
     <div
-      className={clsx('fixed z-[100]', {
+      className={clsx('fixed z-[9999]', {
         'bottom-3 left-3': position === 'bottom-left',
         'bottom-3 right-3': position === 'bottom-right',
         'top-3 left-3': position === 'top-left',
@@ -51,7 +51,7 @@ export default function ToastContainer() {
             'shadow-[0_4px_8px_0_rgb(0,0,0,10%),0_2px_4px_0_rgb(0,0,0,10%),0_0_0_1px_rgb(0,0,0,5%)]',
             {
               'bg-[#e54e87]': toast.status === 'inValid',
-              'bg-green-500': toast.status === 'valid',
+              'bg-[#05ff05bf]': toast.status === 'valid',
               'bg-yellow-500': toast.status === 'warn',
             },
           )}

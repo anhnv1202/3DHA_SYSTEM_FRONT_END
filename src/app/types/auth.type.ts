@@ -1,4 +1,5 @@
 import { ROLES } from '@app/common/constants';
+import { ReactNode } from 'react';
 
 export interface LoginInitialValues {
   email: string;
@@ -17,6 +18,20 @@ export interface User {
   updatedAt: string;
   role: ROLES;
   __v: number;
+}
+
+export interface AuthProviderProps {
+  children: ReactNode;
+}
+export interface ProtectedRouteProps {
+  allowedRoles?: ROLES[];
+}
+export interface AuthContextType {
+  user: User | null;
+  isLoading: boolean;
+  _setUser: (user: User) => void;
+  startSession: ({ accessToken, user }: LoginResponse) => void;
+  endSession: () => void;
 }
 
 export interface LoginResponse {
