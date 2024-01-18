@@ -3,7 +3,6 @@ import Category from '@app/pages/category/category.page';
 import ChangePassword from '@app/pages/change-password/change-password.page';
 import Confirm from '@app/pages/confirm/confirm.page';
 import CourseDetail from '@app/pages/course-detail/course-detail.page';
-import PaidCourseDetail from '@app/pages/course-detail/unpaid-course-detail.page';
 import ForgotPassword from '@app/pages/forgot-password/forgot-password.page';
 import Homepage from '@app/pages/home-page/home-page.page';
 import { Login } from '@app/pages/login/login.page';
