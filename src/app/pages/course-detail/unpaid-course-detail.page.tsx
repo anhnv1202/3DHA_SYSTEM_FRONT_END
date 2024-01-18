@@ -1,12 +1,12 @@
 import Breadcrumb from '@app/components/breadcrumb';
-import HeadingCourseDetail from './chidren/heading-course-detail.component';
+import HeadingCourseDetail from './chidren/heading-detail.component';
 import RelatedCourseByCategory from './chidren/related-by-category-course-detail.component';
-import RelatedCourseByInstructor from './chidren/related-course-by-instructor.component';
-import ReviewCourseDetail from './chidren/review-course-detail.component';
+import RelatedCourseByInstructor from './chidren/related-by-instructor.component';
+import ReviewCourseDetail from './chidren/review-detail.component';
 
 type Props = {};
 
-const PaidCourseDetail = (props: Props) => {
+const UnpaidCourseDetail = (props: Props) => {
   return (
     <>
       <div className="clp-component-render">
@@ -27,4 +27,4 @@ const PaidCourseDetail = (props: Props) => {
   );
 };
 
-export default PaidCourseDetail;
+export default UnpaidCourseDetail;

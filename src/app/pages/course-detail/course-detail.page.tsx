@@ -1,9 +1,11 @@
 import React from 'react';
+import UnpaidCourseDetail from './unpaid-course-detail.page';
+import PaidCourseDetail from './paid-course-detail.component';
 
-type Props = {};
+type Props = { isUnpaidPage?: boolean };
 
-const CourseDetail = (props: Props) => {
-  return <div>course-detail.page</div>;
+const CourseDetail = ({ isUnpaidPage }: Props) => {
+  return isUnpaidPage ? <UnpaidCourseDetail /> : <PaidCourseDetail />;
 };
 
 export default CourseDetail;

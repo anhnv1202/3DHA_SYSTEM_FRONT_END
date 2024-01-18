@@ -22,6 +22,7 @@ import { TiTick } from 'react-icons/ti';
 import { BiSolidMedal } from 'react-icons/bi';
 import { IoPeople } from 'react-icons/io5';
 import { PiVideoFill } from 'react-icons/pi';
+import { FaAngleLeft } from 'react-icons/fa6';
 export const Images = {
   RemoveIconThin,
   EyeIcon,
@@ -49,4 +50,5 @@ export const Images = {
   IoPeople,
   PiVideoFill,
   IoMdStarOutline,
+  FaAngleLeft,
 };
