@@ -1,3 +1,5 @@
+import { ROLES } from '@app/common/constants';
+
 export interface LoginInitialValues {
   email: string;
   password: string;
@@ -13,7 +15,7 @@ export interface User {
   status: boolean;
   createdAt: string;
   updatedAt: string;
-  role: number;
+  role: ROLES;
   __v: number;
 }
 
@@ -27,6 +29,7 @@ export interface CommonSuccessResponse {
   message: string;
   data: any;
 }
+
 export interface SignUpInitialValues {
   firstName: string;
   lastName: string;
@@ -60,4 +63,16 @@ export interface ChangePasswordRequest {
 
 export interface ConfirmResponse {
   status: boolean;
+}
+
+export interface ChangePasswordProfileInitialValues {
+  oldPassword: string;
+  newPassword: string;
+  confirmPassword: string;
+}
+
+export interface ChangePasswordProfileRequest {
+  oldPassword: string;
+  newPassword: string;
+  confirmPassword: string;
 }

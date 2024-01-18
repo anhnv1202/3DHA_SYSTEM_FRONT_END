@@ -23,7 +23,7 @@ function ForgotPassword() {
   const { subscribeOnce } = useObservable();
 
   const handleSubmit = ({ email }: ForgotPasswordInitialValues) => {
-    subscribeOnce(AuthService.forgot(email), (forgotResp: CommonSuccessResponse) => {
+    subscribeOnce(AuthService.forgot(email), (res: CommonSuccessResponse) => {
       openPortalDialog(WarningModal, {
         message: 'forgotPassword.confirmEmail',
       });

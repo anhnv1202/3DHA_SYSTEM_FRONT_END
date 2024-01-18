@@ -23,8 +23,8 @@ function Register() {
   const { subscribeOnce } = useObservable();
 
   const handleSubmit = (values: SignUpInitialValues) => {
-    subscribeOnce(AuthService.register({ ...values }), (RegisterRes: RegisterResponse) => {
-      if (RegisterRes.status) {
+    subscribeOnce(AuthService.register({ ...values }), (res: RegisterResponse) => {
+      if (res.status) {
         openPortalDialog(WarningModal, {
           message: 'register.confirmEmail',
         });
