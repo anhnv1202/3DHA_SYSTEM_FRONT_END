@@ -1,9 +1,17 @@
-import React from 'react';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 type Props = {};
 
 const UserSectionHeaderMenu = (props: Props) => {
+  const [selectedLanguage, setSelectedLanguage] = useState('en');
+  const { i18n } = useTranslation();
+  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedLanguage = e.target.value;
+    setSelectedLanguage(selectedLanguage);
+    i18n.changeLanguage(e.target.value);
+  };
   return (
     <>
       <a href="/user/edit-profile/" className="user-profile-dropdown-module--user-section--3BWyl">
@@ -126,8 +134,17 @@ const UserSectionHeaderMenu = (props: Props) => {
           >
             <div className="ud-block-list-item-content">
               <div className="language-selector-menu-item-module--item-content--1xE_P">
-                <span>Language</span>
-                <span className="language-selector-menu-item-module--current-language--1gXmr">English</span>
+                <label htmlFor="language">Language</label>
+                <select
+                  id="language"
+                  className="language-selector-menu-item-module--language-select"
+                  onChange={handleLanguageChange}
+                  value={selectedLanguage}
+                >
+                  <option value="en">English</option>
+                  <option value="vi">Tiếng Việt</option>
+                  {/* Thêm các tùy chọn cho các ngôn ngữ khác ở đây */}
+                </select>
               </div>
             </div>
             <svg aria-hidden="true" focusable="false" className="ud-icon ud-icon-xsmall ud-block-list-item-icon"></svg>

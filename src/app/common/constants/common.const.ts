@@ -21,7 +21,7 @@ export const CONFIRM_TYPE = {
   FORGOT_PASSWORD: 'forgotPassword',
 };
 
-export const APP_LOCALES = [Locales.EN];
+export const APP_LOCALES = [Locales.EN, Locales.VI];
 
 export enum LocalesFullText {
   VI = 'Vietnamese',
