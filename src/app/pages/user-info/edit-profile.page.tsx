@@ -6,9 +6,9 @@ import { FormControl } from '@app/components/form-control';
 import Input from '@app/components/input';
 import { addToast } from '@app/components/toast/toast.service';
 import UserService from '@app/services/http/user.service';
-import { AuthContextType } from '@app/types';
+import { AuthContextType, User } from '@app/types';
 import { FieldType } from '@app/types/helper';
-import { EditProfileInitialValues, EditProfileResponse } from '@app/types/user.type';
+import { EditProfileInitialValues } from '@app/types/user.type';
 import { editProfileValidationSchema } from '@app/validations/user.validation';
 import backgroundUser from '@assets/images/background/backgroundUser.png';
 import { useAuth } from '@core/context/auth.context';
@@ -39,8 +39,9 @@ function EditProfile() {
   }, [formRef, user, navigate]);
   if (!user) return;
   const handleSubmit = (values: EditProfileInitialValues) => {
-    subscribeOnce(UserService.update(user._id, { ...values, avatar: selectedFile }), (res: EditProfileResponse) => {
+    subscribeOnce(UserService.update(user._id, { ...values, avatar: selectedFile }), (res: User) => {
       if (res) {
+        _setUser(res);
         StorageService.setObject(localStorageKeys.USER_INFO, res);
         addToast({ text: SystemMessage.EDIT_PROFILE, position: 'top-right' });
       }

@@ -2,6 +2,7 @@ import { localStorageKeys } from '@app/common/constants';
 import { AuthContextType, AuthProviderProps, LoginResponse, User } from '@app/types';
 import { getCookie, removeAllCookies, replaceCookie } from '@core/helpers/cookie.helper';
 import { jwtIsValid } from '@core/helpers/jwt.helper';
+import StorageService from '@core/services/storage';
 import { JwtPayload, jwtDecode } from 'jwt-decode';
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
@@ -24,20 +25,20 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const endSession = useCallback(() => {
     setUser(null);
+    StorageService.remove(localStorageKeys.USER_INFO);
     removeAllCookies();
   }, []);
 
   useEffect(() => {
     const isValid = jwtIsValid(token || '');
+    const userInfo = StorageService.getObject(localStorageKeys.USER_INFO) as User;
     if (!token || !isValid) {
       endSession();
       setIsLoading(false);
       return;
     }
     const user = jwtDecode<JwtPayload>(token || '') as User;
-    console.log(user);
-
-    setUser(user);
+    setUser(userInfo ? userInfo : user);
     setIsLoading(false);
   }, [token, endSession]);
 

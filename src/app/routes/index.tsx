@@ -34,15 +34,3 @@ export const routesForAuthenticatedOnly = [
     ],
   },
 ];
-
-export const routes: RouteObject[] = [
-  { path: PATHS.REGISTER, element: <Register /> },
-  { path: PATHS.FORGOT_PASSWORD, element: <ForgotPassword /> },
-  { path: PATHS.CHANGE_PASSWORD, element: <ChangePassword /> },
-  { path: PATHS.LOGIN, element: <Login /> },
-  { path: PATHS.CONFIRM, element: <Confirm /> },
-  { path: PATHS.EDIT_PROFILE, element: <EditProfile /> },
-  { path: PATHS.CHANGE_PASSWORD_PROFILE, element: <ChangePasswordProfile /> },
-];
-
-export default routes;

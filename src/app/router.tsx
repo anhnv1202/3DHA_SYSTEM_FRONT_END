@@ -7,6 +7,7 @@ import { routesForAuthenticatedOnly, routesForNotAuthenticatedOnly, routesForPub
 import { AuthContextType } from './types';
 const Routes = () => {
   const { user, isLoading } = useAuth() as AuthContextType;
+
   if (isLoading) {
     return <Loading />;
   }
