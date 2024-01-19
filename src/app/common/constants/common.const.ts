@@ -62,6 +62,7 @@ export const PATHS = {
   CATEGORY: '/category',
   EDIT_PROFILE: '/user/edit-profile',
   CHANGE_PASSWORD_PROFILE: '/user/change-password-profile',
+  COURSE_SEARCH: '/course/search',
 };
 
 export const INITIAL_VALUES = {

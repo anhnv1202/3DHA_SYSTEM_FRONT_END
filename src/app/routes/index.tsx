@@ -2,6 +2,7 @@ import { PATHS } from '@app/common/constants';
 import Category from '@app/pages/category/category.page';
 import ChangePassword from '@app/pages/change-password/change-password.page';
 import Confirm from '@app/pages/confirm/confirm.page';
+import CourseSearch from '@app/pages/course-search/course-search.page';
 import ForgotPassword from '@app/pages/forgot-password/forgot-password.page';
 import Homepage from '@app/pages/home-page/home-page.page';
 import { Login } from '@app/pages/login/login.page';
@@ -21,6 +22,7 @@ const routes: RouteObject[] = [
   { path: PATHS.CONFIRM, element: <Confirm /> },
   { path: PATHS.EDIT_PROFILE, element: <EditProfile /> },
   { path: PATHS.CHANGE_PASSWORD_PROFILE, element: <ChangePasswordProfile /> },
+  { path: PATHS.COURSE_SEARCH, element: <CourseSearch /> },
 ];
 
 export default routes;
