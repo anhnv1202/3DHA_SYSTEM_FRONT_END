@@ -1,12 +1,12 @@
 import Carousel from '@app/components/carousel';
-import TopCategories from './top-categories.component';
-import FeaturedTopic from './featured-topic.component';
-import AppBussiness from './app-bussiness.component';
-import TeachOnSection from './teach-on-section.component';
-import BoardCourses from './board-course.component';
-import PartnerBanner from './partner-banner.component';
+import TopCategories from './children/top-categories.component';
+import FeaturedTopic from './children/featured-topic.component';
+import AppBussiness from './children/app-bussiness.component';
+import TeachOnSection from './children/teach-on-section.component';
+import BoardCourses from './children/board-course.component';
+import PartnerBanner from './children/partner-banner.component';
 import { carouselItems } from '@app/common/constants';
-import LearnView from './learner-view.component';
+import LearnView from './children/learner-view.component';
 
 type Props = {};
 
