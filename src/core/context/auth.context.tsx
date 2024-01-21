@@ -44,7 +44,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }, [token, endSession]);
 
   const value = useMemo(() => {
-    console.log('useMemo');
     return {
       user,
       startSession,
@@ -54,7 +53,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       token,
     };
   }, [user, startSession, endSession, isLoading, token]);
-  console.log('🚀 ~ AuthProvider ~ value:', value);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

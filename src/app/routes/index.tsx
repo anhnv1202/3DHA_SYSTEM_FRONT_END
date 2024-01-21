@@ -22,6 +22,7 @@ export const routesForPublic = [
   { path: PATHS.HOMEPAGE, element: <Homepage /> },
   { path: PATHS.DEFAULT, element: <Homepage /> },
   { path: PATHS.CATEGORY, element: <Category /> },
+  { path: PATHS.LOGOUT, element: <Logout /> },
 ];
 
 export const routesForAuthenticatedOnly = [
@@ -31,7 +32,6 @@ export const routesForAuthenticatedOnly = [
     children: [
       { path: PATHS.EDIT_PROFILE, element: <EditProfile /> },
       { path: PATHS.CHANGE_PASSWORD_PROFILE, element: <ChangePasswordProfile /> },
-      { path: PATHS.LOGOUT, element: <Logout /> },
     ],
   },
 ];

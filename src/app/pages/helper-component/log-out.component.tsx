@@ -1,21 +1,18 @@
+import { PATHS } from '@app/common/constants';
 import { AuthContextType } from '@app/types';
+import Loading from '@core/components/loading';
 import { useAuth } from '@core/context/auth.context';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Logout = () => {
-  const { endSession } = useAuth() as AuthContextType;
+  const { endSession, user } = useAuth() as AuthContextType;
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    endSession();
-    navigate('/login', { replace: true });
-  };
+  useEffect(() => {
+    user ? endSession() : navigate(PATHS.LOGIN, { replace: true });
+  }, [endSession, navigate, user]);
 
-  setTimeout(() => {
-    handleLogout();
-  }, 3 * 1000);
-
-  return <>Logout Page</>;
+  return <Loading />;
 };
-
 export default Logout;

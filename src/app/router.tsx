@@ -18,7 +18,6 @@ const Routes = () => {
       children: [...(!user ? routesForNotAuthenticatedOnly : []), ...routesForPublic, ...routesForAuthenticatedOnly],
     },
   ]);
-  console.log('🚀 ~ Routes ~ router:', router);
   return <RouterProvider router={router} />;
 };
 export default Routes;

@@ -1,31 +1,19 @@
 import { PATHS } from '@app/common/constants';
-import Button from '@app/components/button';
-import { AuthContextType } from '@app/types';
-import { useAuth } from '@core/context/auth.context';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 type Props = {};
 
 const UserSectionHeaderMenu = (props: Props) => {
   const [selectedLanguage, setSelectedLanguage] = useState('en');
   const { i18n } = useTranslation();
-  const { endSession } = useAuth() as AuthContextType;
-  const navigate = useNavigate();
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedLanguage = e.target.value;
     setSelectedLanguage(selectedLanguage);
     i18n.changeLanguage(e.target.value);
   };
-  // const logout = () => {
-  //   endSession();
-  //   console.log('🚀 ~ setTimeout ~ PATHS.LOGIN:', PATHS.LOGIN);
-
-  //   navigate(PATHS.LOGIN, { replace: true });
-  // };
-
   return (
     <>
       <Link to="/user/edit-profile/" className="user-profile-dropdown-module--user-section--3BWyl">
