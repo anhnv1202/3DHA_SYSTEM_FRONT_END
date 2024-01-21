@@ -34,6 +34,7 @@ export const Login = () => {
       subscribeOnce(AuthService.confirm(token), (res: ConfirmResponse) => {
         res && addToast({ text: SystemMessage.VERIFY_SUCCESS, position: 'top-right' });
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
   const handleSubmit = ({ email, password }: LoginInitialValues) => {
     subscribeOnce(AuthService.login(email, password), (res: LoginResponse) => {

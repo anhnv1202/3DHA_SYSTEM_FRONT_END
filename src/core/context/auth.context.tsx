@@ -10,6 +10,7 @@ const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [token, setToken] = useState<string | null>(getCookie(localStorageKeys.USER_TOKEN));
 
   const [isLoading, setIsLoading] = useState(true);
@@ -42,17 +43,18 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setIsLoading(false);
   }, [token, endSession]);
 
-  const value = useMemo(
-    () => ({
+  const value = useMemo(() => {
+    console.log('useMemo');
+    return {
       user,
       startSession,
       endSession,
       isLoading,
       _setUser,
       token,
-    }),
-    [user, startSession, endSession, isLoading, token],
-  );
+    };
+  }, [user, startSession, endSession, isLoading, token]);
+  console.log('🚀 ~ AuthProvider ~ value:', value);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

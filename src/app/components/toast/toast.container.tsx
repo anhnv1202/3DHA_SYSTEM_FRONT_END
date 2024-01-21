@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
 import { removeToast, toast$ } from './toast.service';

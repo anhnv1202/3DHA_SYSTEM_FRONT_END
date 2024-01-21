@@ -35,7 +35,6 @@ const Header = ({ noShadow, isUserLoggedIn }: HeaderProps) => {
             type="submit"
             disabled
             className="ud-btn ud-btn-large ud-btn-ghost ud-heading-md ud-btn-disabled ud-btn-icon ud-btn-icon-large"
-            tabIndex={-1}
           >
             <Images.AiOutlineSearch focusable="false" className="ud-icon ud-icon-medium ud-icon-color-neutral" />
           </button>
