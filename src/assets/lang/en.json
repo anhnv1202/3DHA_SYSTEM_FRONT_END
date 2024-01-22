@@ -17,10 +17,11 @@
     "submitButton": "Login",
     "or": "Or",
     "maybe": "Maybe",
-    "signUpButton": "You don't have the account ? Please register -_-",
+    "signUpButton": "You don't have the account ? Please register",
     "forgotPasswordButton": "You just forgot your password ? Click here",
     "account": "You have an account? Log in",
-    "confirmEmail": "Please check your email to verify account!"
+    "confirmEmail": "Please check your email to verify account!",
+    "google": "Sign in with Google"
   },
   "register": {
     "register": "Register",

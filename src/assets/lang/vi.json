@@ -17,10 +17,11 @@
     "submitButton": "Đăng nhập",
     "or": "Hoặc",
     "maybe": "Có lẽ",
-    "signUpButton": "Bạn chưa có tài khoản ? Vui lòng đăng ký -_-",
+    "signUpButton": "Bạn chưa có tài khoản ? Vui lòng đăng ký",
     "forgotPasswordButton": "Bạn chỉ quên mật khẩu ? Nhấn vào đây",
     "account": "Bạn đã có tài khoản? Đăng nhập",
-    "confirmEmail": "Vui lòng kiểm tra email của bạn để xác minh tài khoản!"
+    "confirmEmail": "Vui lòng kiểm tra email của bạn để xác minh tài khoản!",
+    "google": "Đăng nhập bằng Google"
   },
   "register": {
     "register": "Đăng ký",
