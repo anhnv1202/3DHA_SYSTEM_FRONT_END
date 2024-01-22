@@ -1,13 +1,16 @@
 import { PATHS } from '@app/common/constants';
+import { User } from '@app/types';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-type Props = {};
+type Props = {
+  user: User | null | undefined;
+};
 
-const UserSectionHeaderMenu = (props: Props) => {
+const UserSectionHeaderMenu = ({ user }: Props) => {
   const [selectedLanguage, setSelectedLanguage] = useState('en');
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedLanguage = e.target.value;
@@ -16,62 +19,54 @@ const UserSectionHeaderMenu = (props: Props) => {
   };
   return (
     <>
-      <Link to="/user/edit-profile/" className="user-profile-dropdown-module--user-section--3BWyl">
+      <Link to={PATHS.EDIT_PROFILE} className="user-profile-dropdown-module--user-section--3BWyl">
         <div
           className="user-profile-dropdown-module--user-section-avatar--2Oh1n ud-avatar ud-heading-xl"
           style={{ width: '6.4rem', height: '6.4rem' }}
         >
-          TA
+          <img src={user?.avatar} alt="avatar" />
         </div>
         <div className="user-profile-dropdown-module--user-details--1ypfV">
           <div>
-            <div className="ud-heading-md">Trịnh Tiến Đạt</div>
-            <div className="ud-text-xs user-profile-dropdown-module--email--QPfBN">trinhtiendat2510@gmail.com</div>
+            <div className="ud-heading-md">{user?.username}</div>
+            <div className="ud-text-xs user-profile-dropdown-module--email--QPfBN">{user?.email}</div>
           </div>
         </div>
       </Link>
       <ul className="ud-unstyled-list ud-block-list list-menu-module--section--1WKRq">
         <li>
-          <a
-            href="/home/my-courses/"
+          <Link
+            to={PATHS.COURSES}
             className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
           >
-            <div className="ud-block-list-item-content">My learning</div>
-          </a>
+            <div className="ud-block-list-item-content">{t('header.learning')}</div>
+          </Link>
         </li>
         <li>
-          <a
-            href="/cart/"
+          <Link
+            to={PATHS.WISHLIST}
             className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
           >
-            <div className="ud-block-list-item-content">My cart</div>
-          </a>
-        </li>
-        <li>
-          <a
-            href="/home/my-courses/wishlist/"
-            className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
-          >
-            <div className="ud-block-list-item-content">Wishlist</div>
-          </a>
+            <div className="ud-block-list-item-content">{t('header.wishlist.name')}</div>
+          </Link>
         </li>
       </ul>
       <ul className="ud-unstyled-list ud-block-list list-menu-module--section--1WKRq">
         <li>
-          <a
-            href="/user/view-notifications/"
+          <Link
+            to={PATHS.NOTIFICATION}
             className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
           >
-            <div className="ud-block-list-item-content">Notifications</div>
-          </a>
+            <div className="ud-block-list-item-content">{t('header.notification.name')}</div>
+          </Link>
         </li>
         <li>
-          <a
-            href="/message/"
+          <Link
+            to={PATHS.MESSAGE}
             className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
           >
-            <div className="ud-block-list-item-content">Messages</div>
-          </a>
+            <div className="ud-block-list-item-content">{t('header.message.name')}</div>
+          </Link>
         </li>
       </ul>
       <ul className="ud-unstyled-list ud-block-list list-menu-module--section--1WKRq">
@@ -101,58 +96,32 @@ const UserSectionHeaderMenu = (props: Props) => {
       </ul>
       <ul className="ud-unstyled-list ud-block-list list-menu-module--section--1WKRq">
         <li>
-          <a
-            href="/user/trinh-tien-dat-10/"
-            target="_blank"
-            rel="nofollow noopener noreferrer"
+          <Link
+            to={PATHS.EDIT_PROFILE}
             className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
           >
-            <div className="ud-block-list-item-content">Public profile</div>
-          </a>
-        </li>
-        <li>
-          <a
-            href="/user/edit-profile/"
-            className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
-          >
-            <div className="ud-block-list-item-content">Edit profile</div>
-          </a>
+            <div className="ud-block-list-item-content">{t('header.editProfile.name')}</div>
+          </Link>
         </li>
       </ul>
       <ul className="ud-unstyled-list ud-block-list list-menu-module--section--1WKRq">
         <li>
-          <a
-            href="/support/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to={PATHS.SUPPORT}
             className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
           >
-            <div className="ud-block-list-item-content">Help</div>
-          </a>
+            <div className="ud-block-list-item-content">{t('header.support.name')}</div>
+          </Link>
         </li>
         <li>
           <Link
             to={PATHS.LOGOUT}
             className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
           >
-            <div className="ud-block-list-item-content">Log out</div>
+            <div className="ud-block-list-item-content">{t('header.logout')}</div>
           </Link>
         </li>
       </ul>
-      <a
-        className="user-profile-dropdown-module--try-ufb-section--3h18I"
-        href="/udemy-business/request-demo-mx/?ref=account-menu&amp;locale=en_US"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div>
-          <div className="ud-heading-md">Udemy Business</div>
-          <div className="ud-text-sm user-profile-dropdown-module--try-ufb-subtitle--31ex7">
-            Bring learning to your company
-          </div>
-        </div>
-        <svg aria-hidden="true" focusable="false" className="ud-icon ud-icon-medium ud-icon-color-neutral"></svg>
-      </a>
     </>
   );
 };

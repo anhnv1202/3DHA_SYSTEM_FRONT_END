@@ -5,13 +5,15 @@ import { useTranslation } from 'react-i18next';
 import { PATHS as path } from '../../common/constants/common.const';
 import logoApp from '@assets/images/logo/logoApp.jpg';
 import LoggedInHeader from './logged-in-header.component';
+import { User } from '@app/types';
+import UnLoggedInHeader from './un-logged-header.component';
 
 type HeaderProps = {
   noShadow?: boolean;
-  isUserLoggedIn?: boolean;
+  user?: User | null;
 };
 
-const Header = ({ noShadow, isUserLoggedIn }: HeaderProps) => {
+const Header = ({ noShadow, user }: HeaderProps) => {
   const headerStyles = noShadow ? { boxShadow: 'none' } : {};
   const { t } = useTranslation();
 
@@ -24,7 +26,7 @@ const Header = ({ noShadow, isUserLoggedIn }: HeaderProps) => {
         <img src={logoApp} alt="3DHA" width="72" height="34" loading="lazy" />
       </Link>
       <div className="ud-search-form-autocomplete desktop-header-module--search-bar--2V17S ud-form-group">
-        <label className="ud-sr-only ud-form-label ud-heading-sm">Search for anything</label>
+        <label className="ud-sr-only ud-form-label ud-heading-sm">{t('header.searchText')}</label>
         <div className="ud-search-form-autocomplete-input-group ud-search-form-autocomplete-input-group-reversed">
           <input
             type="text"
@@ -69,48 +71,7 @@ const Header = ({ noShadow, isUserLoggedIn }: HeaderProps) => {
         </Link>
       </div>
 
-      {isUserLoggedIn ? (
-        <>
-          <div className="popper-module--popper--2BpLn">
-            <Link
-              to={path.CART}
-              tabIndex={0}
-              className="ud-btn ud-btn-large ud-btn-ghost ud-heading-md ud-btn-icon ud-btn-icon-large js-header-button desktop-header-module--dropdown-button--4lqEc"
-            >
-              <Images.CiShoppingCart
-                role="img"
-                focusable="false"
-                className="ud-icon ud-icon-medium ud-icon-color-neutral"
-              />
-            </Link>
-          </div>
-          <div className="desktop-header-module--gap-auth-button--3UCSU">
-            <Link to={path.LOGIN} className="ud-btn ud-btn-medium ud-btn-secondary ud-heading-sm">
-              <span>{t('header.login')}</span>
-            </Link>
-          </div>
-          <div className="desktop-header-module--gap-auth-button--3UCSU">
-            <Link to={path.REGISTER} className="ud-btn ud-btn-medium ud-btn-primary ud-heading-sm">
-              <span>{t('header.register')}</span>
-            </Link>
-          </div>
-          <div className="desktop-header-module--gap-auth-button--3UCSU">
-            <Button
-              label=""
-              className="ud-btn ud-btn-medium ud-btn-secondary ud-heading-sm ud-btn-icon ud-btn-icon-medium"
-            >
-              <Images.TfiWorld
-                aria-label="Choose a language"
-                role="img"
-                focusable="false"
-                className="ud-icon ud-icon-small ud-icon-color-neutral"
-              ></Images.TfiWorld>
-            </Button>
-          </div>
-        </>
-      ) : (
-        <LoggedInHeader />
-      )}
+      {!user ? <UnLoggedInHeader /> : <LoggedInHeader user={user} />}
     </div>
   );
 };

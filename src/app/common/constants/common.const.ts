@@ -63,6 +63,11 @@ export const PATHS = {
   EDIT_PROFILE: '/user/edit-profile',
   CHANGE_PASSWORD_PROFILE: '/user/change-password-profile',
   LOGOUT: '/logout',
+  NOTIFICATION: '/user/notification',
+  WISHLIST: '/user/wishlist',
+  COURSES: '/my-courses',
+  MESSAGE: '/messages',
+  SUPPORT: '/support',
 };
 
 export const INITIAL_VALUES = {

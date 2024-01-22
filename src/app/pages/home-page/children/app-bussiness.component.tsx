@@ -34,7 +34,7 @@ const AppBussiness = (props: Props) => {
                 <ul className="ud-unstyled-list ud-block-list">
                   {/* Default value waiting for back-end API */}
                   {Array.from({ length: 3 }).map((_, index) => (
-                    <li>
+                    <li key={index}>
                       <div className="ud-text-lg ud-block-list-item ud-block-list-item-large ud-block-list-item-tight ud-block-list-item-neutral ud-text-md">
                         <svg
                           aria-hidden="true"
