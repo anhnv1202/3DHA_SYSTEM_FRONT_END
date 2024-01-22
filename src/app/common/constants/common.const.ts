@@ -82,6 +82,7 @@ export const INITIAL_VALUES = {
 export const localStorageKeys = {
   USER_TOKEN: 'access_token',
   USER_INFO: 'user_info',
+  LANGUAGE: 'language',
 };
 export const carouselItems: CarouselItem[] = [
   {

@@ -6,12 +6,14 @@ import UserSectionHeaderMenu from './tooltip/user-section-header-menu.component'
 import NotificationItems from './tooltip/notification-items-header-menu.component';
 import WishlistHeaderMenu from './tooltip/wishlist-header-menu.component';
 import { PATHS } from '@app/common/constants';
-import { User } from '@app/types';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '@core/context/auth.context';
+import { AuthContextType } from '@app/types';
 
-type Props = { user?: User | null };
+type Props = {};
 
-const LoggedInHeader = ({ user }: Props) => {
+const LoggedInHeader = (props: Props) => {
+  const { user } = useAuth() as AuthContextType;
   const { t } = useTranslation();
   const [isHoveredEditProfile, setIsHoveredEditProfile] = useState(false);
   const [isHoveredNotification, setIsHoveredNotification] = useState(false);
@@ -97,7 +99,7 @@ const LoggedInHeader = ({ user }: Props) => {
         <HeaderMenuParent
           isHovered={isHoveredEditProfile}
           setIsHovered={setIsHoveredEditProfile}
-          children={<UserSectionHeaderMenu user={user} />}
+          children={<UserSectionHeaderMenu />}
         />
       </div>
     </>

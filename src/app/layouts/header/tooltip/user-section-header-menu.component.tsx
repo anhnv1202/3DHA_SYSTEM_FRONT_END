@@ -1,22 +1,44 @@
-import { PATHS } from '@app/common/constants';
-import { User } from '@app/types';
+import { PATHS, localStorageKeys } from '@app/common/constants';
+import { AuthContextType } from '@app/types';
+import { useAuth } from '@core/context/auth.context';
+import StorageService from '@core/services/storage';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-type Props = {
-  user: User | null | undefined;
-};
+type Props = {};
 
-const UserSectionHeaderMenu = ({ user }: Props) => {
-  const [selectedLanguage, setSelectedLanguage] = useState('en');
+const UserSectionHeaderMenu = (props: Props) => {
+  const [selectedLanguage, setSelectedLanguage] = useState(StorageService.get(localStorageKeys.LANGUAGE) || 'en');
   const { i18n, t } = useTranslation();
+  const { user } = useAuth() as AuthContextType;
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedLanguage = e.target.value;
+
     setSelectedLanguage(selectedLanguage);
-    i18n.changeLanguage(e.target.value);
+    StorageService.set(localStorageKeys.LANGUAGE, selectedLanguage);
+    i18n.changeLanguage(selectedLanguage);
   };
+  const userSectionData: any = [
+    [
+      { path: PATHS.COURSES, label: t('header.learning') },
+      { path: PATHS.WISHLIST, label: t('header.wishlist.name') },
+    ],
+    [
+      { path: PATHS.NOTIFICATION, label: t('header.notification.name') },
+      { path: PATHS.MESSAGE, label: t('header.message.name') },
+    ],
+    [
+      { value: 'en', label: 'English' },
+      { value: 'vi', label: 'Tiếng Việt' },
+    ],
+    [{ path: PATHS.EDIT_PROFILE, label: t('header.editProfile.name') }],
+    [
+      { path: PATHS.SUPPORT, label: t('header.support.name') },
+      { path: PATHS.LOGOUT, label: t('header.logout') },
+    ],
+  ];
   return (
     <>
       <Link to={PATHS.EDIT_PROFILE} className="user-profile-dropdown-module--user-section--3BWyl">
@@ -33,95 +55,53 @@ const UserSectionHeaderMenu = ({ user }: Props) => {
           </div>
         </div>
       </Link>
-      <ul className="ud-unstyled-list ud-block-list list-menu-module--section--1WKRq">
-        <li>
-          <Link
-            to={PATHS.COURSES}
-            className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
-          >
-            <div className="ud-block-list-item-content">{t('header.learning')}</div>
-          </Link>
-        </li>
-        <li>
-          <Link
-            to={PATHS.WISHLIST}
-            className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
-          >
-            <div className="ud-block-list-item-content">{t('header.wishlist.name')}</div>
-          </Link>
-        </li>
-      </ul>
-      <ul className="ud-unstyled-list ud-block-list list-menu-module--section--1WKRq">
-        <li>
-          <Link
-            to={PATHS.NOTIFICATION}
-            className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
-          >
-            <div className="ud-block-list-item-content">{t('header.notification.name')}</div>
-          </Link>
-        </li>
-        <li>
-          <Link
-            to={PATHS.MESSAGE}
-            className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
-          >
-            <div className="ud-block-list-item-content">{t('header.message.name')}</div>
-          </Link>
-        </li>
-      </ul>
-      <ul className="ud-unstyled-list ud-block-list list-menu-module--section--1WKRq">
-        <li>
-          <button
-            type="button"
-            className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm list-menu-module--item--3f005 ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
-          >
-            <div className="ud-block-list-item-content">
-              <div className="language-selector-menu-item-module--item-content--1xE_P">
-                <label htmlFor="language">Language</label>
-                <select
-                  id="language"
-                  className="language-selector-menu-item-module--language-select"
-                  onChange={handleLanguageChange}
-                  value={selectedLanguage}
+      {userSectionData.map((items: any, indexParent: number) => (
+        <ul className="ud-unstyled-list ud-block-list list-menu-module--section--1WKRq" key={indexParent}>
+          {indexParent !== 2 ? (
+            items.map((item: any, indexChild: number) => (
+              <li key={indexChild}>
+                <Link
+                  to={item?.path}
+                  className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
                 >
-                  <option value="en">English</option>
-                  <option value="vi">Tiếng Việt</option>
-                  {/* Thêm các tùy chọn cho các ngôn ngữ khác ở đây */}
-                </select>
-              </div>
-            </div>
-            <svg aria-hidden="true" focusable="false" className="ud-icon ud-icon-xsmall ud-block-list-item-icon"></svg>
-          </button>
-        </li>
-      </ul>
-      <ul className="ud-unstyled-list ud-block-list list-menu-module--section--1WKRq">
-        <li>
-          <Link
-            to={PATHS.EDIT_PROFILE}
-            className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
-          >
-            <div className="ud-block-list-item-content">{t('header.editProfile.name')}</div>
-          </Link>
-        </li>
-      </ul>
-      <ul className="ud-unstyled-list ud-block-list list-menu-module--section--1WKRq">
-        <li>
-          <Link
-            to={PATHS.SUPPORT}
-            className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
-          >
-            <div className="ud-block-list-item-content">{t('header.support.name')}</div>
-          </Link>
-        </li>
-        <li>
-          <Link
-            to={PATHS.LOGOUT}
-            className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
-          >
-            <div className="ud-block-list-item-content">{t('header.logout')}</div>
-          </Link>
-        </li>
-      </ul>
+                  <div className="ud-block-list-item-content">{item?.label}</div>
+                </Link>
+              </li>
+            ))
+          ) : (
+            <li>
+              <button
+                type="button"
+                className="ud-btn ud-btn-large ud-btn-ghost ud-text-sm list-menu-module--item--3f005 ud-block-list-item ud-block-list-item-small ud-block-list-item-neutral"
+              >
+                <div className="ud-block-list-item-content">
+                  <div className="language-selector-menu-item-module--item-content--1xE_P">
+                    <label htmlFor="language">{t('header.languages')}</label>
+                    <select
+                      id="language"
+                      className="language-selector-menu-item-module--language-select"
+                      onChange={handleLanguageChange}
+                      value={selectedLanguage}
+                    >
+                      {items.map((item: any, indexChild: number) => (
+                        <option value={item?.value} key={indexChild}>
+                          {item.label}
+                        </option>
+                      ))}
+                      {/* Thêm các tùy chọn cho các ngôn ngữ khác ở đây */}
+                    </select>
+                  </div>
+                </div>
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  className="ud-icon ud-icon-xsmall ud-block-list-item-icon"
+                ></svg>
+              </button>
+            </li>
+          )}
+        </ul>
+      ))}
     </>
   );
 };

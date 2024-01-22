@@ -71,7 +71,7 @@ const Header = ({ noShadow, user }: HeaderProps) => {
         </Link>
       </div>
 
-      {!user ? <UnLoggedInHeader /> : <LoggedInHeader user={user} />}
+      {!user ? <UnLoggedInHeader /> : <LoggedInHeader />}
     </div>
   );
 };
