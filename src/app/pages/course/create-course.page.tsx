@@ -1,74 +1,74 @@
-import { INITIAL_VALUES, PATHS, SystemMessage, localStorageKeys } from '@app/common/constants';
+import { INITIAL_VALUES, SystemMessage, localStorageKeys } from '@app/common/constants';
 import { formFields } from '@app/common/constants/const';
 import Button from '@app/components/button';
+import DropDown from '@app/components/dropdown';
 import { FormControl } from '@app/components/form-control';
 import Input from '@app/components/input';
 import { addToast } from '@app/components/toast/toast.service';
-import UserService from '@app/services/http/user.service';
-import { ChangePasswordProfileInitialValues, User } from '@app/types';
+import CourseService from '@app/services/http/course.service';
+import { User } from '@app/types';
+import { CreateCourseInitialValues } from '@app/types/course.type';
 import { FieldType } from '@app/types/helper';
-import { changePasswordProfileValidationSchema } from '@app/validations/user.validation';
+import { createCourseValidationSchema } from '@app/validations/course.validation';
 import backgroundUser from '@assets/images/background/backgroundUser.png';
 import { jwtIsValid } from '@core/helpers/jwt.helper';
 import useObservable from '@core/hooks/use-observable.hook';
 import StorageService from '@core/services/storage';
 import { Form, Formik, FormikContextType } from 'formik';
-import { createRef, useEffect } from 'react';
+import { createRef, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-function ChangePasswordProfile() {
+function CreateCourse() {
   const { t } = useTranslation();
-  const formRef = createRef<FormikContextType<ChangePasswordProfileInitialValues>>();
-  const navigate = useNavigate();
+  const formRef = createRef<FormikContextType<CreateCourseInitialValues>>();
   const { subscribeOnce } = useObservable();
+  const navigate = useNavigate();
   const storedUserInfo = StorageService.getObject(localStorageKeys.USER_INFO) as User;
-
+  const [majorList, setMajorList] = useState<any[]>([]);
   useEffect(() => {
-    const token = StorageService.get(localStorageKeys.USER_TOKEN);
-    if (!(token && jwtIsValid(token))) {
-      navigate(PATHS.HOMEPAGE);
-    }
-  }, [formRef, storedUserInfo, navigate]);
+    subscribeOnce(CourseService.getAllMajors(), (majorsData) => {
+      setMajorList(majorsData.data);
+    });
+  }, []);
 
-  const handleSubmit = (values: ChangePasswordProfileInitialValues) => {
+  const handleSubmit = (values: CreateCourseInitialValues) => {
     const token = StorageService.get(localStorageKeys.USER_TOKEN);
     if (token && jwtIsValid(token)) {
       subscribeOnce(
-        UserService.changePassword({
+        CourseService.create({
           ...values,
         }),
         (res) => {
-          addToast({ text: SystemMessage.CHANGE_PASSWORD_SUCCESS, position: 'top-right' });
-          res && navigate(PATHS.LOGIN);
+          addToast({ text: SystemMessage.NEXT_STEP, position: 'top-right' });
+          //   res && navigate(PATHS.LOGIN);
         },
       );
     }
   };
-
   return (
     <div
       className="flex items-center justify-center min-h-screen"
       style={{ backgroundImage: `url(${backgroundUser})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
-      <div className="w-1/3 flex items-center rounded-[10px] bg-white shadow-6 ">
-        <div className="w-full flex-1 text-center rounded-gray-300 p-4 ">
-          <h2 className="text-[50px] font-bold text-center">{t('user-info.change-password')}</h2>
+      <div className="w-1/2 flex items-center rounded-[10px] bg-white shadow-6 ">
+        <div className="w-1/2 flex-1 text-center rounded border-gray-300 p-4 ">
+          <h2 className="text-[50px] font-bold text-center">{t('create-course.create')}</h2>
           <Formik
-            displayName="EditProfileForm"
-            initialValues={INITIAL_VALUES.CHANGE_PASSWORD_PROFILE}
+            displayName="SignUpForm"
+            initialValues={INITIAL_VALUES.CREATE_COURSE}
             onSubmit={handleSubmit}
             innerRef={formRef}
-            validationSchema={changePasswordProfileValidationSchema}
+            validationSchema={createCourseValidationSchema}
             validateOnChange
             validateOnBlur
           >
-            <Form className="max-w-xl mx-auto p-8 rounded-[10px]">
-              {formFields.change_password_profile.map((field, index) => (
+            <Form className="w-3/4 mx-auto p-8 ">
+              {formFields.create_course.map((field, index) => (
                 <FormControl key={index} name={field.name}>
                   <Input
                     width="auto"
-                    className="!max-w-none w-full mb-5 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto text-xl"
+                    className=" !max-w-none w-full mb-10 p-1 rounded-[10px] focus:outline-none focus:border-blue-500 mx-auto"
                     placeholder={t(field.placeholder)}
                     inputClassName="w-full"
                     errorClassName="text-red-500 text-xs"
@@ -76,13 +76,21 @@ function ChangePasswordProfile() {
                   />
                 </FormControl>
               ))}
-              <div className="mt-10">
+              <FormControl name={formFields.create_course_2[0].name}>
+                <DropDown
+                  items={majorList}
+                  defaultValue={t('create-course.major')}
+                  fieldName={'_id'}
+                  displayProp={'title'}
+                />
+              </FormControl>
+              <div>
                 <Button
                   type="submit"
-                  label={t('user-info.changePassword')}
+                  label={t('create-course.button')}
                   width="w-full"
                   size="m"
-                  className=" text-lg rounded-[10px] bg-blue-gray-500 text-white hover:bg-blue-gray-700"
+                  className="rounded-[10px] mt-7"
                 />
               </div>
             </Form>
@@ -93,4 +101,4 @@ function ChangePasswordProfile() {
   );
 }
 
-export default ChangePasswordProfile;
+export default CreateCourse;

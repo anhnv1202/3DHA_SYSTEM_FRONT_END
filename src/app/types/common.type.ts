@@ -14,11 +14,15 @@ export interface CarouselProps extends TailwindCarouselProps {
 export interface DropDownItem {
   name: string;
   role: number;
+  [key: string]: any;
 }
 
 export interface DropDownProps {
   items: DropDownItem[];
-  defaultValue: number;
+  defaultValue: number | string;
+  fieldName: string;
+  displayProp: string;
+  [key: string]: any;
 }
 
 export type UserProfile = {

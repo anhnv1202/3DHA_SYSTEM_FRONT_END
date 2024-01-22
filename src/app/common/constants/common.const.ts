@@ -63,6 +63,7 @@ export const PATHS = {
   EDIT_PROFILE: '/user/edit-profile',
   CHANGE_PASSWORD_PROFILE: '/user/change-password-profile',
   LOGOUT: '/logout',
+  CREATE_COURSE: '/course/create',
 };
 
 export const INITIAL_VALUES = {
@@ -72,6 +73,7 @@ export const INITIAL_VALUES = {
   CHANGE_PASSWORD: { newPassword: '', confirmPassword: '' },
   EDIT_PROFILE: { firstName: '', lastName: '', phone: '', email: '', role: 2, avatar: '', bio: '' } as UserProfile,
   CHANGE_PASSWORD_PROFILE: { oldPassword: '', newPassword: '', confirmPassword: '' },
+  CREATE_COURSE: { name: '', description: '', major: {}, price: 0 },
 };
 
 export const localStorageKeys = {
@@ -108,6 +110,17 @@ export const dropDownItems: DropDownItem[] = [
   },
   {
     name: 'STUDENT',
+    role: ROLES.STUDENT,
+  },
+];
+
+export const dropDownCourses: DropDownItem[] = [
+  {
+    name: 'SE',
+    role: ROLES.TEACHER,
+  },
+  {
+    name: 'MKT',
     role: ROLES.STUDENT,
   },
 ];

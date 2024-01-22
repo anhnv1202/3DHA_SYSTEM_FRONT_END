@@ -3,21 +3,22 @@ import { Button, Menu, MenuHandler, MenuItem, MenuList } from '@material-tailwin
 import { useFormikContext } from 'formik';
 import { useState } from 'react';
 
-const Dropdown = ({ items, defaultValue }: DropDownProps) => {
+const Dropdown = ({ items, defaultValue, fieldName, displayProp }: DropDownProps) => {
   const { setFieldValue } = useFormikContext();
-  const getNameByRole = (role: number): string | undefined => {
-    const foundItem = items.find((item) => item.role === role);
-    return foundItem?.name;
+  const getDisplayParams = (params: number | string): string | undefined => {
+    console.log(params);
+    const foundItem = items.find((item) => item[fieldName] === params);
+    return foundItem ? foundItem[displayProp] : undefined;
   };
-
+  // af dcm
   const [selectedItem, setSelectedItem] = useState(defaultValue);
-  const handleDropdownChange = (role: any) => {
-    setSelectedItem(role);
-    setFieldValue('role', role);
+  const handleDropdownChange = (params: any) => {
+    setSelectedItem(params);
+    setFieldValue(fieldName, params);
   };
   return (
     <>
-      <input name="role" value={selectedItem} onChange={() => {}} style={{ display: 'none' }} type="text" />
+      <input name={fieldName} value={selectedItem} onChange={() => {}} style={{ display: 'none' }} type="text" />
 
       <div className="w-full mb-5 focus:outline-none align-baseline border border-solid border-[#3A466480] border-opacity-[0.5] rounded-lg">
         <Menu placement="bottom-start">
@@ -27,22 +28,22 @@ const Dropdown = ({ items, defaultValue }: DropDownProps) => {
               variant="text"
               className="w-full focus:outline-none text-xl "
               placeholder={'button'}
-              name="role"
+              name={fieldName}
               value={selectedItem}
             >
-              {getNameByRole(selectedItem)}
+              {getDisplayParams(selectedItem) || defaultValue}
             </Button>
           </MenuHandler>
           <MenuList placeholder={'Dropdown'}>
-            {items.map(({ name, role }) => {
+            {items.map((item) => {
               return (
                 <MenuItem
-                  key={name}
+                  key={item[displayProp]}
                   className="w-full rounded-[10px] focus:outline-none focus:border-blue-500 "
-                  onClick={() => handleDropdownChange(role)}
+                  onClick={() => handleDropdownChange(item[fieldName])}
                   placeholder={'menu'}
                 >
-                  {name}
+                  {item[displayProp]}
                 </MenuItem>
               );
             })}

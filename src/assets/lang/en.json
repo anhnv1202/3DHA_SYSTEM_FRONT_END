@@ -126,5 +126,14 @@
     "newPassword": "New Password",
     "confirmPassword": "Confirm New Password",
     "changePassword": "Change Password"
+  },
+  "create-course": {
+    "create": "Create Course",
+    "name": "Course Name",
+    "description": "Course Description",
+    "price": "Course Price",
+    "majors": "Majors",
+    "button": "NEXT",
+    "major": "--- Choose Major ---"
   }
 }
