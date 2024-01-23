@@ -35,7 +35,7 @@ const BoardCourses = (props: Props) => {
             >
               {/* Default value waiting for back-end API */}
               {Array.from({ length: 10 }, (_, index) => (
-                <div data-index={index} className="carousel-module--scroll-item--2CpA_">
+                <div data-index={index} key={index} className="carousel-module--scroll-item--2CpA_">
                   <div className="ud-nav-button-container tabs-module--nav-button-container--u4wUp ud-nav-button-container-active tabs-module--active--2l5hb ">
                     <button
                       type="button"

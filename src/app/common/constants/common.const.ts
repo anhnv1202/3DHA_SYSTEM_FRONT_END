@@ -62,6 +62,12 @@ export const PATHS = {
   CATEGORY: '/category',
   EDIT_PROFILE: '/user/edit-profile',
   CHANGE_PASSWORD_PROFILE: '/user/change-password-profile',
+  LOGOUT: '/logout',
+  NOTIFICATION: '/user/notification',
+  WISHLIST: '/user/wishlist',
+  COURSES: '/my-courses',
+  MESSAGE: '/messages',
+  SUPPORT: '/support',
 };
 
 export const INITIAL_VALUES = {
@@ -76,6 +82,7 @@ export const INITIAL_VALUES = {
 export const localStorageKeys = {
   USER_TOKEN: 'access_token',
   USER_INFO: 'user_info',
+  LANGUAGE: 'language',
 };
 export const carouselItems: CarouselItem[] = [
   {

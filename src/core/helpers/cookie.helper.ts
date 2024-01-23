@@ -3,6 +3,7 @@ import { Environment } from '@environments/environment';
 const cookiePrf = '3dha_';
 
 export function getCookie(name: string): string | null {
+  // eslint-disable-next-line no-useless-concat
   const nameEQ = `${cookiePrf}${name}` + '=';
   const listCookies = document.cookie.split(';');
 

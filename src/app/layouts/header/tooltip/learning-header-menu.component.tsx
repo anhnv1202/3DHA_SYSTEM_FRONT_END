@@ -5,20 +5,20 @@ import { Link } from 'react-router-dom';
 
 type Props = {};
 
-const WishlistHeaderMenu = (props: Props) => {
+const LearningHeaderMenu = (props: Props) => {
   const { t } = useTranslation();
   return (
     <>
       <div className="panel-menu-module--panel--1jmDu">
         <div className="ud-text-md panel-menu-module--gap-bottom--QEee6 panel-menu-module--no-items--14_0t">
-          {t('header.wishlist.title')}
+          {t('header.learning.title')}
         </div>
         <Link className="ud-heading-sm" to={PATHS.DEFAULT}>
-          {t('header.wishlist.description')}
+          {t('header.learning.description')}
         </Link>
       </div>
     </>
   );
 };
 
-export default WishlistHeaderMenu;
+export default LearningHeaderMenu;
