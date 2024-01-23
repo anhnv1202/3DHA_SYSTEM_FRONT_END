@@ -7,13 +7,18 @@ import ReviewCourseDetail from './chidren/review-detail.component';
 type Props = {};
 
 const UnpaidCourseDetail = (props: Props) => {
+  const dataBreacumb = [
+    { title: 'Development', path: '/courses/development/' },
+    { title: 'Data Science', path: '/courses/development/data-science' },
+    { title: 'ChatGPT', path: '/topic/chatgpt/' },
+  ];
   return (
     <>
       <div className="clp-component-render">
         <div className="ud-component--course-landing-page--course-landing-page">
           <div id="schema_markup" data-purpose="schema_markup"></div>
           <div data-content-group="Landing Page" data-course-id="5512420">
-            <Breadcrumb />
+            <Breadcrumb data={dataBreacumb} />
             <HeadingCourseDetail />
           </div>
           <div className="ud-container content-container">

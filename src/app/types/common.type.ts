@@ -20,7 +20,10 @@ export interface DropDownProps {
   items: DropDownItem[];
   defaultValue: number;
 }
-
+export interface BreadcrumbProps {
+  title: string;
+  path: string;
+}
 export type UserProfile = {
   firstName: string;
   lastName: string;

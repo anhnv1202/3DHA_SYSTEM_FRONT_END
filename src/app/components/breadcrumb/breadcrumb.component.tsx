@@ -1,22 +1,18 @@
+import { BreadcrumbProps } from '@app/types';
 import { Images } from '@assets/images';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-type Props = {};
+type Props = { data: BreadcrumbProps[] };
 
-const Breadcrumb = (props: Props) => {
-  const data = [
-    { title: 'Development', url: '/courses/development/' },
-    { title: 'Data Science', url: '/courses/development/data-science' },
-    { title: 'ChatGPT', url: '/topic/chatgpt/' },
-  ];
+const Breadcrumb = ({ data }: Props) => {
   return (
     <>
       <div className="course-landing-page__main-content course-landing-page__topic-menu">
         <div className="topic-menu topic-menu-condensed ud-breadcrumb">
           {data.map((item, index) => (
             <React.Fragment key={index}>
-              <Link className="ud-heading-sm" to={item.url}>
+              <Link className="ud-heading-sm" to={item.path}>
                 {item.title}
               </Link>
               {index !== data.length - 1 && (

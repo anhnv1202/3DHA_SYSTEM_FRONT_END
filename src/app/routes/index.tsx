@@ -10,7 +10,6 @@ import Register from '@app/pages/register/register.page';
 import ChangePasswordProfile from '@app/pages/user-info/change-password.page';
 import EditProfile from '@app/pages/user-info/edit-profile.page';
 import { ProtectedRoute } from '@core/guard/auth.guard';
-import { RouteObject } from 'react-router-dom';
 export const routesForNotAuthenticatedOnly = [
   { path: PATHS.REGISTER, element: <Register /> },
   { path: PATHS.FORGOT_PASSWORD, element: <ForgotPassword /> },
@@ -23,6 +22,7 @@ export const routesForPublic = [
   { path: PATHS.HOMEPAGE, element: <Homepage /> },
   { path: PATHS.DEFAULT, element: <Homepage /> },
   { path: PATHS.CATEGORY, element: <Category /> },
+  { path: PATHS.COURSE, element: <CourseDetail /> },
 ];
 
 export const routesForAuthenticatedOnly = [
