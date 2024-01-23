@@ -50,10 +50,10 @@ export const Login = () => {
   };
   return (
     <div
-      className="flex items-center justify-center min-h-screen "
-      style={{ backgroundImage: `url(${backgroundRegister})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      className="flex items-center justify-center min-h-screen bg-center bg-cover"
+      style={{ backgroundImage: `url(${backgroundRegister})` }}
     >
-      <div className="w-3/5 flex items-center rounded-[10px] bg-blue-50 shadow-6 ">
+      <div className="w-1/2 flex items-center rounded-[10px] bg-blue-50 shadow-6 ">
         <div className="flex-1 ml-8">
           <img src={logoLogin} alt="Login logo" className="object-cover rounded w-200 h-200" aria-hidden="true" />
         </div>

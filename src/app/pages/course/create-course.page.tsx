@@ -41,8 +41,8 @@ function CreateCourse() {
 
   return (
     <div
-      className="flex items-center justify-center min-h-screen"
-      style={{ backgroundImage: `url(${backgroundUser})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      className="flex items-center justify-center min-h-screen bg-center bg-cover"
+      style={{ backgroundImage: `url(${backgroundUser})` }}
     >
       <div className="w-1/2 flex items-center rounded-[10px] bg-white shadow-6 ">
         <div className="w-1/2 flex-1 text-center rounded border-gray-300 p-4 ">
