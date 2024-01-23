@@ -32,6 +32,7 @@ const AppBussiness = (props: Props) => {
               </h3>
               <div className="ud-text-md non-student-cta--non-student-cta__content--3D827">
                 <ul className="ud-unstyled-list ud-block-list">
+                  {/* Default value waiting for back-end API */}
                   {Array.from({ length: 3 }).map((_, index) => (
                     <li>
                       <div className="ud-text-lg ud-block-list-item ud-block-list-item-large ud-block-list-item-tight ud-block-list-item-neutral ud-text-md">

@@ -23,6 +23,10 @@ import { BiSolidMedal } from 'react-icons/bi';
 import { IoPeople } from 'react-icons/io5';
 import { PiVideoFill } from 'react-icons/pi';
 import { FaAngleLeft } from 'react-icons/fa6';
+import { CiHeart } from 'react-icons/ci';
+import { IoIosNotificationsOutline } from 'react-icons/io';
+import { IoCartOutline } from 'react-icons/io5';
+import { CiShoppingCart } from 'react-icons/ci';
 export const Images = {
   RemoveIconThin,
   EyeIcon,
@@ -51,4 +55,8 @@ export const Images = {
   PiVideoFill,
   IoMdStarOutline,
   FaAngleLeft,
+  CiHeart,
+  IoIosNotificationsOutline,
+  IoCartOutline,
+  CiShoppingCart,
 };

@@ -3,6 +3,7 @@ export enum SystemMessage {
   VERIFY_SUCCESS = 'Verify successfully',
   CHANGE_PASSWORD_SUCCESS = 'Change password successfully',
   EDIT_PROFILE = 'Edit profile successfully',
+  LOGIN_SUCCESS = 'Login successfully',
 }
 
 export const VALIDATION = {
