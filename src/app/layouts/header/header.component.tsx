@@ -4,15 +4,15 @@ import { useTranslation } from 'react-i18next';
 import { PATHS as path } from '../../common/constants/common.const';
 import logoApp from '@assets/images/logo/logoApp.jpg';
 import LoggedInHeader from './logged-in-header.component';
-import { User } from '@app/types';
+import { AuthContextType } from '@app/types';
 import UnLoggedInHeader from './un-logged-header.component';
+import { useAuth } from '@core/context/auth.context';
 
 type HeaderProps = {
   noShadow?: boolean;
-  user?: User | null;
 };
 
-const Header = ({ noShadow, user }: HeaderProps) => {
+const Header = ({ noShadow }: HeaderProps) => {
   const headerStyles = noShadow ? { boxShadow: 'none' } : {};
   const { t } = useTranslation();
   const headerData = [
@@ -20,6 +20,8 @@ const Header = ({ noShadow, user }: HeaderProps) => {
     { path: path.BUSSINESS, title: t('header.bussiness') },
     { path: path.TEACHING, title: t('header.teaching') },
   ];
+  const { user } = useAuth() as AuthContextType;
+
   return (
     <div
       className="header ud-header ud-text-sm desktop-header-module--header--3nb6v desktop-header-module--flex-middle--1e7c8"
