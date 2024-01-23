@@ -1,4 +1,3 @@
-import Button from '@app/components/button';
 import { Link } from 'react-router-dom';
 import { Images } from '@assets/images/index';
 import { useTranslation } from 'react-i18next';
@@ -16,7 +15,11 @@ type HeaderProps = {
 const Header = ({ noShadow, user }: HeaderProps) => {
   const headerStyles = noShadow ? { boxShadow: 'none' } : {};
   const { t } = useTranslation();
-
+  const headerData = [
+    { path: path.CATEGORY, title: t('header.category') },
+    { path: path.BUSSINESS, title: t('header.bussiness') },
+    { path: path.TEACHING, title: t('header.teaching') },
+  ];
   return (
     <div
       className="header ud-header ud-text-sm desktop-header-module--header--3nb6v desktop-header-module--flex-middle--1e7c8"
@@ -42,34 +45,16 @@ const Header = ({ noShadow, user }: HeaderProps) => {
           </button>
         </div>
       </div>
-      <nav className="popper-module--popper--2BpLn desktop-header-module--gap-button--1Ua9W">
-        <Button
-          className="ud-btn ud-btn-large ud-btn-ghost ud-heading-md js-header-button desktop-header-module--dropdown-button--4lqEc"
-          label=""
-          theme="normal"
-        >
-          <Link to={path.CATEGORY} className="ud-text-sm desktop-header-module--dropdown-button-text--k8O8T">
-            {t('header.category')}
+      {headerData.map((item) => (
+        <div className="popper-module--popper--2BpLn desktop-header-module--gap-button--1Ua9W desktop-header-module--group-a--2HpmY">
+          <Link
+            to={item.path}
+            className="ud-btn ud-btn-large ud-btn-ghost ud-heading-md js-header-button desktop-header-module--dropdown-button--4lqEc"
+          >
+            <span className="ud-text-sm desktop-header-module--dropdown-button-text--k8O8T">{item.title}</span>
           </Link>
-        </Button>
-      </nav>
-
-      <div className="popper-module--popper--2BpLn desktop-header-module--gap-button--1Ua9W desktop-header-module--group-a--2HpmY">
-        <Link
-          to={path.BUSSINESS}
-          className="ud-btn ud-btn-large ud-btn-ghost ud-heading-md js-header-button desktop-header-module--dropdown-button--4lqEc"
-        >
-          <span className="ud-text-sm desktop-header-module--dropdown-button-text--k8O8T">{t('header.bussiness')}</span>
-        </Link>
-      </div>
-      <div className="popper-module--popper--2BpLn desktop-header-module--gap-button--1Ua9W desktop-header-module--group-b--NGK7v">
-        <Link
-          to={path.TEACHING}
-          className="ud-btn ud-btn-large ud-btn-ghost ud-heading-md js-header-button desktop-header-module--dropdown-button--4lqEc"
-        >
-          <span className="ud-text-sm desktop-header-module--dropdown-button-text--k8O8T">{t('header.teaching')}</span>
-        </Link>
-      </div>
+        </div>
+      ))}
 
       {!user ? <UnLoggedInHeader /> : <LoggedInHeader />}
     </div>

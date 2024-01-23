@@ -74,13 +74,17 @@
     "searchText": "Search for anything",
     "bussiness": "Bussiness",
     "teaching": "Teaching on 3DHA",
-    "learning": "My learning",
     "logout": "Logout",
     "languages": "Languages",
     "wishlist": {
       "name": "Wishlist",
       "title": "Your wishlist is empty.",
       "description": "Explore courses"
+    },
+    "learning": {
+      "name": "My learning",
+      "title": "Your learning is empty.",
+      "description": "Explore more courses"
     },
     "notification": {
       "name": "Notification",

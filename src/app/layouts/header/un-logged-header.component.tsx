@@ -7,37 +7,41 @@ type Props = {};
 
 const UnLoggedInHeader = (props: Props) => {
   const { t } = useTranslation();
-
+  const unLoggedHeaderData = [
+    {
+      path: path.LOGIN,
+      title: t('header.login'),
+    },
+    {
+      path: path.REGISTER,
+      title: t('header.register'),
+    },
+    {
+      path: '',
+      title: Images.TfiWorld,
+    },
+  ];
   return (
     <>
-      <div className="popper-module--popper--2BpLn">
-        <Link
-          to={path.CART}
-          tabIndex={0}
-          className="ud-btn ud-btn-large ud-btn-ghost ud-heading-md ud-btn-icon ud-btn-icon-large js-header-button desktop-header-module--dropdown-button--4lqEc"
-        >
-          <Images.CiShoppingCart role="img" className="ud-icon ud-icon-medium ud-icon-color-neutral" />
-        </Link>
-      </div>
-      <div className="desktop-header-module--gap-auth-button--3UCSU">
-        <Link to={path.LOGIN} className="ud-btn ud-btn-medium ud-btn-secondary ud-heading-sm">
-          <span>{t('header.login')}</span>
-        </Link>
-      </div>
-      <div className="desktop-header-module--gap-auth-button--3UCSU">
-        <Link to={path.REGISTER} className="ud-btn ud-btn-medium ud-btn-primary ud-heading-sm">
-          <span>{t('header.register')}</span>
-        </Link>
-      </div>
-      <div className="desktop-header-module--gap-auth-button--3UCSU">
-        <Button label="" className="ud-btn ud-btn-medium ud-btn-secondary ud-heading-sm ud-btn-icon ud-btn-icon-medium">
-          <Images.TfiWorld
-            role="img"
-            focusable="false"
-            className="ud-icon ud-icon-small ud-icon-color-neutral"
-          ></Images.TfiWorld>
-        </Button>
-      </div>
+      {unLoggedHeaderData.map((item, index) => (
+        <div className="desktop-header-module--gap-auth-button--3UCSU" key={index}>
+          {index !== 2 ? (
+            <Link
+              to={item.path}
+              className={`ud-btn ud-btn-medium ${index === 0 ? 'ud-btn-secondary' : 'ud-btn-primary'} ud-heading-sm`}
+            >
+              <span>{item.title as string}</span>
+            </Link>
+          ) : (
+            <Button
+              label=""
+              className="ud-btn ud-btn-medium ud-btn-secondary ud-heading-sm ud-btn-icon ud-btn-icon-medium"
+            >
+              <item.title role="img" focusable="false" className="ud-icon ud-icon-small ud-icon-color-neutral" />
+            </Button>
+          )}
+        </div>
+      ))}
     </>
   );
 };

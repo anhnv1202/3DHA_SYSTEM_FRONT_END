@@ -22,7 +22,7 @@ const UserSectionHeaderMenu = (props: Props) => {
   };
   const userSectionData: any = [
     [
-      { path: PATHS.COURSES, label: t('header.learning') },
+      { path: PATHS.COURSES, label: t('header.learning.name') },
       { path: PATHS.WISHLIST, label: t('header.wishlist.name') },
     ],
     [
@@ -46,7 +46,7 @@ const UserSectionHeaderMenu = (props: Props) => {
           className="user-profile-dropdown-module--user-section-avatar--2Oh1n ud-avatar ud-heading-xl"
           style={{ width: '6.4rem', height: '6.4rem' }}
         >
-          <img src={user?.avatar} alt="avatar" />
+          <img src={user?.avatar} alt="avatar" className="w-[6.4rem] h-[6.4rem] rounded-[50%]" />
         </div>
         <div className="user-profile-dropdown-module--user-details--1ypfV">
           <div>
