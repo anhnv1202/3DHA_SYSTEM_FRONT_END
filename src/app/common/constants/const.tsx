@@ -45,11 +45,11 @@ export const formFields: { [key: string]: FormField[] } = {
     { name: 'confirmPassword', placeholder: i18n.t('user-info.confirmPassword'), type: 'password' },
   ],
   create_course: [
-    { name: 'Course Name', placeholder: i18n.t('create-course.name'), type: 'text' },
-    { name: 'Description', placeholder: i18n.t('create-course.description'), type: 'text' },
-    { name: 'Price', placeholder: i18n.t('create-course.price'), type: 'number' },
+    { name: 'name', placeholder: i18n.t('create-course.name'), type: 'text' },
+    { name: 'description', placeholder: i18n.t('create-course.description'), type: 'text' },
+    { name: 'price', placeholder: i18n.t('create-course.price'), type: 'number' },
   ],
-  create_course_2: [{ name: 'Major', placeholder: i18n.t('create-course.majors'), type: 'text' }],
+  create_course_2: [{ name: 'major', placeholder: i18n.t('create-course.majors'), type: 'text' }],
 };
 
 export const navbarLinks: NavbarLink[] = [

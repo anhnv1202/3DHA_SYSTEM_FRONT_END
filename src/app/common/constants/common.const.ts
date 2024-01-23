@@ -1,4 +1,4 @@
-import { CarouselItem, DropDownItem, LoginInitialValues, UserProfile } from '@app/types';
+import { CarouselItem, Course, DropDownItem, LoginInitialValues, UserProfile } from '@app/types';
 
 export const DEFAULT_DATE_FORMAT = 'D/MM/YYYY';
 export const DEFAULT_MINUTES_SECONDS_FORMAT = 'mm:ss';
@@ -41,6 +41,7 @@ export const REGEX = {
   USERNAMEL: /^[\d\w]+$/,
   PHONE_NUMBER: /^[0-9]{10}$/,
   EMAIL: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+  PRICE: /^\d{1,3}(?:\.\d{3})*(?:\.\d{1,2})?/,
 };
 
 export const REF = {
@@ -73,9 +74,8 @@ export const INITIAL_VALUES = {
   CHANGE_PASSWORD: { newPassword: '', confirmPassword: '' },
   EDIT_PROFILE: { firstName: '', lastName: '', phone: '', email: '', role: 2, avatar: '', bio: '' } as UserProfile,
   CHANGE_PASSWORD_PROFILE: { oldPassword: '', newPassword: '', confirmPassword: '' },
-  CREATE_COURSE: { name: '', description: '', major: {}, price: 0 },
+  CREATE_COURSE: { name: '', description: [], major: '', price: 0 } as unknown as Course,
 };
-
 export const localStorageKeys = {
   USER_TOKEN: 'access_token',
   USER_INFO: 'user_info',
@@ -110,17 +110,6 @@ export const dropDownItems: DropDownItem[] = [
   },
   {
     name: 'STUDENT',
-    role: ROLES.STUDENT,
-  },
-];
-
-export const dropDownCourses: DropDownItem[] = [
-  {
-    name: 'SE',
-    role: ROLES.TEACHER,
-  },
-  {
-    name: 'MKT',
     role: ROLES.STUDENT,
   },
 ];

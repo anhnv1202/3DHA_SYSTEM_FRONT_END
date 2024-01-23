@@ -3,22 +3,20 @@ import { Button, Menu, MenuHandler, MenuItem, MenuList } from '@material-tailwin
 import { useFormikContext } from 'formik';
 import { useState } from 'react';
 
-const Dropdown = ({ items, defaultValue, fieldName, displayProp }: DropDownProps) => {
+const Dropdown = ({ items, defaultValue, fieldName, displayProp, formikField }: DropDownProps) => {
   const { setFieldValue } = useFormikContext();
   const getDisplayParams = (params: number | string): string | undefined => {
-    console.log(params);
     const foundItem = items.find((item) => item[fieldName] === params);
     return foundItem ? foundItem[displayProp] : undefined;
   };
-  // af dcm
   const [selectedItem, setSelectedItem] = useState(defaultValue);
   const handleDropdownChange = (params: any) => {
     setSelectedItem(params);
-    setFieldValue(fieldName, params);
+    setFieldValue(formikField, params);
   };
   return (
     <>
-      <input name={fieldName} value={selectedItem} onChange={() => {}} style={{ display: 'none' }} type="text" />
+      <input name={formikField} value={selectedItem} onChange={() => {}} style={{ display: 'none' }} type="text" />
 
       <div className="w-full mb-5 focus:outline-none align-baseline border border-solid border-[#3A466480] border-opacity-[0.5] rounded-lg">
         <Menu placement="bottom-start">
@@ -28,7 +26,7 @@ const Dropdown = ({ items, defaultValue, fieldName, displayProp }: DropDownProps
               variant="text"
               className="w-full focus:outline-none text-xl "
               placeholder={'button'}
-              name={fieldName}
+              // name={formikField}
               value={selectedItem}
             >
               {getDisplayParams(selectedItem) || defaultValue}

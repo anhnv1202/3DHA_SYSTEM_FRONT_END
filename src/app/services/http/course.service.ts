@@ -1,4 +1,5 @@
-import { Course, CourseRequest } from '@app/types/course.type';
+import { Course } from '@app/types';
+import { CourseRequest } from '@app/types/course.type';
 import HttpService from '@core/services/http/http.service';
 
 class _CourseService {

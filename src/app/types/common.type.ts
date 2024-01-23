@@ -34,3 +34,11 @@ export type UserProfile = {
   avatar: string;
   bio: string;
 };
+
+export interface Course {
+  name: string;
+  description: string[];
+  price: number;
+  major: string;
+  [key: string]: any;
+}

@@ -65,7 +65,8 @@
     "must-not-be-empty": "Không được để trống",
     "password-does-not-match": "Mật khẩu không khớp",
     "phone-number-must-be-10-digits": "Số điện thoại phải có 10 chữ số",
-    "email-invalid": "Email không hợp lệ"
+    "email-invalid": "Email không hợp lệ",
+    "price-must-be-greater-than-0": "Giá khóa học phải lớn hơn 0"
   },
   "header": {
     "login": "Đăng nhập",
@@ -126,5 +127,14 @@
     "newPassword": "Mật khẩu mới",
     "confirmPassword": "Xác nhận mật khẩu mới",
     "changePassword": "Thay đổi mật khẩu"
+  },
+  "create-course": {
+    "create": "Tạo Khóa Học",
+    "name": "Tên khóa học",
+    "description": "Mô tả về khóa học",
+    "price": "Giá khóa học (VND)",
+    "majors": "Chuyên ngành",
+    "button": "TIẾP THEO",
+    "major": "--- Chọn chuyên ngành ---"
   }
 }

@@ -137,7 +137,13 @@ function EditProfile() {
                   </FormControl>
                 ))}
                 <FormControl name={formFields.edit_profile_3[0].name}>
-                  <DropDown items={dropDownItems} defaultValue={user.role} fieldName={'role'} displayProp={'name'} />
+                  <DropDown
+                    items={dropDownItems}
+                    defaultValue={user.role}
+                    fieldName={'role'}
+                    displayProp={'name'}
+                    formikField={'role'}
+                  />
                 </FormControl>
                 <div>
                   <Button

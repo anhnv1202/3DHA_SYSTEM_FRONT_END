@@ -1,20 +1,20 @@
 export interface CreateCourseInitialValues {
   name: string;
-  description: string;
-  major: object;
+  description: string[];
+  major: Major;
   price: number;
 }
 
-export interface Course {
-  name: string;
+export interface Major {
+  title: string;
   description: string;
-  price: number;
-  major: object;
+  deletedAt: Date | null;
 }
 
 export interface CourseRequest {
   name: string;
-  description: string;
+  description: string[];
   price: number;
-  major: object;
+  major: Major;
+  [key: string]: any;
 }

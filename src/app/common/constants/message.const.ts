@@ -6,7 +6,6 @@ export enum SystemMessage {
   LOGIN_SUCCESS = 'Login successfully',
   NEXT_STEP = 'Next Step',
 }
-
 export const VALIDATION = {
   REQUIRE: 'validation.must-not-be-empty',
   MIN_CHARACTERS: 'validation.minimum',
@@ -15,4 +14,5 @@ export const VALIDATION = {
   PASSWORD_MATCH: 'validation.password-does-not-match',
   PHONE_LENGTH: 'validation.phone-number-must-be-10-digits',
   EMAIL_INVALID: 'validation.email-invalid',
+  PRICE_INVALID: 'validation.price-must-be-greater-than-0',
 };

@@ -11,7 +11,6 @@ import { CreateCourseInitialValues } from '@app/types/course.type';
 import { FieldType } from '@app/types/helper';
 import { createCourseValidationSchema } from '@app/validations/course.validation';
 import backgroundUser from '@assets/images/background/backgroundUser.png';
-import { jwtIsValid } from '@core/helpers/jwt.helper';
 import useObservable from '@core/hooks/use-observable.hook';
 import StorageService from '@core/services/storage';
 import { Form, Formik, FormikContextType } from 'formik';
@@ -26,26 +25,20 @@ function CreateCourse() {
   const navigate = useNavigate();
   const storedUserInfo = StorageService.getObject(localStorageKeys.USER_INFO) as User;
   const [majorList, setMajorList] = useState<any[]>([]);
+
   useEffect(() => {
     subscribeOnce(CourseService.getAllMajors(), (majorsData) => {
       setMajorList(majorsData.data);
     });
   }, []);
-
   const handleSubmit = (values: CreateCourseInitialValues) => {
-    const token = StorageService.get(localStorageKeys.USER_TOKEN);
-    if (token && jwtIsValid(token)) {
-      subscribeOnce(
-        CourseService.create({
-          ...values,
-        }),
-        (res) => {
-          addToast({ text: SystemMessage.NEXT_STEP, position: 'top-right' });
-          //   res && navigate(PATHS.LOGIN);
-        },
-      );
-    }
+    console.log(values);
+    subscribeOnce(CourseService.create({ ...values, level: 'beginner' }), (res) => {
+      addToast({ text: SystemMessage.NEXT_STEP, position: 'top-right' });
+      //   res && navigate(PATHS.LOGIN);
+    });
   };
+
   return (
     <div
       className="flex items-center justify-center min-h-screen"
@@ -55,8 +48,8 @@ function CreateCourse() {
         <div className="w-1/2 flex-1 text-center rounded border-gray-300 p-4 ">
           <h2 className="text-[50px] font-bold text-center">{t('create-course.create')}</h2>
           <Formik
-            displayName="SignUpForm"
-            initialValues={INITIAL_VALUES.CREATE_COURSE}
+            displayName="CreateCourseForm"
+            initialValues={INITIAL_VALUES.CREATE_COURSE as any}
             onSubmit={handleSubmit}
             innerRef={formRef}
             validationSchema={createCourseValidationSchema}
@@ -82,17 +75,16 @@ function CreateCourse() {
                   defaultValue={t('create-course.major')}
                   fieldName={'_id'}
                   displayProp={'title'}
+                  formikField={'major'}
                 />
               </FormControl>
-              <div>
-                <Button
-                  type="submit"
-                  label={t('create-course.button')}
-                  width="w-full"
-                  size="m"
-                  className="rounded-[10px] mt-7"
-                />
-              </div>
+              <Button
+                type="submit"
+                label={t('create-course.button')}
+                width="w-full"
+                size="m"
+                className="rounded-[10px] mt-7 bg-teal-500 hover:bg-teal-800"
+              />
             </Form>
           </Formik>
         </div>
