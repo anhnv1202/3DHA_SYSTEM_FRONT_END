@@ -72,7 +72,6 @@ function CreateCourse() {
                     inputClassName="w-full"
                     errorClassName="text-red-500 text-xs"
                     type={field.type as FieldType}
-                    localeString={index === 2 ? 'vi-en' : undefined}
                     onInput={index === 2 ? handleNumberInput : undefined}
                   />
                 </FormControl>
