@@ -72,6 +72,8 @@ interface InputProps extends FormControlChildProps {
   onBlur?: (e: ChangeEvent<HTMLInputElement>) => void;
 
   onFocus?: (e: ChangeEvent<HTMLInputElement>) => void;
+
+  localeString?: string;
 }
 
 function Input({
@@ -100,6 +102,7 @@ function Input({
   fmOnChange,
   fmOnBlur,
   onFocus,
+  localeString,
 }: InputProps) {
   const [txValue, setTxValue] = useState(value || defaultValue);
   const [_status, changeStatus] = useState(status || defaultStatus);
@@ -111,13 +114,17 @@ function Input({
 
       fmOnChange && fmOnChange(e);
 
-      setTxValue(e.currentTarget.value);
+      !localeString && setTxValue(e.currentTarget.value);
+
+      const numericValue = parseInt(e.currentTarget.value, 10);
+
+      localeString && !isNaN(numericValue) && setTxValue(numericValue.toLocaleString(localeString));
 
       setTimeout(() => {
         if (formik) formik.setFieldTouched(name!, true);
       });
     },
-    [fmOnChange, formik, name, onChange],
+    [fmOnChange, formik, name, onChange, localeString],
   );
 
   const handleBlur = useCallback(
