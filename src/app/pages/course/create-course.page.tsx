@@ -32,18 +32,15 @@ function CreateCourse() {
 
   const handleSubmit = (values: CreateCourseInitialValues) => {
     subscribeOnce(CourseService.create({ ...values, price: Number(removeDotsAndCommas(values.price)) }), (res) => {
+      if (!res) return;
       addToast({ text: SystemMessage.NEXT_STEP, position: 'top-right' });
-      res && navigate(PATHS.CREATE_CHAPTER);
+      navigate(PATHS.CREATE_CHAPTER);
     });
   };
 
   const handleNumberInput = (e: ChangeEvent<HTMLInputElement>) => {
     const numericValue = parseFloat(removeDotsAndCommas(e.target.value) as any);
-    if (!isNaN(numericValue)) {
-      e.target.value = new Intl.NumberFormat('en-US').format(numericValue);
-    } else {
-      e.target.value = '';
-    }
+    e.target.value = isNaN(numericValue) ? '' : new Intl.NumberFormat('en-US').format(numericValue);
   };
   return (
     <div
