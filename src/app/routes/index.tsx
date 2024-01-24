@@ -2,6 +2,7 @@ import { PATHS, ROLES } from '@app/common/constants';
 import Category from '@app/pages/category/category.page';
 import ChangePassword from '@app/pages/change-password/change-password.page';
 import Confirm from '@app/pages/confirm/confirm.page';
+import CourseChapter from '@app/pages/course/create-chapter.page';
 import CreateCourse from '@app/pages/course/create-course.page';
 import ForgotPassword from '@app/pages/forgot-password/forgot-password.page';
 import Logout from '@app/pages/helper-component/log-out.component';
@@ -39,6 +40,9 @@ export const routesForAuthenticatedOnly = [
   {
     path: PATHS.DEFAULT,
     element: <ProtectedRoute allowedRoles={[ROLES.TEACHER]} />,
-    children: [{ path: PATHS.CREATE_COURSE, element: <CreateCourse /> }],
+    children: [
+      { path: PATHS.CREATE_COURSE, element: <CreateCourse /> },
+      { path: PATHS.CREATE_CHAPTER, element: <CourseChapter /> },
+    ],
   },
 ];
