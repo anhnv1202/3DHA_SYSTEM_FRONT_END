@@ -10,9 +10,10 @@ import { CreateCourseInitialValues } from '@app/types/course.type';
 import { FieldType } from '@app/types/helper';
 import { createCourseValidationSchema } from '@app/validations/course.validation';
 import backgroundUser from '@assets/images/background/backgroundUser.png';
+import { removeDotsAndCommas } from '@core/helpers/string.helper';
 import useObservable from '@core/hooks/use-observable.hook';
 import { Form, Formik, FormikContextType } from 'formik';
-import { createRef, useEffect, useState } from 'react';
+import { ChangeEvent, createRef, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
@@ -28,14 +29,22 @@ function CreateCourse() {
       setMajorList(majorsData.data);
     });
   }, []);
+
   const handleSubmit = (values: CreateCourseInitialValues) => {
-    console.log(values);
-    subscribeOnce(CourseService.create({ ...values }), (res) => {
+    subscribeOnce(CourseService.create({ ...values, price: Number(removeDotsAndCommas(values.price)) }), (res) => {
       addToast({ text: SystemMessage.NEXT_STEP, position: 'top-right' });
       res && navigate(PATHS.CREATE_CHAPTER);
     });
   };
 
+  const handleNumberInput = (e: ChangeEvent<HTMLInputElement>) => {
+    const numericValue = parseFloat(removeDotsAndCommas(e.target.value) as any);
+    if (!isNaN(numericValue)) {
+      e.target.value = new Intl.NumberFormat('en-US').format(numericValue);
+    } else {
+      e.target.value = '';
+    }
+  };
   return (
     <div
       className="flex items-center justify-center min-h-screen bg-center bg-cover"
@@ -64,6 +73,7 @@ function CreateCourse() {
                     errorClassName="text-red-500 text-xs"
                     type={field.type as FieldType}
                     localeString={index === 2 ? 'vi-en' : undefined}
+                    onInput={index === 2 ? handleNumberInput : undefined}
                   />
                 </FormControl>
               ))}

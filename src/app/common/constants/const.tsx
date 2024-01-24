@@ -47,7 +47,7 @@ export const formFields: { [key: string]: FormField[] } = {
   create_course: [
     { name: 'name', placeholder: i18n.t('create-course.name'), type: 'text' },
     { name: 'description', placeholder: i18n.t('create-course.description'), type: 'text' },
-    { name: 'price', placeholder: i18n.t('create-course.price'), type: 'number' },
+    { name: 'price', placeholder: i18n.t('create-course.price'), type: 'text' },
   ],
   create_course_2: [{ name: 'major', placeholder: i18n.t('create-course.majors'), type: 'text' }],
 };

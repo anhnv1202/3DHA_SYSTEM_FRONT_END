@@ -41,7 +41,7 @@ export const REGEX = {
   USERNAMEL: /^[\d\w]+$/,
   PHONE_NUMBER: /^[0-9]{10}$/,
   EMAIL: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-  PRICE: /^[1-9]\d*$/,
+  PRICE: /^[1-9]\d{0,2}(,\d{3})*(\.\d{1,2})?$/,
 };
 
 export const REF = {
@@ -64,6 +64,11 @@ export const PATHS = {
   EDIT_PROFILE: '/user/edit-profile',
   CHANGE_PASSWORD_PROFILE: '/user/change-password-profile',
   LOGOUT: '/logout',
+  NOTIFICATION: '/user/notification',
+  WISHLIST: '/user/wishlist',
+  COURSES: '/my-courses',
+  MESSAGE: '/messages',
+  SUPPORT: '/support',
   CREATE_COURSE: '/course/create',
   CREATE_CHAPTER: '/course/create/chapter',
 };
@@ -80,6 +85,7 @@ export const INITIAL_VALUES = {
 export const localStorageKeys = {
   USER_TOKEN: 'access_token',
   USER_INFO: 'user_info',
+  LANGUAGE: 'language',
 };
 export const carouselItems: CarouselItem[] = [
   {
