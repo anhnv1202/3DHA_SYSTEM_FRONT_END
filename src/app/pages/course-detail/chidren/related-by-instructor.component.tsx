@@ -1,5 +1,6 @@
 import { Images } from '@assets/images';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 type Props = {};
@@ -40,6 +41,7 @@ const data = {
   ],
 };
 const RelatedCourseByInstructor = (props: Props) => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="component-margin">
@@ -49,7 +51,7 @@ const RelatedCourseByInstructor = (props: Props) => {
               className="ud-heading-xl"
               data-purpose="safely-set-inner-html:more-courses-by-instructor:more-courses-link"
             >
-              More Courses by <Link to={data.authorUrlProfile}>{data.authorName}</Link>
+              {t('courseDetail.moreCourseBy')} <Link to={data.authorUrlProfile}>{data.authorName}</Link>
             </h2>
             <section aria-label="Carousel" className="carousel-module--container--27wzs">
               <div
@@ -105,7 +107,6 @@ const RelatedCourseByInstructor = (props: Props) => {
                         <div className="course-card-module--price-text-container--2oBPb">
                           <div className="base-price-text-module--container--2P5fs course-card-module--price-text-base-price-text-component--sHBbm">
                             <div className="base-price-text-module--price-part--3AFBv course-card-module--price-text-base-price-text-component-discount-price--2VEcP ud-heading-md">
-                              <span className="ud-sr-only">Current price</span>
                               <span>
                                 <span>{item.coursePrice}</span>
                               </span>

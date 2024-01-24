@@ -3,8 +3,10 @@ import { useState, useRef, useEffect } from 'react';
 // Data
 import { Images } from '@assets/images';
 import { Link } from 'react-router-dom';
-
-const CarouselMultiItems = () => {
+type carouselMultiItemsProps = {
+  resources: any[];
+};
+const CarouselMultiItemsCourseDetail = ({ resources }: carouselMultiItemsProps) => {
   const maxScrollWidth = useRef(0);
   const [currentIndex, setCurrentIndex] = useState<any>(0);
   const carousel = useRef(null);
@@ -44,74 +46,6 @@ const CarouselMultiItems = () => {
       ? (carousel.current as any).scrollWidth - (carousel.current as any).offsetWidth
       : 0;
   }, []);
-  const resources = [
-    {
-      title: 'Find me on Twitter',
-      link: 'https://twitter.com/kendalmintcode',
-      imageUrl:
-        'https://play-lh.googleusercontent.com/DXwvOFxp_F8N9jw4FW8kCD0SWj8ba9YqDmMPphgkoG7qqEET_yV3vxuQcVcWQJkHX18=w240-h480-rw',
-      author: 'Leadstoyou',
-      rating: '4.2',
-      reviewed: 1224,
-      currentPrice: '329,000',
-      originalPrice: '1,3999,000',
-    },
-    {
-      title: 'Find me on Twitter',
-      link: 'https://twitter.com/kendalmintcode',
-      imageUrl:
-        'https://play-lh.googleusercontent.com/DXwvOFxp_F8N9jw4FW8kCD0SWj8ba9YqDmMPphgkoG7qqEET_yV3vxuQcVcWQJkHX18=w240-h480-rw',
-      author: 'Leadstoyou',
-      rating: '4.2',
-      reviewed: 1224,
-      currentPrice: '329,000',
-      originalPrice: '1,3999,000',
-    },
-    {
-      title: 'Find me on Twitter',
-      link: 'https://twitter.com/kendalmintcode',
-      imageUrl:
-        'https://play-lh.googleusercontent.com/DXwvOFxp_F8N9jw4FW8kCD0SWj8ba9YqDmMPphgkoG7qqEET_yV3vxuQcVcWQJkHX18=w240-h480-rw',
-      author: 'Leadstoyou',
-      rating: '4.2',
-      reviewed: 1224,
-      currentPrice: '329,000',
-      originalPrice: '1,3999,000',
-    },
-    {
-      title: 'Find me on Twitter',
-      link: 'https://twitter.com/kendalmintcode',
-      imageUrl:
-        'https://play-lh.googleusercontent.com/DXwvOFxp_F8N9jw4FW8kCD0SWj8ba9YqDmMPphgkoG7qqEET_yV3vxuQcVcWQJkHX18=w240-h480-rw',
-      author: 'Leadstoyou',
-      rating: '4.2',
-      reviewed: 1224,
-      currentPrice: '329,000',
-      originalPrice: '1,3999,000',
-    },
-    {
-      title: 'Find me on Twitter',
-      link: 'https://twitter.com/kendalmintcode',
-      imageUrl:
-        'https://play-lh.googleusercontent.com/DXwvOFxp_F8N9jw4FW8kCD0SWj8ba9YqDmMPphgkoG7qqEET_yV3vxuQcVcWQJkHX18=w240-h480-rw',
-      author: 'Leadstoyou',
-      rating: '4.2',
-      reviewed: 1224,
-      currentPrice: '329,000',
-      originalPrice: '1,3999,000',
-    },
-    {
-      title: 'Find me on Twitter',
-      link: 'https://twitter.com/kendalmintcode',
-      imageUrl:
-        'https://play-lh.googleusercontent.com/DXwvOFxp_F8N9jw4FW8kCD0SWj8ba9YqDmMPphgkoG7qqEET_yV3vxuQcVcWQJkHX18=w240-h480-rw',
-      author: 'Leadstoyou',
-      rating: '4.2',
-      reviewed: 1224,
-      currentPrice: '329,000',
-      originalPrice: '1,3999,000',
-    },
-  ];
 
   return (
     <div className="carousel my-12 mx-auto">
@@ -175,11 +109,7 @@ const CarouselMultiItems = () => {
                           <div className="course-card-ratings-module--row--1EHHW">
                             <span className="star-rating-module--star-wrapper--VHfnS star-rating-module--medium--3kDsb">
                               <span className="ud-sr-only">Rating: 4.2 out of 5</span>
-                              <span
-                                className="ud-heading-sm star-rating-module--rating-number--2xeHu"
-                                aria-hidden="true"
-                                data-purpose="rating-number"
-                              >
+                              <span className="ud-heading-sm star-rating-module--rating-number--2xeHu">
                                 {resource.rating}
                               </span>
                               <Images.IoMdStar color="yellow" width={'none'} />
@@ -229,4 +159,4 @@ const CarouselMultiItems = () => {
   );
 };
 
-export default CarouselMultiItems;
+export default CarouselMultiItemsCourseDetail;

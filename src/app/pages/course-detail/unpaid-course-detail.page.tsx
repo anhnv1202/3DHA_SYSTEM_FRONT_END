@@ -16,8 +16,7 @@ const UnpaidCourseDetail = (props: Props) => {
     <>
       <div className="clp-component-render">
         <div className="ud-component--course-landing-page--course-landing-page">
-          <div id="schema_markup" data-purpose="schema_markup"></div>
-          <div data-content-group="Landing Page" data-course-id="5512420">
+          <div>
             <Breadcrumb data={dataBreacumb} />
             <HeadingCourseDetail />
           </div>

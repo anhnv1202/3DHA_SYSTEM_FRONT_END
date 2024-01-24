@@ -108,3 +108,71 @@ export const navbarLinks: NavbarLink[] = [
     path: '/courses/business/other-business/',
   },
 ];
+export const resourcesCarouselCourseDetail = [
+  {
+    title: 'Find me on Twitter',
+    link: 'https://twitter.com/kendalmintcode',
+    imageUrl:
+      'https://play-lh.googleusercontent.com/DXwvOFxp_F8N9jw4FW8kCD0SWj8ba9YqDmMPphgkoG7qqEET_yV3vxuQcVcWQJkHX18=w240-h480-rw',
+    author: 'Leadstoyou',
+    rating: '4.2',
+    reviewed: 1224,
+    currentPrice: '329,000',
+    originalPrice: '1,3999,000',
+  },
+  {
+    title: 'Find me on Twitter',
+    link: 'https://twitter.com/kendalmintcode',
+    imageUrl:
+      'https://play-lh.googleusercontent.com/DXwvOFxp_F8N9jw4FW8kCD0SWj8ba9YqDmMPphgkoG7qqEET_yV3vxuQcVcWQJkHX18=w240-h480-rw',
+    author: 'Leadstoyou',
+    rating: '4.2',
+    reviewed: 1224,
+    currentPrice: '329,000',
+    originalPrice: '1,3999,000',
+  },
+  {
+    title: 'Find me on Twitter',
+    link: 'https://twitter.com/kendalmintcode',
+    imageUrl:
+      'https://play-lh.googleusercontent.com/DXwvOFxp_F8N9jw4FW8kCD0SWj8ba9YqDmMPphgkoG7qqEET_yV3vxuQcVcWQJkHX18=w240-h480-rw',
+    author: 'Leadstoyou',
+    rating: '4.2',
+    reviewed: 1224,
+    currentPrice: '329,000',
+    originalPrice: '1,3999,000',
+  },
+  {
+    title: 'Find me on Twitter',
+    link: 'https://twitter.com/kendalmintcode',
+    imageUrl:
+      'https://play-lh.googleusercontent.com/DXwvOFxp_F8N9jw4FW8kCD0SWj8ba9YqDmMPphgkoG7qqEET_yV3vxuQcVcWQJkHX18=w240-h480-rw',
+    author: 'Leadstoyou',
+    rating: '4.2',
+    reviewed: 1224,
+    currentPrice: '329,000',
+    originalPrice: '1,3999,000',
+  },
+  {
+    title: 'Find me on Twitter',
+    link: 'https://twitter.com/kendalmintcode',
+    imageUrl:
+      'https://play-lh.googleusercontent.com/DXwvOFxp_F8N9jw4FW8kCD0SWj8ba9YqDmMPphgkoG7qqEET_yV3vxuQcVcWQJkHX18=w240-h480-rw',
+    author: 'Leadstoyou',
+    rating: '4.2',
+    reviewed: 1224,
+    currentPrice: '329,000',
+    originalPrice: '1,3999,000',
+  },
+  {
+    title: 'Find me on Twitter',
+    link: 'https://twitter.com/kendalmintcode',
+    imageUrl:
+      'https://play-lh.googleusercontent.com/DXwvOFxp_F8N9jw4FW8kCD0SWj8ba9YqDmMPphgkoG7qqEET_yV3vxuQcVcWQJkHX18=w240-h480-rw',
+    author: 'Leadstoyou',
+    rating: '4.2',
+    reviewed: 1224,
+    currentPrice: '329,000',
+    originalPrice: '1,3999,000',
+  },
+];

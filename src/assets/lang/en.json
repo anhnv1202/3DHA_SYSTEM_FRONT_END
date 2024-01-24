@@ -152,5 +152,22 @@
     "newPassword": "New Password",
     "confirmPassword": "Confirm New Password",
     "changePassword": "Change Password"
+  },
+  "courseDetail": {
+    "previewCourse": "Preview this course",
+    "ratings": "ratings",
+    "students": "students",
+    "demandVideo": "of on-demand video",
+    "createdBy": "Created by ",
+    "free": "Free",
+    "enroll": "Enroll now",
+    "enrollByTopRelated": "Enroll in our in-depth courses from top-rated instructors",
+    "getMore": "Get more",
+    "course": "courses",
+    "moreCourseBy": "More Courses by",
+    "currentPrice": "Current Price",
+    "requirements": "Requirements",
+    "description": "Description",
+    "reviews": "Reviews"
   }
 }

@@ -1,29 +1,27 @@
-import CarouselMultiItems from '@app/components/carousel/carousel-multi-items.component';
-import React from 'react';
+import { resourcesCarouselCourseDetail } from '@app/common/constants/const';
+import CarouselMultiItemsCourseDetail from '@app/components/carousel/carousel-multi-items-course-detail.component';
+import { useTranslation } from 'react-i18next';
 
 type Props = {};
 
 const RelatedCourseByCategory = (props: Props) => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="component-margin">
         <div className="alternate-headline-module--title-container--2ozsw">
           <div className="alternate-headline-module--title--Yp6jO">
-            <h2
-              id="Get more with paid Data Science courses"
-              className="ud-heading-xl"
-              data-purpose="alternate-headline-title"
-            >
-              Get more with paid Data Science courses
+            <h2 className="ud-heading-xl">
+              {t('courseDetail.enrollByTopRelated')} Data Science {t('courseDetail.course')}
             </h2>
           </div>
           <p className="ud-text-md alternate-headline-module--secondary-text--1uTFa">
-            Enroll in our in-depth courses from top-rated instructors
+            {t('courseDetail.enrollByTopRelated')}
           </p>
         </div>
         <div className="component-margin">
-          <section aria-label="Carousel" className="carousel-module--container--27wzs">
-            <CarouselMultiItems />
+          <section className="carousel-module--container--27wzs">
+            <CarouselMultiItemsCourseDetail resources={resourcesCarouselCourseDetail} />
           </section>
         </div>
       </div>
