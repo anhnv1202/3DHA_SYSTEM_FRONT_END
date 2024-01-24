@@ -11,7 +11,6 @@ const Routes = () => {
   if (isLoading) {
     return <Loading />;
   }
-
   const router = createBrowserRouter([
     {
       element: <DefaultLayout />,

@@ -14,6 +14,7 @@ import useObservable from '@core/hooks/use-observable.hook';
 import { Form, Formik, FormikContextType } from 'formik';
 import { createRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { FcGoogle } from 'react-icons/fc';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import backgroundRegister from '../../../assets/images/background/backgroundLogin.png';
@@ -34,6 +35,7 @@ export const Login = () => {
       subscribeOnce(AuthService.confirm(token), (res: ConfirmResponse) => {
         res && addToast({ text: SystemMessage.VERIFY_SUCCESS, position: 'top-right' });
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
   const handleSubmit = ({ email, password }: LoginInitialValues) => {
     subscribeOnce(AuthService.login(email, password), (res: LoginResponse) => {
@@ -81,21 +83,38 @@ export const Login = () => {
               ))}
 
               <div>
-                <Button
-                  type="submit"
-                  label={t('login.submitButton')}
-                  width="w-full"
-                  size="m"
-                  className="rounded-[10px]"
-                />
-                <small>{t('login.or')}</small>
-                <div className="mt-2 text-sm text-blue-500 text-center">
-                  <Link to={path.REGISTER} className="bg-blue-gray-500 text-white px-4 py-2 rounded-full">
+                <div>
+                  <div>
+                    <Button
+                      type="submit"
+                      label={t('login.submitButton')}
+                      width="w-full"
+                      size="m"
+                      className="rounded-[10px]"
+                    />
+                  </div>
+                  <div className="mt-2 mb-5">
+                    <Button
+                      type="submit"
+                      label=""
+                      width="w-full"
+                      size="m"
+                      theme="normal"
+                      className="rounded-[10px] flex items-center justify-center space-x-2 px-4 py-2 bg-blue-gray-500 text-white hover:bg-blue-gray-800 focus:outline-none focus:ring focus:border-green-300"
+                    >
+                      <FcGoogle className="text-4xl" />
+                      <h2 className="pl-2"> {t('login.google')}</h2>
+                    </Button>
+                  </div>
+                </div>
+                <small className="text-xl pt-2">{t('login.or')}</small>
+                <div className="mb-7 mt-2 text-xl text-blue-500 text-center">
+                  <Link to={path.REGISTER} className="bg-light-green-500 text-white px-4 py-2 rounded-full">
                     {t('login.signUpButton')}
                   </Link>
                 </div>
-                <small className="pt-5">{t('login.maybe')}</small>
-                <div className="mt-2 text-sm text-orange-400 text-center">
+                <small className="pt-5 text-xl">{t('login.maybe')}</small>
+                <div className="mb-3 mt-2 text-xl text-orange-400 text-center">
                   <Link to={path.FORGOT_PASSWORD} className="bg-orange-400 text-black px-4 py-2 rounded-full">
                     {t('login.forgotPasswordButton')}
                   </Link>

@@ -17,10 +17,11 @@
     "submitButton": "Login",
     "or": "Or",
     "maybe": "Maybe",
-    "signUpButton": "You don't have the account ? Please register -_-",
+    "signUpButton": "You don't have the account ? Please register",
     "forgotPasswordButton": "You just forgot your password ? Click here",
     "account": "You have an account? Log in",
-    "confirmEmail": "Please check your email to verify account!"
+    "confirmEmail": "Please check your email to verify account!",
+    "google": "Sign in with Google"
   },
   "register": {
     "register": "Register",
@@ -72,7 +73,33 @@
     "category": "Categories",
     "searchText": "Search for anything",
     "bussiness": "Bussiness",
-    "teaching": "Teaching on 3DHA"
+    "teaching": "Teaching on 3DHA",
+    "logout": "Logout",
+    "languages": "Languages",
+    "wishlist": {
+      "name": "Wishlist",
+      "title": "Your wishlist is empty.",
+      "description": "Explore courses"
+    },
+    "learning": {
+      "name": "My learning",
+      "title": "Your learning is empty.",
+      "description": "Explore more courses"
+    },
+    "notification": {
+      "name": "Notification",
+      "title": "Settings",
+      "description": "No notifications."
+    },
+    "message": {
+      "name": "Message"
+    },
+    "editProfile": {
+      "name": "Edit profile"
+    },
+    "support": {
+      "name": "Help"
+    }
   },
   "homepage": {
     "partnerBanner": {

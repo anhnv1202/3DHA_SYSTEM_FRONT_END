@@ -12,7 +12,7 @@ const PartnerBanner = (props: Props) => {
             <h2 className="partners-banner-module--heading--21OVA">{t('homepage.partnerBanner.title')}</h2>
             <ul className="ud-unstyled-list partner-logos-module--list--2hIZ_">
               {Array.from({ length: 7 }).map((_, index) => (
-                <li className="partner-logos-module--item--1KtIF">
+                <li className="partner-logos-module--item--1KtIF" key={index}>
                   <img
                     src="https://s.udemycdn.com/partner-logos/ou-v1/ericsson.svg"
                     alt="Ericsson logo"

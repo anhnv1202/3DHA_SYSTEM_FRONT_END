@@ -4,6 +4,7 @@ import ChangePassword from '@app/pages/change-password/change-password.page';
 import Confirm from '@app/pages/confirm/confirm.page';
 import CourseDetail from '@app/pages/course-detail/course-detail.page';
 import ForgotPassword from '@app/pages/forgot-password/forgot-password.page';
+import Logout from '@app/pages/helper-component/log-out.component';
 import Homepage from '@app/pages/home-page/home-page.page';
 import { Login } from '@app/pages/login/login.page';
 import Register from '@app/pages/register/register.page';
@@ -23,6 +24,7 @@ export const routesForPublic = [
   { path: PATHS.DEFAULT, element: <Homepage /> },
   { path: PATHS.CATEGORY, element: <Category /> },
   { path: PATHS.COURSE, element: <CourseDetail /> },
+  { path: PATHS.LOGOUT, element: <Logout /> },
 ];
 
 export const routesForAuthenticatedOnly = [
