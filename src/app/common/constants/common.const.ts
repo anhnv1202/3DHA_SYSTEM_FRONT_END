@@ -41,7 +41,7 @@ export const REGEX = {
   USERNAMEL: /^[\d\w]+$/,
   PHONE_NUMBER: /^[0-9]{10}$/,
   EMAIL: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-  PRICE: /^\d{1,3}(?:\.\d{3})*(?:\.\d{1,2})?/,
+  PRICE: /^[1-9]\d*$/,
 };
 
 export const REF = {
@@ -65,6 +65,7 @@ export const PATHS = {
   CHANGE_PASSWORD_PROFILE: '/user/change-password-profile',
   LOGOUT: '/logout',
   CREATE_COURSE: '/course/create',
+  CREATE_CHAPTER: '/course/create/chapter',
 };
 
 export const INITIAL_VALUES = {
@@ -74,7 +75,7 @@ export const INITIAL_VALUES = {
   CHANGE_PASSWORD: { newPassword: '', confirmPassword: '' },
   EDIT_PROFILE: { firstName: '', lastName: '', phone: '', email: '', role: 2, avatar: '', bio: '' } as UserProfile,
   CHANGE_PASSWORD_PROFILE: { oldPassword: '', newPassword: '', confirmPassword: '' },
-  CREATE_COURSE: { name: '', description: [], major: '', price: 0 } as unknown as Course,
+  CREATE_COURSE: { name: '', description: '', major: {}, price: 0 } as Course,
 };
 export const localStorageKeys = {
   USER_TOKEN: 'access_token',

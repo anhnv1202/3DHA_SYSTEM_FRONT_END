@@ -1,4 +1,4 @@
-import { INITIAL_VALUES, SystemMessage, localStorageKeys } from '@app/common/constants';
+import { INITIAL_VALUES, PATHS, SystemMessage } from '@app/common/constants';
 import { formFields } from '@app/common/constants/const';
 import Button from '@app/components/button';
 import DropDown from '@app/components/dropdown';
@@ -6,13 +6,11 @@ import { FormControl } from '@app/components/form-control';
 import Input from '@app/components/input';
 import { addToast } from '@app/components/toast/toast.service';
 import CourseService from '@app/services/http/course.service';
-import { User } from '@app/types';
 import { CreateCourseInitialValues } from '@app/types/course.type';
 import { FieldType } from '@app/types/helper';
 import { createCourseValidationSchema } from '@app/validations/course.validation';
 import backgroundUser from '@assets/images/background/backgroundUser.png';
 import useObservable from '@core/hooks/use-observable.hook';
-import StorageService from '@core/services/storage';
 import { Form, Formik, FormikContextType } from 'formik';
 import { createRef, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -23,7 +21,6 @@ function CreateCourse() {
   const formRef = createRef<FormikContextType<CreateCourseInitialValues>>();
   const { subscribeOnce } = useObservable();
   const navigate = useNavigate();
-  const storedUserInfo = StorageService.getObject(localStorageKeys.USER_INFO) as User;
   const [majorList, setMajorList] = useState<any[]>([]);
 
   useEffect(() => {
@@ -33,9 +30,9 @@ function CreateCourse() {
   }, []);
   const handleSubmit = (values: CreateCourseInitialValues) => {
     console.log(values);
-    subscribeOnce(CourseService.create({ ...values, level: 'beginner' }), (res) => {
+    subscribeOnce(CourseService.create({ ...values }), (res) => {
       addToast({ text: SystemMessage.NEXT_STEP, position: 'top-right' });
-      //   res && navigate(PATHS.LOGIN);
+      res && navigate(PATHS.CREATE_CHAPTER);
     });
   };
 
@@ -49,7 +46,7 @@ function CreateCourse() {
           <h2 className="text-[50px] font-bold text-center">{t('create-course.create')}</h2>
           <Formik
             displayName="CreateCourseForm"
-            initialValues={INITIAL_VALUES.CREATE_COURSE as any}
+            initialValues={INITIAL_VALUES.CREATE_COURSE}
             onSubmit={handleSubmit}
             innerRef={formRef}
             validationSchema={createCourseValidationSchema}

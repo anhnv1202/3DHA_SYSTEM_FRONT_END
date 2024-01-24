@@ -1,4 +1,5 @@
 import { CarouselProps as TailwindCarouselProps } from '@material-tailwind/react';
+import { Major } from './course.type';
 
 export interface CarouselItem {
   imageSrc: string;
@@ -37,8 +38,7 @@ export type UserProfile = {
 
 export interface Course {
   name: string;
-  description: string[];
+  description: string;
+  major: Major;
   price: number;
-  major: string;
-  [key: string]: any;
 }

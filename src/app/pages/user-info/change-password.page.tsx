@@ -1,19 +1,17 @@
-import { INITIAL_VALUES, PATHS, SystemMessage, localStorageKeys } from '@app/common/constants';
+import { INITIAL_VALUES, PATHS, SystemMessage } from '@app/common/constants';
 import { formFields } from '@app/common/constants/const';
 import Button from '@app/components/button';
 import { FormControl } from '@app/components/form-control';
 import Input from '@app/components/input';
 import { addToast } from '@app/components/toast/toast.service';
 import UserService from '@app/services/http/user.service';
-import { ChangePasswordProfileInitialValues, User } from '@app/types';
+import { ChangePasswordProfileInitialValues } from '@app/types';
 import { FieldType } from '@app/types/helper';
 import { changePasswordProfileValidationSchema } from '@app/validations/user.validation';
 import backgroundUser from '@assets/images/background/backgroundUser.png';
-import { jwtIsValid } from '@core/helpers/jwt.helper';
 import useObservable from '@core/hooks/use-observable.hook';
-import StorageService from '@core/services/storage';
 import { Form, Formik, FormikContextType } from 'formik';
-import { createRef, useEffect } from 'react';
+import { createRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
@@ -22,28 +20,17 @@ function ChangePasswordProfile() {
   const formRef = createRef<FormikContextType<ChangePasswordProfileInitialValues>>();
   const navigate = useNavigate();
   const { subscribeOnce } = useObservable();
-  const storedUserInfo = StorageService.getObject(localStorageKeys.USER_INFO) as User;
-
-  useEffect(() => {
-    const token = StorageService.get(localStorageKeys.USER_TOKEN);
-    if (!(token && jwtIsValid(token))) {
-      navigate(PATHS.HOMEPAGE);
-    }
-  }, [formRef, storedUserInfo, navigate]);
 
   const handleSubmit = (values: ChangePasswordProfileInitialValues) => {
-    const token = StorageService.get(localStorageKeys.USER_TOKEN);
-    if (token && jwtIsValid(token)) {
-      subscribeOnce(
-        UserService.changePassword({
-          ...values,
-        }),
-        (res) => {
-          addToast({ text: SystemMessage.CHANGE_PASSWORD_SUCCESS, position: 'top-right' });
-          res && navigate(PATHS.LOGIN);
-        },
-      );
-    }
+    subscribeOnce(
+      UserService.changePassword({
+        ...values,
+      }),
+      (res) => {
+        addToast({ text: SystemMessage.CHANGE_PASSWORD_SUCCESS, position: 'top-right' });
+        res && navigate(PATHS.CHANGE_PASSWORD_PROFILE);
+      },
+    );
   };
 
   return (
