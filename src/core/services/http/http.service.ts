@@ -7,7 +7,6 @@ import { catchError, finalize, map, NEVER, Observable, Subject, throwError } fro
 import { ajax, AjaxResponse } from 'rxjs/ajax';
 import StorageService from '../storage';
 import { HttpMethod, HttpOptions, ProgressOptions, RequestContentType } from './http.type';
-import { getCookie } from '@core/helpers/cookie.helper';
 
 class _HttpService {
   public isRequesting$ = new Subject<boolean>();
