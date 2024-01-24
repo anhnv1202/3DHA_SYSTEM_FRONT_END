@@ -33,8 +33,8 @@ function ChangePassword() {
 
   return (
     <div
-      className="flex items-center justify-center min-h-screen"
-      style={{ backgroundImage: `url(${backgroundRegister})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      className="flex items-center justify-center min-h-screen bg-center bg-cover"
+      style={{ backgroundImage: `url(${backgroundRegister})` }}
     >
       <div className="w-1/2 flex items-center rounded-[10px] bg-blue-50 shadow-6 ">
         <div className="flex-1 text-center rounded border-gray-300 p-4 ">
