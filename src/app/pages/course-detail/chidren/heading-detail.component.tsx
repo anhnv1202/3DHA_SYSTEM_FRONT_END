@@ -13,27 +13,18 @@ const HeadingCourseDetail = (props: Props) => {
         <div className="introduction-container">
           <div className="intro-asset--wrapper--37FIE">
             <div className="intro-asset--asset--3abyc">
-              <button
-                type="button"
-                className="ud-btn ud-btn-large ud-btn-ghost ud-heading-md ud-custom-focus-visible intro-asset--placeholder--2_N1K"
-              >
-                <span className="intro-asset--img-aspect--3fbKk">
-                  <img
-                    src="https://img-b.udemycdn.com/course/240x135/5512420_3119_2.jpg"
-                    alt=""
-                    width="240"
-                    height="135"
-                    loading="eager"
+              <div className="ud-btn ud-btn-large ud-btn-ghost ud-heading-md ud-custom-focus-visible intro-asset--placeholder--2_N1K">
+                <div className="intro-asset--img-aspect--3fbKk">
+                  <iframe
                     className="intro-asset--overlay--3jyau intro-asset--gradient--1JfDu"
-                  />
-                </span>
-                <span className="ud-play-overlay">
-                  <Images.FaPlay />
-                </span>
-                <span className="ud-heading-md intro-asset--overlay--3jyau intro-asset--text--lXX59">
-                  {t('courseDetail.previewCourse')}
-                </span>
-              </button>
+                    width="646"
+                    height="295.8"
+                    title="video-demo"
+                    src="https://drive.google.com/file/d/1PLhROh2dPaGwy46muij_54bSezpxM-K5/preview"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
             </div>
           </div>
         </div>

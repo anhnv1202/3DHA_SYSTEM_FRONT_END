@@ -1,5 +1,6 @@
 import { Images } from '@assets/images';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 type Props = {};
@@ -99,6 +100,7 @@ const options = {
   INSTRUCTOR: 3,
 };
 const ReviewCourseDetail = (props: Props) => {
+  const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
 
   const getReviewData = (id: number): string[] | { [key: string]: any } | undefined => {
@@ -186,7 +188,7 @@ const ReviewCourseDetail = (props: Props) => {
                     data-purpose="course-description"
                   >
                     <h2 data-purpose="description-title" className="ud-heading-xl styles--description__header--2Z7Vb">
-                      Description
+                      {t('courseDetail.moreCourseBy')}
                     </h2>
                     <div className="show-more-module--container--2QPRN">
                       <div
