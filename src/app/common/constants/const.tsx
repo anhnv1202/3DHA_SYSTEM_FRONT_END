@@ -44,6 +44,12 @@ export const formFields: { [key: string]: FormField[] } = {
     { name: 'newPassword', placeholder: i18n.t('user-info.newPassword'), type: 'password' },
     { name: 'confirmPassword', placeholder: i18n.t('user-info.confirmPassword'), type: 'password' },
   ],
+  create_course: [
+    { name: 'name', placeholder: i18n.t('create-course.name'), type: 'text' },
+    { name: 'description', placeholder: i18n.t('create-course.description'), type: 'text' },
+    { name: 'price', placeholder: i18n.t('create-course.price'), type: 'text' },
+  ],
+  create_course_2: [{ name: 'major', placeholder: i18n.t('create-course.majors'), type: 'text' }],
 };
 
 export const navbarLinks: NavbarLink[] = [

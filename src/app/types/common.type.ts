@@ -1,4 +1,5 @@
 import { CarouselProps as TailwindCarouselProps } from '@material-tailwind/react';
+import { Major } from './course.type';
 
 export interface CarouselItem {
   imageSrc: string;
@@ -14,11 +15,15 @@ export interface CarouselProps extends TailwindCarouselProps {
 export interface DropDownItem {
   name: string;
   role: number;
+  [key: string]: any;
 }
 
 export interface DropDownProps {
   items: DropDownItem[];
-  defaultValue: number;
+  defaultValue: number | string;
+  fieldName: string;
+  displayProp: string;
+  [key: string]: any;
 }
 export interface BreadcrumbProps {
   title: string;
@@ -33,3 +38,10 @@ export type UserProfile = {
   avatar: string;
   bio: string;
 };
+
+export interface Course {
+  name: string;
+  description: string;
+  major: Major;
+  price: number;
+}

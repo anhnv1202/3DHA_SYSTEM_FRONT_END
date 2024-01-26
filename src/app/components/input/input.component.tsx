@@ -72,6 +72,8 @@ interface InputProps extends FormControlChildProps {
   onBlur?: (e: ChangeEvent<HTMLInputElement>) => void;
 
   onFocus?: (e: ChangeEvent<HTMLInputElement>) => void;
+
+  onInput?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 function Input({
@@ -100,6 +102,7 @@ function Input({
   fmOnChange,
   fmOnBlur,
   onFocus,
+  onInput,
 }: InputProps) {
   const [txValue, setTxValue] = useState(value || defaultValue);
   const [_status, changeStatus] = useState(status || defaultStatus);
@@ -164,6 +167,7 @@ function Input({
             autoComplete={disableAutoComplete ? 'off' : 'on'}
             onFocus={onFocus}
             readOnly={readOnly}
+            onInput={onInput}
           />
           {inputIcon && (
             <img className={`absolute w-4 h-4 left-[11px] top-[15px] ${inputIconClassName}`} src={inputIcon} alt="" />

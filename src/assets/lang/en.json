@@ -65,7 +65,8 @@
     "must-not-be-empty": "Must not be empty",
     "password-does-not-match": "Password does not match",
     "phone-number-must-be-10-digits": "Phone number must be 10 digits",
-    "email-invalid": "Email invalid"
+    "email-invalid": "Email invalid",
+    "price-must-be-greater-than-0": "Price must be greater than 0"
   },
   "header": {
     "login": "Log in",
@@ -170,5 +171,14 @@
     "requirements": "Requirements",
     "description": "Description",
     "reviews": "Reviews"
+  },
+  "create-course": {
+    "create": "Create Course",
+    "name": "Course Name",
+    "description": "Course Description",
+    "price": "Course Price (VND)",
+    "majors": "Majors",
+    "button": "NEXT",
+    "major": "--- Choose Major ---"
   }
 }

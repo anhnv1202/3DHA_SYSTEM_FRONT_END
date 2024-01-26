@@ -19,5 +19,11 @@ const titleCase = (str: string): string => {
 
   return splitStr.join(' ');
 };
+function removeDotsAndCommas(input: string | number): string | number {
+  if (typeof input === 'string') {
+    return input.replace(/[.,]/g, '');
+  }
 
-export { isString, isStringEmpty, titleCase };
+  return input;
+}
+export { isString, isStringEmpty, removeDotsAndCommas, titleCase };
