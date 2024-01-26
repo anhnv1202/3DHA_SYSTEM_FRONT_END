@@ -1,10 +1,20 @@
 import { ChangePasswordProfileRequest, ConfirmResponse, User } from '@app/types';
 import HttpService from '@core/services/http/http.service';
+import { RequestContentType } from '@core/services/http/http.type';
 
 class _UserService {
   public update(id: string, body: any) {
     return HttpService.put<User>(`/users/update/${id}`, {
       body,
+    });
+  }
+
+  public updateAvatar(id: string, body: any) {
+    console.log(body);
+
+    return HttpService.put<User>(`/users/update-avatar/${id}`, {
+      body,
+      requestContentType: RequestContentType.MULTIPART,
     });
   }
 

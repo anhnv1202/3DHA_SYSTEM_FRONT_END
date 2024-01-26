@@ -160,6 +160,7 @@ class _HttpService {
         }
       }
     }
+    console.log(formData.get('avatar'));
 
     return formData;
   }

@@ -26,6 +26,7 @@ function EditProfile() {
   const formRef = createRef<FormikContextType<EditProfileInitialValues>>();
   const [isMounted, setIsMounted] = useState(false);
   const [selectedFile, setSelectedFile] = useState<string | null>(null);
+  const [selectedFileUpload, setSelectedFileUpload] = useState<File | null>(null);
   const navigate = useNavigate();
   const { subscribeOnce } = useObservable();
 
@@ -39,19 +40,31 @@ function EditProfile() {
   }, [formRef, user, navigate]);
   if (!user) return;
   const handleSubmit = (values: EditProfileInitialValues) => {
-    subscribeOnce(UserService.update(user._id, { ...values, avatar: selectedFile }), (res: User) => {
-      if (res) {
-        _setUser(res);
-        StorageService.setObject(localStorageKeys.USER_INFO, res);
-        addToast({ text: SystemMessage.EDIT_PROFILE, position: 'top-right' });
+    subscribeOnce(UserService.update(user._id, { ...values }), (res: User) => {
+      if (!res) return;
+      if (selectedFileUpload) {
+        subscribeOnce(UserService.updateAvatar(user._id, { avatar: selectedFileUpload }), (res) => {
+          handleResponse(res);
+        });
+      } else {
+        handleResponse(res);
       }
     });
+  };
+
+  const handleResponse = (res: User) => {
+    console.log(res);
+
+    _setUser(res);
+    StorageService.setObject(localStorageKeys.USER_INFO, res);
+    addToast({ text: SystemMessage.EDIT_PROFILE, position: 'top-right' });
   };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
 
     if (file) {
+      setSelectedFileUpload(file);
       const reader = new FileReader();
       reader.onloadend = () => {
         const base64String = reader.result as string;
@@ -83,14 +96,14 @@ function EditProfile() {
                 <div className="flex flex-col items-center ">
                   {selectedFile ? (
                     <Image
-                      src={selectedFile}
+                      src="https://lh3.googleusercontent.com/d/1ClOuFOIjIQljrsVFu1KnMup6w_q-0IN1"
                       alt="Selected Avatar"
                       className="w-70 h-70 object-cover rounded-[10px] border"
                       aria-hidden="true"
                     />
                   ) : (
                     <Image
-                      src={user.avatar}
+                      src="https://lh3.googleusercontent.com/d/1ClOuFOIjIQljrsVFu1KnMup6w_q-0IN1"
                       alt="Selected Avatar"
                       className="w-70 h-70 object-cover rounded-[10px] border"
                       aria-hidden="true"

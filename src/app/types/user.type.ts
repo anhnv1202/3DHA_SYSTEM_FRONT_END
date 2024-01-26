@@ -1,4 +1,5 @@
 import { ROLES } from '@app/common/constants';
+import { File } from 'buffer';
 
 export interface EditProfileInitialValues {
   firstName: string;
@@ -6,6 +7,5 @@ export interface EditProfileInitialValues {
   phone: string;
   email: string;
   role: ROLES;
-  avatar: string;
   bio: string;
 }
