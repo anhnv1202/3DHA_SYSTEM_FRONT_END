@@ -71,6 +71,8 @@ export const PATHS = {
   SUPPORT: '/support',
   CREATE_COURSE: '/course/create',
   CREATE_CHAPTER: '/course/create/chapter',
+  ADMIN: '/admin',
+  DASHBOARD: '/admin/dashboard',
 };
 
 export const INITIAL_VALUES = {
