@@ -10,10 +10,9 @@ import { useAuth } from '@core/context/auth.context';
 
 type HeaderProps = {
   noShadow?: boolean;
-  isUserLoggedIn?: boolean;
 };
 
-const Header = ({ noShadow, isUserLoggedIn }: HeaderProps) => {
+const Header = ({ noShadow }: HeaderProps) => {
   const headerStyles = noShadow ? { boxShadow: 'none' } : {};
   const { t } = useTranslation();
   const headerData = [
