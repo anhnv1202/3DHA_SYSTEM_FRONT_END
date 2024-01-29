@@ -1,5 +1,6 @@
 import { localStorageKeys, SystemMessage } from '@app/common/constants';
 import { addToast } from '@app/components/toast/toast.service';
+import { getCookie } from '@core/helpers/cookie.helper';
 import { isNullOrUndefined, isStrEmpty, nullSafetyJSONStringify } from '@core/helpers/helpers';
 import { Environment } from '@environments/environment';
 import { catchError, finalize, map, NEVER, Observable, Subject, throwError } from 'rxjs';
@@ -164,7 +165,6 @@ class _HttpService {
   }
 
   public handleResponse<T>(ajaxResponse: AjaxResponse<any>): T {
-    console.log(ajaxResponse.response.data);
     return ajaxResponse.response.data;
   }
 
@@ -231,7 +231,11 @@ class _HttpService {
   }
 
   public getAccessToken() {
-    return StorageService.get(localStorageKeys.USER_TOKEN) || StorageService.getSession(localStorageKeys.USER_TOKEN);
+    return (
+      getCookie(localStorageKeys.USER_TOKEN) ||
+      StorageService.get(localStorageKeys.USER_TOKEN) ||
+      StorageService.getSession(localStorageKeys.USER_TOKEN)
+    );
   }
 }
 

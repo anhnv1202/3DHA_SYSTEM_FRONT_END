@@ -6,12 +6,12 @@ import { FormControl } from '@app/components/form-control';
 import Input from '@app/components/input';
 import { addToast } from '@app/components/toast/toast.service';
 import UserService from '@app/services/http/user.service';
-import { User } from '@app/types';
+import { AuthContextType, User } from '@app/types';
 import { FieldType } from '@app/types/helper';
-import { EditProfileInitialValues, EditProfileResponse } from '@app/types/user.type';
+import { EditProfileInitialValues } from '@app/types/user.type';
 import { editProfileValidationSchema } from '@app/validations/user.validation';
 import backgroundUser from '@assets/images/background/backgroundUser.png';
-import { jwtIsValid } from '@core/helpers/jwt.helper';
+import { useAuth } from '@core/context/auth.context';
 import useObservable from '@core/hooks/use-observable.hook';
 import StorageService from '@core/services/storage';
 import { Image } from '@nextui-org/react';
@@ -22,33 +22,31 @@ import { useNavigate } from 'react-router-dom';
 
 function EditProfile() {
   const { t } = useTranslation();
+  const { user, _setUser } = useAuth() as AuthContextType;
   const formRef = createRef<FormikContextType<EditProfileInitialValues>>();
   const [isMounted, setIsMounted] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<string | null>(null);
   const navigate = useNavigate();
   const { subscribeOnce } = useObservable();
-  const storedUserInfo = StorageService.getObject(localStorageKeys.USER_INFO) as User;
 
   useEffect(() => {
-    const userInfo = StorageService.get(localStorageKeys.USER_TOKEN);
-    if (userInfo && jwtIsValid(userInfo) && formRef) {
-      formRef.current?.setValues({ ...storedUserInfo } as unknown as EditProfileInitialValues);
+    if (user && formRef) {
+      formRef.current?.setValues({ ...user } as unknown as EditProfileInitialValues);
       setIsMounted(true);
     } else {
       navigate(PATHS.HOMEPAGE);
     }
-  }, [formRef, storedUserInfo, navigate]);
+  }, [formRef, user, navigate]);
+  if (!user) return;
   const handleSubmit = (values: EditProfileInitialValues) => {
-    subscribeOnce(
-      UserService.update(storedUserInfo._id, { ...values, avatar: selectedFile }),
-      (res: EditProfileResponse) => {
-        if (res) {
-          StorageService.setObject(localStorageKeys.USER_INFO, res);
-          addToast({ text: SystemMessage.EDIT_PROFILE, position: 'top-right' });
-        }
-      },
-    );
+    subscribeOnce(UserService.update(user._id, { ...values, avatar: selectedFile }), (res: User) => {
+      if (res) {
+        _setUser(res);
+        StorageService.setObject(localStorageKeys.USER_INFO, res);
+        addToast({ text: SystemMessage.EDIT_PROFILE, position: 'top-right' });
+      }
+    });
   };
-  const [selectedFile, setSelectedFile] = useState<string | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -66,8 +64,8 @@ function EditProfile() {
   return (
     isMounted && (
       <div
-        className="flex items-center justify-center min-h-screen"
-        style={{ backgroundImage: `url(${backgroundUser})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        className="flex items-center justify-center min-h-screen bg-center bg-cover"
+        style={{ backgroundImage: `url(${backgroundUser})` }}
       >
         <div className="w-1/3 flex items-center rounded-[10px] bg-white shadow-6 ">
           <div className="w-full flex-1 text-center rounded-gray-300 p-4 ">
@@ -92,7 +90,7 @@ function EditProfile() {
                     />
                   ) : (
                     <Image
-                      src={storedUserInfo.avatar}
+                      src={user.avatar}
                       alt="Selected Avatar"
                       className="w-70 h-70 object-cover rounded-[10px] border"
                       aria-hidden="true"
@@ -139,7 +137,13 @@ function EditProfile() {
                   </FormControl>
                 ))}
                 <FormControl name={formFields.edit_profile_3[0].name}>
-                  <DropDown items={dropDownItems} defaultValue={storedUserInfo.role} />
+                  <DropDown
+                    items={dropDownItems}
+                    defaultValue={user.role}
+                    fieldName={'role'}
+                    displayProp={'name'}
+                    formikField={'role'}
+                  />
                 </FormControl>
                 <div>
                   <Button

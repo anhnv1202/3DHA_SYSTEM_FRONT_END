@@ -32,11 +32,9 @@ function ForgotPassword() {
 
   return (
     <div
-      className="flex items-center justify-center min-h-screen"
+      className="flex items-center justify-center min-h-screen bg-center bg-cover"
       style={{
         backgroundImage: `url(${backgroundRegister})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
       }}
     >
       <div className="w-1/2 flex items-center rounded-[10px] bg-blue-50 shadow-2xl ">

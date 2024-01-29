@@ -33,8 +33,9 @@ const BoardCourses = (props: Props) => {
               id="u60-scroll-port--3"
               aria-live="off"
             >
+              {/* Default value waiting for back-end API */}
               {Array.from({ length: 10 }, (_, index) => (
-                <div data-index={index} className="carousel-module--scroll-item--2CpA_">
+                <div data-index={index} key={index} className="carousel-module--scroll-item--2CpA_">
                   <div className="ud-nav-button-container tabs-module--nav-button-container--u4wUp ud-nav-button-container-active tabs-module--active--2l5hb ">
                     <button
                       type="button"
@@ -52,14 +53,8 @@ const BoardCourses = (props: Props) => {
             </div>
           </section>
         </div>
-        <div
-          id="u60-tabs--2-content-0"
-          role="tabpanel"
-          className="ud-tab-content tabs-module--tab-content--30h0i tabs-module--active--2l5hb"
-          tabIndex={0}
-          data-purpose="tab-container"
-          aria-labelledby="u60-tabs--2-tab-0"
-        >
+        {/* Default value waiting for back-end API */}
+        <div className="ud-tab-content tabs-module--tab-content--30h0i tabs-module--active--2l5hb">
           <div className="skills-hub-unit-module--with-banner-container--2bY2M">
             <div className="skills-hub-banner-module--banner-wrapper--3mMXv">
               <div className="skills-hub-banner-module--content--3hiCl">

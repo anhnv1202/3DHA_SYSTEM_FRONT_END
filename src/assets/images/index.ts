@@ -7,12 +7,17 @@ import * as EyeIcon from '@assets/images/svg/eye.svg';
 import * as RemoveIconThin from '@assets/images/svg/remove-icon-thin.svg';
 import * as SpriteSortIcon from '@assets/images/svg/sprite-icon-sort.svg';
 import * as SpriteIcon from '@assets/images/svg/sprite-icon.svg';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { BsThreeDotsVertical } from 'react-icons/bs';
+import { CiHeart, CiShoppingCart } from 'react-icons/ci';
 import { FaGoogle } from 'react-icons/fa';
 import { FaFacebook, FaXTwitter } from 'react-icons/fa6';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { TfiWorld } from 'react-icons/tfi';
+import { FcGoogle } from 'react-icons/fc';
+import { IoIosNotificationsOutline } from 'react-icons/io';
+import { IoCartOutline } from 'react-icons/io5';
 import { MdOutlineShoppingCart } from 'react-icons/md';
-import { BsThreeDotsVertical } from 'react-icons/bs';
+import { TfiWorld } from 'react-icons/tfi';
+
 export const Images = {
   RemoveIconThin,
   EyeIcon,
@@ -30,4 +35,9 @@ export const Images = {
   TfiWorld,
   MdOutlineShoppingCart,
   BsThreeDotsVertical,
+  CiHeart,
+  IoIosNotificationsOutline,
+  IoCartOutline,
+  CiShoppingCart,
+  FcGoogle,
 };

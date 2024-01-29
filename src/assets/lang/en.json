@@ -17,10 +17,11 @@
     "submitButton": "Login",
     "or": "Or",
     "maybe": "Maybe",
-    "signUpButton": "You don't have the account ? Please register -_-",
+    "signUpButton": "You don't have the account ? Please register",
     "forgotPasswordButton": "You just forgot your password ? Click here",
     "account": "You have an account? Log in",
-    "confirmEmail": "Please check your email to verify account!"
+    "confirmEmail": "Please check your email to verify account!",
+    "google": "Sign in with Google"
   },
   "register": {
     "register": "Register",
@@ -64,7 +65,8 @@
     "must-not-be-empty": "Must not be empty",
     "password-does-not-match": "Password does not match",
     "phone-number-must-be-10-digits": "Phone number must be 10 digits",
-    "email-invalid": "Email invalid"
+    "email-invalid": "Email invalid",
+    "price-must-be-greater-than-0": "Price must be greater than 0"
   },
   "header": {
     "login": "Log in",
@@ -72,7 +74,33 @@
     "category": "Categories",
     "searchText": "Search for anything",
     "bussiness": "Bussiness",
-    "teaching": "Teaching on 3DHA"
+    "teaching": "Teaching on 3DHA",
+    "logout": "Logout",
+    "languages": "Languages",
+    "wishlist": {
+      "name": "Wishlist",
+      "title": "Your wishlist is empty.",
+      "description": "Explore courses"
+    },
+    "learning": {
+      "name": "My learning",
+      "title": "Your learning is empty.",
+      "description": "Explore more courses"
+    },
+    "notification": {
+      "name": "Notification",
+      "title": "Settings",
+      "description": "No notifications."
+    },
+    "message": {
+      "name": "Message"
+    },
+    "editProfile": {
+      "name": "Edit profile"
+    },
+    "support": {
+      "name": "Help"
+    }
   },
   "homepage": {
     "partnerBanner": {
@@ -125,5 +153,14 @@
     "newPassword": "New Password",
     "confirmPassword": "Confirm New Password",
     "changePassword": "Change Password"
+  },
+  "create-course": {
+    "create": "Create Course",
+    "name": "Course Name",
+    "description": "Course Description",
+    "price": "Course Price (VND)",
+    "majors": "Majors",
+    "button": "NEXT",
+    "major": "--- Choose Major ---"
   }
 }

@@ -1,0 +1,140 @@
+{
+  "footer": {
+    "facebook": "Facebook",
+    "xtwitter": "XTwitter",
+    "google": "Google",
+    "contact": "Bản quyền ©2024 - Thiết kế bởi 3DHA"
+  },
+  "button": {
+    "cancel": "Hủy",
+    "close": "Đóng",
+    "confirm": "Xác nhận"
+  },
+  "login": {
+    "title": "Đăng nhập",
+    "emailField": "Email",
+    "passwordField": "Mật khẩu",
+    "submitButton": "Đăng nhập",
+    "or": "Hoặc",
+    "maybe": "Có lẽ",
+    "signUpButton": "Bạn chưa có tài khoản ? Vui lòng đăng ký",
+    "forgotPasswordButton": "Bạn chỉ quên mật khẩu ? Nhấn vào đây",
+    "account": "Bạn đã có tài khoản? Đăng nhập",
+    "confirmEmail": "Vui lòng kiểm tra email của bạn để xác minh tài khoản!",
+    "google": "Đăng nhập bằng Google"
+  },
+  "register": {
+    "register": "Đăng ký",
+    "firstName": "Tên",
+    "lastName": "Họ",
+    "username": "Tên người dùng",
+    "email": "Email",
+    "phone": "Số điện thoại",
+    "password": "Mật khẩu",
+    "confirmPassword": "Xác nhận mật khẩu",
+    "signup": "Đăng ký",
+    "or": "Hoặc",
+    "account": "Bạn đã có tài khoản? Đăng nhập",
+    "confirmEmail": "Vui lòng kiểm tra email của bạn để xác minh tài khoản! \n Mã xác minh sẽ hết hạn trong 10 phút! \n Nếu bạn không nhận được mã xác minh trong email, bạn phải truy cập trang quên mật khẩu! \n Tài khoản sẽ được lưu trong hệ thống trong vòng 3 ngày \n Sau khoảng thời gian đó, bạn phải đăng ký lại thông tin này!"
+  },
+  "forgotPassword": {
+    "forgotPassword": "Quên mật khẩu",
+    "email": "Email",
+    "sendEmail": "Gửi Email",
+    "confirmEmail": "Vui lòng kiểm tra email của bạn để thay đổi mật khẩu!",
+    "login": "Quay lại đăng nhập",
+    "or": "Hoặc"
+  },
+  "changePassword": {
+    "changePassword": "Thay đổi mật khẩu",
+    "password": "Mật khẩu mới",
+    "confirmPassword": "Xác nhận mật khẩu mới",
+    "changePass": "Thay đổi mật khẩu thành công! Đăng nhập ngay bây giờ!",
+    "login": "Quay lại đăng nhập",
+    "or": "Hoặc"
+  },
+  "errorPage": {
+    "404Messages": "Không tìm thấy!",
+    "404Messages2": "Rất tiếc, chúng tôi đang gặp sự cố khi tải trang bạn đang tìm kiếm",
+    "homepage": "Trang chủ"
+  },
+  "validation": {
+    "minimum": "Tối thiểu {{min}} ký tự",
+    "maximum": "Tối đa {{max}} ký tự",
+    "only-include-a-z,A-Z,0-9": "Chỉ chứa a-z, A-Z, 0-9",
+    "must-not-be-empty": "Không được để trống",
+    "password-does-not-match": "Mật khẩu không khớp",
+    "phone-number-must-be-10-digits": "Số điện thoại phải có 10 chữ số",
+    "email-invalid": "Email không hợp lệ",
+    "price-must-be-greater-than-0": "Giá khóa học phải lớn hơn 0"
+  },
+  "header": {
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "category": "Danh mục",
+    "searchText": "Tìm kiếm bất cứ thứ gì",
+    "bussiness": "Doanh nghiệp",
+    "teaching": "Dạy học trên 3DHA"
+  },
+  "homepage": {
+    "partnerBanner": {
+      "title": "Được tin dùng bởi hơn 15.000 công ty và hàng triệu học viên trên khắp thế giới"
+    },
+    "boardCourses": {
+      "title": "Lựa chọn đa dạng các khóa học",
+      "description": "Chọn từ hơn 210.000 khóa học video trực tuyến với sự thêm mới hàng tháng"
+    },
+    "learnerView": {
+      "title": "Người học đang xem",
+      "carousel": {
+        "bestseller": "Bán chạy nhất"
+      }
+    },
+    "topCategories": {
+      "title": "Top danh mục"
+    },
+    "featuredTopic": {
+      "title": "Chủ đề nổi bật theo danh mục",
+      "linkLabel": "Khám phá thêm chủ đề"
+    },
+    "appBussiness": {
+      "title": "Nâng cao kỹ năng của đội nhóm với 3DHA Bussiness",
+      "description-1": "Truy cập không giới hạn vào hơn 25.000 khóa học hàng đầu của Udemy, bất cứ lúc nào, bất cứ đâu",
+      "description-2": "Bộ sưu tập khóa học quốc tế bằng 14 ngôn ngữ",
+      "description-3": "Chứng chỉ hàng đầu về công nghệ và kinh doanh",
+      "buttonGet": "Nhận 3DHA Bussiness",
+      "buttonLearnMore": "Tìm hiểu thêm"
+    },
+    "teachOn": {
+      "title": "Trở thành giảng viên",
+      "description": "Các giảng viên từ khắp nơi trên thế giới đang giảng dạy hàng triệu học viên trên Udemy. Chúng tôi cung cấp công cụ và kỹ năng để giảng dạy những gì bạn yêu thích.",
+      "buttonStart": "Bắt đầu giảng dạy ngay hôm nay"
+    }
+  },
+  "user-info": {
+    "public-profile": "Hồ sơ công khai",
+    "change-password": "Thay đổi mật khẩu",
+    "add-info": "Thêm thông tin vào hồ sơ của bạn",
+    "save-profile": "Lưu hồ sơ",
+    "upload-avatar": "Tải ảnh đại diện",
+    "firstName": "Tên",
+    "lastName": "Họ",
+    "role": "Vai trò",
+    "email": "Email",
+    "phone": "Số điện thoại",
+    "bio": "Tiểu sử",
+    "oldPassword": "Mật khẩu cũ",
+    "newPassword": "Mật khẩu mới",
+    "confirmPassword": "Xác nhận mật khẩu mới",
+    "changePassword": "Thay đổi mật khẩu"
+  },
+  "create-course": {
+    "create": "Tạo Khóa Học",
+    "name": "Tên khóa học",
+    "description": "Mô tả về khóa học",
+    "price": "Giá khóa học (VND)",
+    "majors": "Chuyên ngành",
+    "button": "TIẾP THEO",
+    "major": "--- Chọn chuyên ngành ---"
+  }
+}

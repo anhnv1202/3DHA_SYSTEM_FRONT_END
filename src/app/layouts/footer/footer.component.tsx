@@ -17,8 +17,8 @@ const Footer = () => {
         <div className="mt-5">
           <ul className="flex items-center space-x-4">
             {socialMediaLinks.map((socialMedia, index) => (
-              <li>
-                <Link key={index} to={socialMedia.link} className="text-white">
+              <li key={index}>
+                <Link to={socialMedia.link} className="text-white">
                   {socialMedia.platform}
                 </Link>
               </li>
