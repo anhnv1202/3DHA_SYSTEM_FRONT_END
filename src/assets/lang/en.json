@@ -166,6 +166,7 @@
   "admin-dashboard": {
     "3dha": "3DHA",
     "contact": "3DHA Contact",
+    "manager": "User Management",
     "dashboard": "Dashboard"
   }
 }

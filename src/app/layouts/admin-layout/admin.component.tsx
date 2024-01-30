@@ -1,8 +1,8 @@
 import Sidebar from '@app/components/sidebar/sidebar.component';
+import Footer from '@app/layouts/footer/footer.component';
 import { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 import { Outlet } from 'react-router-dom';
-import Footer from '../footer/footer.component';
 
 function AdminLayout() {
   const [collapsed, setCollapsed] = useState(false);

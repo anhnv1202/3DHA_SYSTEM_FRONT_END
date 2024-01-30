@@ -1,11 +1,9 @@
 import { Tooltip } from '@material-tailwind/react';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CartesianGrid, Legend, Line, LineChart, XAxis, YAxis } from 'recharts';
 
 const DashBoard = () => {
-  const [dataOverView, setDataOverView] = useState([]);
-  const [dataChart, setDataChart] = useState([]);
   const { t } = useTranslation();
 
   useEffect(() => {

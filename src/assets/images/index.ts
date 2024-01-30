@@ -10,12 +10,12 @@ import * as SpriteIcon from '@assets/images/svg/sprite-icon.svg';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { CiHeart, CiShoppingCart } from 'react-icons/ci';
-import { FaGoogle } from 'react-icons/fa';
+import { FaGem, FaGoogle } from 'react-icons/fa';
 import { FaFacebook, FaXTwitter } from 'react-icons/fa6';
 import { FcGoogle } from 'react-icons/fc';
 import { IoIosNotificationsOutline } from 'react-icons/io';
 import { IoCartOutline } from 'react-icons/io5';
-import { MdOutlineShoppingCart } from 'react-icons/md';
+import { MdDashboard, MdOutlineShoppingCart } from 'react-icons/md';
 import { TfiWorld } from 'react-icons/tfi';
 
 export const Images = {
@@ -40,4 +40,6 @@ export const Images = {
   IoCartOutline,
   CiShoppingCart,
   FcGoogle,
+  FaGem,
+  MdDashboard,
 };
