@@ -13,6 +13,11 @@ export interface SocialMediaLink {
   link: string;
 }
 
+export interface MenuSidebar {
+  title: string;
+  path: string;
+}
+
 export type FieldType = 'number' | 'text' | 'password' | 'date' | undefined;
 
 export interface FormField {

@@ -1,4 +1,4 @@
-import { FormField, NavbarLink, SocialMediaLink } from '@app/types/helper';
+import { FormField, MenuSidebar, NavbarLink, SocialMediaLink } from '@app/types/helper';
 import { Images } from '@assets/images';
 import i18n from '@core/configs/i18n.config';
 
@@ -6,6 +6,12 @@ export const socialMediaLinks: SocialMediaLink[] = [
   { platform: 'Facebook', icon: <Images.FaFacebook />, link: '/' },
   { platform: 'XTwitter', icon: <Images.FaXTwitter />, link: '/' },
   { platform: 'Google', icon: <Images.FaGoogle />, link: '/' },
+];
+
+export const menuSidebar: MenuSidebar[] = [
+  { title: 'Manage Users', path: '/admin/manage-users' },
+  { title: 'Manage Quizzes', path: '/admin/manage-quizzes' },
+  { title: 'Manage Questions', path: '/admin/manage-questions' },
 ];
 
 export const formFields: { [key: string]: FormField[] } = {

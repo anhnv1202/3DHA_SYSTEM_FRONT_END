@@ -162,5 +162,10 @@
     "majors": "Majors",
     "button": "NEXT",
     "major": "--- Choose Major ---"
+  },
+  "admin-dashboard": {
+    "3dha": "3DHA",
+    "contact": "3DHA Contact",
+    "dashboard": "Dashboard"
   }
 }

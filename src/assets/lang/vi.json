@@ -136,5 +136,10 @@
     "majors": "Chuyên ngành",
     "button": "TIẾP THEO",
     "major": "--- Chọn chuyên ngành ---"
+  },
+  "admin-dashboard": {
+    "3dha": "3DHA",
+    "contact": "Liên hệ 3DHA",
+    "dashboard": "Dashboard"
   }
 }

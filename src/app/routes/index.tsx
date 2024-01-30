@@ -1,5 +1,5 @@
 import { PATHS, ROLES } from '@app/common/constants';
-import Admin from '@app/pages/admin/admin.page';
+import Dashboard from '@app/pages/admin/content/dashboard_admin.page';
 import Category from '@app/pages/category/category.page';
 import ChangePassword from '@app/pages/change-password/change-password.page';
 import Confirm from '@app/pages/confirm/confirm.page';
@@ -46,9 +46,12 @@ export const routesForAuthenticatedOnly = [
       { path: PATHS.CREATE_CHAPTER, element: <CourseChapter /> },
     ],
   },
+];
+
+export const routesForAdmin = [
   {
     path: PATHS.DEFAULT,
     element: <ProtectedRoute allowedRoles={[ROLES.ADMIN]} />,
-    children: [{ path: PATHS.ADMIN, element: <Admin /> }],
+    children: [{ path: PATHS.ADMIN, element: <Dashboard /> }],
   },
 ];
