@@ -25,7 +25,10 @@ export interface DropDownProps {
   displayProp: string;
   [key: string]: any;
 }
-
+export interface BreadcrumbProps {
+  title: string;
+  path: string;
+}
 export type UserProfile = {
   firstName: string;
   lastName: string;

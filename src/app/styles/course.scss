@@ -1,0 +1,78 @@
+.tertiary-menu-course {
+    padding: 10px;
+}
+.black-secondary-menu-course, .black-secondary-menu-course *, .black-secondary-menu-course *:before, .black-secondary-menu-course *:after, .tertiary-menu-course, .tertiary-menu-course *, .tertiary-menu-course *:before, .tertiary-menu-course *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.tertiary-menu-course .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.tertiary-menu-course .left {
+    width: 40%;
+    float: left;
+}
+.tertiary-menu-course .tertiary-title {
+    position: relative;
+    top: 10px;
+    font-weight: bold;
+}
+.tertiary-menu-course .right {
+    width: 60%;
+    float: right;
+    text-align: right;
+}
+.tertiary-menu-course .preview-dropdown {
+    display: inline-block;
+}
+.tertiary-menu-course .btn {
+    margin-left: 15px;
+}
+.tertiary-menu-course .btn-default {
+    padding: 10px 20px;
+}
+.btn-default {
+    background-color: #eee;
+    background-image: -moz-linear-gradient(#fcfcfc,#eee);
+    background-image: -webkit-linear-gradient(#fcfcfc,#eee);
+    background-image: linear-gradient(#fcfcfc,#eee);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#fcfcfc',endColorstr='#eee');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#fcfcfc', endColorstr='#eee')";
+    background-repeat: repeat-x;
+    color: #000!important;
+    font-weight: 700;
+    border-color: #d5d5d5;
+}
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}

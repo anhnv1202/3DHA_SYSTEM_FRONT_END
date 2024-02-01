@@ -9,6 +9,10 @@ class _CourseService {
     });
   }
 
+  public getCourseById(id: string) {
+    return HttpService.get<any>(`/course/get/${id}`);
+  }
+
   public getAllMajors() {
     return HttpService.get<any>(`/major/get-all`);
   }

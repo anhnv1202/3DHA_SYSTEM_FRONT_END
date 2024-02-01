@@ -8,7 +8,6 @@ import * as RemoveIconThin from '@assets/images/svg/remove-icon-thin.svg';
 import * as SpriteSortIcon from '@assets/images/svg/sprite-icon-sort.svg';
 import * as SpriteIcon from '@assets/images/svg/sprite-icon.svg';
 import { AiOutlineSearch } from 'react-icons/ai';
-import { BsThreeDotsVertical } from 'react-icons/bs';
 import { CiHeart, CiShoppingCart } from 'react-icons/ci';
 import { FaGoogle } from 'react-icons/fa';
 import { FaFacebook, FaXTwitter } from 'react-icons/fa6';
@@ -16,8 +15,19 @@ import { FcGoogle } from 'react-icons/fc';
 import { IoIosNotificationsOutline } from 'react-icons/io';
 import { IoCartOutline } from 'react-icons/io5';
 import { MdOutlineShoppingCart } from 'react-icons/md';
+import { BsThreeDotsVertical } from 'react-icons/bs';
+import { FaAngleRight } from 'react-icons/fa6';
+import { IoMdStarHalf } from 'react-icons/io';
+import { IoMdStar, IoMdStarOutline } from 'react-icons/io';
+import { TiVideo } from 'react-icons/ti';
+import { MdKeyboardAlt } from 'react-icons/md';
+import { TiTick } from 'react-icons/ti';
+import { BiSolidMedal } from 'react-icons/bi';
+import { IoPeople } from 'react-icons/io5';
+import { PiVideoFill } from 'react-icons/pi';
+import { FaAngleLeft } from 'react-icons/fa6';
 import { TfiWorld } from 'react-icons/tfi';
-
+import { FaPlay } from 'react-icons/fa';
 export const Images = {
   RemoveIconThin,
   EyeIcon,
@@ -35,9 +45,21 @@ export const Images = {
   TfiWorld,
   MdOutlineShoppingCart,
   BsThreeDotsVertical,
+  FaAngleRight,
+  IoMdStarHalf,
+  IoMdStar,
+  TiVideo,
+  MdKeyboardAlt,
+  TiTick,
+  BiSolidMedal,
+  IoPeople,
+  PiVideoFill,
+  IoMdStarOutline,
+  FaAngleLeft,
   CiHeart,
   IoIosNotificationsOutline,
   IoCartOutline,
   CiShoppingCart,
   FcGoogle,
+  FaPlay,
 };

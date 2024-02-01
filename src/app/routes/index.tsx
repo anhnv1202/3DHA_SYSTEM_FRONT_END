@@ -3,6 +3,7 @@ import Category from '@app/pages/category/category.page';
 import ChangePassword from '@app/pages/change-password/change-password.page';
 import Confirm from '@app/pages/confirm/confirm.page';
 import CourseSearch from '@app/pages/course-search/course-search.page';
+import CourseDetail from '@app/pages/course-detail/course-detail.page';
 import CreateCourse from '@app/pages/course/create-course.page';
 import ForgotPassword from '@app/pages/forgot-password/forgot-password.page';
 import Logout from '@app/pages/helper-component/log-out.component';
@@ -29,6 +30,7 @@ export const routesForPublic = [
   { path: PATHS.EDIT_PROFILE, element: <EditProfile /> },
   { path: PATHS.CHANGE_PASSWORD_PROFILE, element: <ChangePasswordProfile /> },
   { path: PATHS.COURSE_SEARCH, element: <CourseSearch /> },
+  { path: PATHS.COURSE, element: <CourseDetail /> },
   { path: PATHS.LOGOUT, element: <Logout /> },
 ];
 
