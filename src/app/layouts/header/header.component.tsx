@@ -1,16 +1,14 @@
-import { Link } from 'react-router-dom';
+import { AuthContextType } from '@app/types';
 import { Images } from '@assets/images/index';
-import { useTranslation } from 'react-i18next';
-import { INITIAL_VALUES, PATHS as path } from '../../common/constants/common.const';
 import logoApp from '@assets/images/logo/logoApp.jpg';
-import LoggedInHeader from './logged-in-header.component';
-import { AuthContextType, SearchInitialValues } from '@app/types';
-import UnLoggedInHeader from './un-logged-header.component';
 import { useAuth } from '@core/context/auth.context';
-import { Field, Form, Formik, FormikContextType } from 'formik';
-import { createRef, useState } from 'react';
-import { FormControl } from '@app/components/form-control';
-import Input from '@app/components/input';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import { PATHS as path } from '../../common/constants/common.const';
+import LoggedInHeader from './logged-in-header.component';
+import UnLoggedInHeader from './un-logged-header.component';
+import { useDebouncedCallback } from '@core/hooks/use-debounced-callback.hook';
 
 type HeaderProps = {
   noShadow?: boolean;
@@ -19,7 +17,6 @@ type HeaderProps = {
 const Header = ({ noShadow }: HeaderProps) => {
   const headerStyles = noShadow ? { boxShadow: 'none' } : {};
   const { t } = useTranslation();
-  const formRef = createRef<FormikContextType<SearchInitialValues>>();
   const [isSearchInputed, setIsSearchInputed] = useState(false);
   const headerData = [
     { path: path.CATEGORY, title: t('header.category') },
@@ -27,12 +24,16 @@ const Header = ({ noShadow }: HeaderProps) => {
     { path: path.TEACHING, title: t('header.teaching') },
   ];
   const { user } = useAuth() as AuthContextType;
-  const handleSearch = () => {
-    alert('searching');
-  };
+  const handleSearch = useDebouncedCallback((term) => {
+    console.log(`Searching for: ${term}`);
+    // Gọi hàm tìm kiếm thực sự ở đây (ví dụ: fetchData(term))
+  }, 300);
   const handleChangeInputField = (e: any) => {
+    //dobounce ???
+    const newSearchTerm = e.target.value;
+    handleSearch(newSearchTerm);
+
     e.target.value === '' ? setIsSearchInputed(false) : setIsSearchInputed(true);
-    console.log();
   };
   return (
     <div
@@ -44,28 +45,25 @@ const Header = ({ noShadow }: HeaderProps) => {
       </Link>
       <div className="ud-search-form-autocomplete desktop-header-module--search-bar--2V17S ud-form-group">
         <label className="ud-sr-only ud-form-label ud-heading-sm">{t('header.searchText')}</label>
-        <Formik initialValues={INITIAL_VALUES.SEARCH} onSubmit={handleSearch} validateOnChange validateOnBlur>
-          <Form>
-            <div className="ud-search-form-autocomplete-input-group ud-search-form-autocomplete-input-group-reversed">
-              <Field
-                type="text"
-                className="ud-text-input ud-text-input-small ud-text-sm ud-search-form-autocomplete-input js-header-search-field"
-                placeholder={t('header.searchText')}
-                name="q"
-              />
+        <div className="ud-search-form-autocomplete-input-group ud-search-form-autocomplete-input-group-reversed">
+          <input
+            type="text"
+            className="ud-text-input ud-text-input-small ud-text-sm ud-search-form-autocomplete-input js-header-search-field"
+            placeholder={t('header.searchText')}
+            name="q"
+            onChange={(e: any) => handleChangeInputField(e)}
+          />
 
-              <button
-                type="submit"
-                disabled={isSearchInputed}
-                className={`ud-btn ud-btn-large ud-btn-ghost ud-heading-md ${
-                  !isSearchInputed ? 'ud-btn-disabled' : ''
-                } ud-btn-icon ud-btn-icon-large`}
-              >
-                <Images.AiOutlineSearch focusable="false" className="ud-icon ud-icon-medium ud-icon-color-neutral" />
-              </button>
-            </div>
-          </Form>
-        </Formik>
+          <button
+            disabled={!isSearchInputed}
+            className={`ud-btn ud-btn-large ud-btn-ghost ud-heading-md ${
+              !isSearchInputed ? 'ud-btn-disabled' : ''
+            } ud-btn-icon ud-btn-icon-large`}
+            onClick={handleSearch}
+          >
+            <Images.AiOutlineSearch focusable="false" className="ud-icon ud-icon-medium ud-icon-color-neutral" />
+          </button>
+        </div>
       </div>
       {headerData.map((item) => (
         <div className="popper-module--popper--2BpLn desktop-header-module--gap-button--1Ua9W desktop-header-module--group-a--2HpmY">
