@@ -45,3 +45,6 @@ export interface Course {
   major: Major;
   price: number;
 }
+export interface SearchInitialValues {
+  q: string;
+}

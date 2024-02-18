@@ -76,6 +76,7 @@ export const PATHS = {
 };
 
 export const INITIAL_VALUES = {
+  SEARCH: { q: '' },
   REGISTER: { firstName: '', lastName: '', username: '', email: '', phone: '', password: '', rePassword: '' },
   FORGOT_PASSWORD: { email: '' },
   LOGIN: { email: '', password: '' } as LoginInitialValues,

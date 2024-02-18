@@ -28,6 +28,8 @@ import { PiVideoFill } from 'react-icons/pi';
 import { FaAngleLeft } from 'react-icons/fa6';
 import { TfiWorld } from 'react-icons/tfi';
 import { FaPlay } from 'react-icons/fa';
+import { IoFilterOutline } from 'react-icons/io5';
+import { MdKeyboardArrowDown } from 'react-icons/md';
 export const Images = {
   RemoveIconThin,
   EyeIcon,
@@ -62,4 +64,6 @@ export const Images = {
   CiShoppingCart,
   FcGoogle,
   FaPlay,
+  IoFilterOutline,
+  MdKeyboardArrowDown,
 };

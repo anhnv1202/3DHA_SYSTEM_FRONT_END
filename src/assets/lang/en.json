@@ -180,5 +180,10 @@
     "majors": "Majors",
     "button": "NEXT",
     "major": "--- Choose Major ---"
+  },
+  "courseSearch" : {
+    "heading" : {
+      "resultFor" : "results for"
+    }
   }
 }
